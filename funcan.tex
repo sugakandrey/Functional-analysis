@@ -381,10 +381,10 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
   \\l_1 \dots l_n\ \textnormal{--- linearly independent}\ \to\leftarrow
   \\\min\limits_{S_1} f = m > 0\\
   \begin{aligned}[t]
-    \\\|x\| = \norm{\sum\limits_1^n \alpha_K l_K} & = f(\bar{\alpha}) =
+    \\\|x\| = \norm{\sum\limits_1^n \alpha_K l_K}  = f(\bar{\alpha}) =
     \sqrt{\sum\limits_1^n \alpha_k^2} \cdot \norm{\sum
-    \underbrace{\frac{\alpha_k}{\sqrt{\sum\limits_1^n \alpha_k^2}}}_{\beta_k}
-    l_k},\ \bar{\beta} = (\beta_1 \dots \beta_n) \in S_1 \\
+    \underset{\beta_k}{\boxed{\frac{\alpha_k}{\sqrt{\sum\limits_1^n \alpha_k^2}}}}
+    \cdot l_k} & \geq ,\ \bar{\beta} = (\beta_1 \dots \beta_n) \in S_1 \\
     & \geq m \cdot \|x\|_1,\ a = m \qedhere 
   \end{aligned}$
 \end{proof}
