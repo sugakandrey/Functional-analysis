@@ -216,7 +216,7 @@ In any metric space separability axiom is true.
 \end{proof}
 \noindent
 $(X, \tau)$ --- topological space
-$\\A \subset X,\ \tau_a = \{G \cap A, G \in \tau\}$
+$\\A \subset X,\ \tau_a = \{G \cap A, G \in \tau\}$ --- topology induced on $A$
 \begin{defn}
   $X \textnormal{--- metric space},\ A \subset X,\ \cl{A} = X$ \\
   \underline{Then:} A -- \textbf{dense} in X \\
@@ -278,7 +278,7 @@ $\\A \subset X,\ \tau_a = \{G \cap A, G \in \tau\}$
   \xRightarrow{by\ space\ compl.} \underbrace{\bigcap\limits_{n = 1}^\infty K_n}_{\diam{K_n} \to 0,\ \{x\}} \neq \varnothing$ \\
   Take $x_{n_1}$ from $K_1$, $x_{n_2}$ from $K_2 \dotso$ \\
   $\impliedby$ \\
-  K --- compact $\forall \epsilon\ \exists$ finite $\epsilon$\-net? \\
+  K --- compact $\forall \epsilon\ \exists$ finite $\epsilon$ --- net? \\
   By contradiction: $\exists\epsilon_0 > 0\colon$\ finite $\epsilon_0$-net is impossible to construct. \\
   $\forall x_1 \in K\ \exists x_2 \in K \colon\ \rho(x_1, x_2) > \epsilon_0$ (or else system of $x_1$ --- finite $\epsilon$-net) \\
   $\{x_1, x_2\}$ - choose $x_3 \in K\colon \rho(x_3, x_i) > \epsilon_0,\ i = 1, 2$ and so on. \\
@@ -355,16 +355,16 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
 \end{thm}
 \begin{proof}
   $l_1, \dotsc, l_n$ --- linearly independent from X. $\forall x \in X =
-  \sum\limits_{k = 1}^n \alpha_k l_K
-  \\\bar{x} \leftrightarrow (l_1, \dotsc, l_n) = \bar{l} \in \R^n$
-  \\Let $\|\cdot\|$ --- some norm in X.
-  \\$\|x\| \underset{\triangle}{\leq} \sum\limits_{k = 1}^n \|l_k\| |\alpha_k|
-  \underset{Cauchy}{\leq} \underbrace{\sqrt{\sum\limits_1^n \|l_k\|^2}}_{constB}
-  \equalto{\sqrt{\sum\limits_1^n |\alpha_k|^2}}{\|\bar{\alpha{}}\| = \|x\|_1}
-  \\\|x\|_1 = \sqrt{\sum\limits_1^n \|alpha_k\|^2},\ x = \sum \alpha_k l_k
-  \\\|x\| \leq b \|x\|_1
-  \\?\exists a > 0\colon a\|x\|_1 \leq \|x\| \implies \|\cdot\| \sim \|\cdot\|_1$
-  \\Let $f(\alpha_1, \dotsc, \alpha_n) = \norm{\sum\limits_{k = 1}^n \alpha_k l_k}\\
+  \sum\limits_{k = 1}^n \alpha_k l_K \\
+  \bar{x} \leftrightarrow (l_1, \dotsc, l_n) = \bar{l} \in \R^n$ \\
+  Let $\|\cdot\|$ --- some norm in X.\\
+  $\|x\| \underset{\triangle}{\leq} \sum\limits_{k = 1}^n \|l_k\| |\alpha_k|
+  \underset{Cauchy}{\leq} \underbrace{\sqrt{\sum\limits_1^n \|l_k\|^2}}_{const(B), B - basis}
+  \equalto{\sqrt{\sum\limits_1^n |\alpha_k|^2}}{\|\bar{\alpha{}}\| = \|x\|_1} \\
+  \|x\|_1 = \sqrt{\sum\limits_1^n \|\alpha_k\|^2},\ x = \sum \alpha_k l_k  \\
+  \|x\| \leq b \|x\|_1 \\
+  ?\exists a > 0\colon a\|x\|_1 \leq \|x\| \implies \|\cdot\| \sim \|\cdot\|_1$ \\
+  Let $f(\alpha_1, \dotsc, \alpha_n) = \norm{\sum\limits_{k = 1}^n \alpha_k l_k} \\
   \begin{aligned}[t]
     \\|f(\bar{\alpha} + \Delta\bar{\alpha}) - f(\bar\alpha)| = &\abs{\norm{\sum\limits_1^k
     \alpha_k l_k + \sum\limits_1^n \Delta \alpha_k l_K } - \norm{\sum\limits_1^n
@@ -372,14 +372,16 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
     \| l_k\| |\Delta \alpha_k|}{0, \Delta \alpha_k \to 0} \implies f
   \textnormal{--- continuous on}\ \R{}^n
   \end{aligned}$
-  $S_1 = \{\sum\limits_1^n \alpha_k|^2 = 1\} \subset \R{}^m$, f --- continuous
-  on $S_1$, $\bar{\alpha}^* \in S_1$
-  \\$\forall \alpha \in S_1 \implies f(\bar{\alpha}^*) \leq f(\bar{\alpha})
-  \\f(\bar{\alpha}^*) = 0
-  \\\norm{\sum\limits_1^n \alpha_k^* l_k} = 0
-  \\\sum\limits_1^n \alpha_k^* l_k = 0,\ \bar{\alpha}^* \in S_1
-  \\l_1 \dots l_n\ \textnormal{--- linearly independent}\ \to\leftarrow
-  \\\min\limits_{S_1} f = m > 0\\
+  $S_1 = \{\sum\limits_1^n |\alpha_k|^2 = 1\} \subset \R{}^m$, f --- continuous
+  on $S_1$, $S_1$ --- compact, $\bar{\alpha}^* \in S_1$ \\
+  By Weierstrass theorem there exists a point $\alpha^* \in S_1$ on a sphere,
+  in which function $f$ achieves its minimum
+  $\implies \forall \alpha \in S_1\ f(\bar{\alpha}^*) \leq f(\bar{\alpha}) \\
+  \textnormal{If}\ f(\bar{\alpha}^*) = 0,\
+  \textnormal{then}\ \norm{\sum\limits_1^n \alpha_k^* l_k} = 0 \implies
+  \sum\limits_1^n \alpha_k^* l_k = 0,\ \bar{\alpha}^* \in S_1, \\
+  \textnormal{but}\ l_1 \dots l_n\ \textnormal{are linearly independent}\ \to\leftarrow
+  \implies \min\limits_{S_1} f = m > 0 \\
   \begin{aligned}[t]
     \\\|x\| = \norm{\sum\limits_1^n \alpha_K l_K}  = f(\bar{\alpha}) =
     \sqrt{\sum\limits_1^n \alpha_k^2} \cdot \norm{\sum
