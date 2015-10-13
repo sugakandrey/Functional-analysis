@@ -6,74 +6,7 @@
 \usepackage{braket}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
-
-\theoremstyle{definition}
-\newtheorem*{defn}{Definition} 
-\newtheorem*{note}{Note}
-\newtheorem{ex}{Example}
-
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
-
-\makeatletter
-\let\oldabs\abs
-\def\abs{\@ifstar{\oldabs}{\oldabs*}}
-
-\let\oldnorm\norm
-\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
-\makeatother
-
-\newcommand\alim[2]{
-    \begin{array}[t]{@{}l@{}}
-     \lim #1 \\[-1ex] \scriptstyle #2 
-    \end{array}
-}
-
-\newtheoremstyle{break}% name
-  {}%         Space above, empty = `usual value'
-  {}%         Space below
-  {\itshape}% Body font
-  {}%         Indent amount (empty = no indent, \parindent = para indent)
-  {\bfseries}% Thm head font
-  {.}%        Punctuation after thm head
-  {\newline}% Space after thm head: \newline = linebreak
-  {}%         Thm head spec
-\theoremstyle{break}
-\newtheorem{thm}{Theorem}[section]
-
-\theoremstyle{theorem}
-\newtheorem{stm}{Statement}[section]
-\newtheorem{cor}{Corollary}[thm]
-\newtheorem{lemma}{Lemma}
-
-\renewcommand\qedsymbol{$\blacksquare$}
-\renewcommand\leq{\leqslant}
-\renewcommand\geq{\geqslant}
-\renewcommand\phi{\varphi}
-\renewcommand\epsilon{\varepsilon}
-
-\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
-\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
-\newcommand{\defeq}{\overset{\text{def}}{=}}
-\newcommand{\tendsto}[2]{\underbrace{#1}_{\underset{#2}{\downarrow}}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\contr}{\rightarrow\leftarrow}
-
-\DeclareMathOperator{\clOp}{Cl}
-\newcommand{\cl}[1]{\clOp({#1})}
-\DeclareMathOperator{\intOp}{Int}
-\newcommand{\inter}[1]{\intOp({#1})}
-\DeclareMathOperator{\frOp}{Fr}
-\newcommand{\fr}[1]{\frOp({#1})}
-\DeclareMathOperator{\diamOp}{diam}
-\newcommand{\diam}[1]{\diamOp({#1})}
-
-\titleformat{\subsection}
-  {\centering\normalfont\Large}{\S\thesubsection}{1em}{}
-\titleformat{\section}
-  {\centering\normalfont\Large\bfseries}{\thesection}{1em}{}
+\usepackage{utils}
   
 \author{Sugak A.M.}
 \title{Functional analysis course by Dodonov N.U.}
