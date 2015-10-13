@@ -1,3 +1,4 @@
+\section{Vector sapces}
 \subsection{Metric spaces.}
 
 X, $\rho\colon X \times X \to \R_+$
@@ -139,9 +140,12 @@ $\\A \subset X,\ \tau_a = \{G \cap A, G \in \tau\}$ --- topology induced on $A$
   $X \textnormal{--- metric space},\ A \subset X,\ \cl{A} = X$ \\
   \underline{Then:} A -- \textbf{dense} in X \\
   \underline{If} $\inter{\cl{A}} = \varnothing$ A -- \textbf{nowhere dense} in X. \\
-  It is easy to understand, that in metric spaces nowhere density means the following: \\
-  $\forall \text{ ball } V\ \exists V^{'} \subset V\colon V^{'}$ contains no points from A.
 \end{defn}
+\begin{note}
+  It is easy to understand, that in metric spaces nowhere density means the following: \\
+  $\forall \text{ ball } V\ \exists V^{'} \subset V\colon V^{'}$ contains no
+  points from A.
+\end{note}
 \begin{defn}
   $X$ is called \textbf{first Baire category set}, if it can be written as at most
   countable union of $x_n$ each nowhere dense in $X$.
@@ -313,9 +317,11 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
 \end{proof}
 \begin{cor}
   $X$ --- NS, $Y \subset X, \dim{Y} < + \infty \implies Y = \cl{Y}$ \\
-  Functional analysis differentiates between linear subset (set of points,
-  closed by addition and scalar multiplication) and linear subspace (closed
-  linear subset).
+  \begin{note}
+    Functional analysis differentiates between linear subset (set of points,
+    closed by addition and scalar multiplication) and linear subspace (closed
+    linear subset).
+  \end{note}
 \end{cor}
 \begin{proof}
   $Y = \alpha(l_1, \dotsc, l_n) = \Set{\sum\limits_{i=1}^n \alpha_il_i | l_1, \dotsc, l_n - \text{lin. indep.}} \\
