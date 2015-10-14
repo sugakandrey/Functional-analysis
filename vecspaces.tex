@@ -1,4 +1,4 @@
-\section{Vector sapces}
+\section{Vector spaces}
 \subsection{Metric spaces.}
 
 X, $\rho\colon X \times X \to \R_+$
@@ -40,29 +40,54 @@ In this sense metric space is just a special case of topological space.
   $\bar{x} = (x_1, \dotsc, x_n) \in \R^n, \rho(\bar{x}, \bar{y}) = \sqrt{\sum\limits_{j = 1}^n(x_j - y_j)^2}, MS$
 \end{ex}
 \begin{ex}
-  \begin{align*}
-    & \bar{x} = (x_1, \dotsc, x_n, \dotso) \in \R^\infty \\
-    & \alpha\bar{x} = (\alpha x_1, \dotsc, \alpha x_n, \dotso) \\
-    & \bar{x} + \bar{y} = (x_1 + y_1, \dotsc, x_n + y_n, \dotso)\\
-    & \alim{\bar{x}_m}{m \to \infty}?\\
-    & \textnormal{in}\ \R^n\hphantom{{}^\infty}\bar{x}_n \to \bar{x} \iff \forall j = 1,
-      \dotsc, n\quad\ \ \:\,x_j^{(m)} \xrightarrow[m \to \infty]{} x_j \\
-    & \textnormal{in}\ \R^{\infty}\hphantom{{}^n}\bar{x}_m \to \bar{x} \overset{def}{\iff} \forall j = 1,2,3,\dotso \quad x_j^{(m)} \xrightarrow[m \to \infty]{} x_j
-  \end{align*}
+    \hspace{-1.9em}$\begin{aligned}[t]
+      \bar{x} &= (x_1, \dotsc, x_n, \dotso) \in \R^\infty \\
+      \alpha\bar{x} &= (\alpha x_1, \dotsc, \alpha x_n, \dotsc) \\
+      \bar{x} + \bar{y} &= (x_1 + y_1, \dotsc, x_n + y_n, \dotsc)
+  \end{aligned}$
+
+      Let's define $\alim{\bar{x}_m}{m \to \infty}$
+      \begin{itemize}
+          \item{in $\R^n$:}
+              \[\bar{x}_n \to \bar{x} \iff \forall j = 1, \dotsc, n\quad\ \ \:\,x_j^{(m)} \xrightarrow[m \to \infty]{} x_j\]
+          \item{in $\R^\infty$:}
+              \[\bar{x}_m \to \bar{x} \overset{def}{\iff} \forall j = 1,2,3,\dotso \quad x_j^{(m)} \xrightarrow[m \to \infty]{} x_j\]
+      \end{itemize}
 \end{ex}
 \begin{defn}
-  $\rho(\bar{x}, \bar{y}) \defeq \sum\limits_{n = 1}^\infty \frac{1}{2^n}\underbrace{\frac{|x_n - y_n|}{1 + |x_n - y_N|}}_{\phi(|x_n - y_n|)}$
-  --- \textbf{Urysohn metric}. \\
-  $\phi(t) = \frac{t}{1 + t} \\
-  \phi(t_1 + t_2) \leq \phi(t_1) + \phi(t_2) \\
-  \rho(\bar{x}_m, \bar{x}) \xrightarrow{m \to \infty} 0 \iff x_j^{(m)} \to x_j\ \forall j$\\
+  $\rho(\bar{x}, \bar{y}) \defeq \sum\limits_{n = 1}^\infty \frac{1}{2^n}\underbrace{\frac{|x_n - y_n|}{1 + |x_n - y_n|}}_{\phi(|x_n - y_n|)}$
+  --- \textbf{Urysohn metric}.
+
+  \vspace{-1em}
+  \begin{minipage}{.5\linewidth}
+  \begin{gather*}
+      \phi(t) = \frac{t}{1 + t} \\
+      \phi(t_1 + t_2) \leq \phi(t_1) + \phi(t_2) \\
+      \rho(\bar{x}_m, \bar{x}) \xrightarrow[m \to \infty]{} 0 \iff x_j^{(m)} \to x_j\ \forall j
+  \end{gather*}
   In this way $\R^\infty$ is a metrizable space.
+  \end{minipage}
+  \begin{minipage}{.4\linewidth}
+  \begin{tikzpicture}
+    \begin{axis}[
+    width = \linewidth,
+    xmin  = 0,
+    xmax  = 15,
+    domain= 0:15,
+    ymax  = 1.2,
+    samples = 100,
+    minor tick num = 0 ]
+    \addplot[thick]{x/(1+x)};
+  \end{axis}
+  \end{tikzpicture}
+  \\\centering $\phi(t)$ is an upper convex function
+  \end{minipage}
 \end{defn}
 \begin{ex}
 $X, \rho(x, y) \defeq
 \begin{cases}
-  0, x = y
-  \\1, x \neq y
+    0, & x = y\\
+    1, & x \neq y
 \end{cases}$ --- \textbf{Discrete metric}. \\
 $x_n \to x,\ \epsilon = \frac{1}{2},\ \exists M:\ m > M \implies \rho(x_m, x) < \frac{1}{2} \implies\\
 \rho(x_m, x) = 0 \implies x_m = x$
@@ -91,7 +116,7 @@ $\rho(x, A) \defeq \inf\limits_{a \in A}\rho(x, a) \\
   \begin{cases}
     f(x) \leq f(y) + \rho(x, y) \\
     f(y) \leq f(x) + \rho(x, y)
-  \end{cases} \implies |f(x) - f(y)| \leq \rho(x, y)\qedhere$
+  \end{cases} \implies |f(x) - f(y)| \leq \rho(x, y)$
 \end{proof}
 \begin{stm}
   $x \in \cl{A} \iff \rho(x, A) = 0$
@@ -111,7 +136,7 @@ In any metric space separability axiom is true.
   x \in F_2,\ g(x) = 1$ \\
   Let's look at $(-\infty; \frac{1}{3}), (\frac{2}{3}, \infty)$ --- by continuity their inverse images under g are open. \\
   $G_1 = g^{-1}(-\infty; \frac{1}{3}) \\
-  G_2 = g^{-1}(\frac{2}{3}; \infty)\qedhere$
+  G_2 = g^{-1}(\frac{2}{3}; \infty)$
 \end{proof}
 \begin{defn}
   Metric space is \textbf{complete} if $\rho(x_n, x_m) \to 0 \implies \exists x = \lim x_n \\
@@ -119,7 +144,7 @@ In any metric space separability axiom is true.
   In complete metric spaces the nested balls principle is true.
 \end{defn}
 \begin{thm}
-  X -- complete metric space, $\overline{V}_{r_n}$ -- system of closed balls. \\
+  X -- complete metric space, $\overline{V}_{r_n}$ -- system of closed balls.
   \begin{enumerate}
       \item $\overline{V}_{r_{n + 1}} \subset \overline{V}_{r_n}$ -- the system is nested.
       \item $r_n \to 0$
@@ -131,7 +156,7 @@ In any metric space separability axiom is true.
   m \geq n,\ b_m \in \overline{V}_{r_n},\ \rho(b_m, b_n) \leq r_n \to 0\ \forall m \geq n \\
   \rho(b_m, b_n) \to 0 \xRightarrow{compl.} \exists a = \lim b_n$
   Since the balls are closed a $\in$ every ball. \\
-  $r_n \to 0 \implies$ there is only one common point $\qedhere$.
+  $r_n \to 0 \implies$ there is only one common point.
 \end{proof}
 \noindent
 $(X, \tau)$ --- topological space
@@ -139,7 +164,7 @@ $\\A \subset X,\ \tau_a = \Set{G \cap A, G \in \tau}$ --- topology induced on $A
 \begin{defn}
   $X \textnormal{--- metric space},\ A \subset X,\ \cl{A} = X$ \\
   \underline{Then:} A -- \textbf{dense} in X \\
-  \underline{If} $\inter{\cl{A}} = \varnothing$ A -- \textbf{nowhere dense} in X. \\
+  \underline{If} $\inter{\cl{A}} = \varnothing$ A -- \textbf{nowhere dense} in X.
 \end{defn}
 \begin{note}
   It is easy to understand, that in metric spaces nowhere density means the following: \\
@@ -162,14 +187,14 @@ $\\A \subset X,\ \tau_a = \Set{G \cap A, G \in \tau}$ --- topology induced on $A
   \vdots \\
   \{\overline{V}_n\},\ r_n \to 0,\ \bigcap\limits_n \overline{V}_n = \{a\},\ X =
   \bigcup X_n,\ \exists n_0 \colon a \in X_{n_0} \\
-  X_{n_0} \cap \overline{V}_{n_0} = \varnothing \contr\ a \in \overline{V}_{n_0} \qedhere$
+  X_{n_0} \cap \overline{V}_{n_0} = \varnothing \contr\ a \in \overline{V}_{n_0}$
 \end{proof}
 \begin{cor}
   Complete metric space without isolated points is uncountable.
 \end{cor}
 \begin{proof}
   No isolated points are present $\implies$ every point in the set is nowhere dense in it. Let $X$ be countable:
-    $X = \bigcup\limits_n \{X_n\}$, then it is first Baire category set. $\contr\qedhere$
+    $X = \bigcup\limits_n \{X_n\}$, then it is first Baire category set. $\contr$
 \end{proof}
 \begin{defn}
   $K$ --- \textbf{compact} if
@@ -185,27 +210,36 @@ $\\A \subset X,\ \tau_a = \Set{G \cap A, G \in \tau}$ --- topology induced on $A
   i.e. $\forall \epsilon > 0\ \exists a_1,\dotsc, a_p \in X \colon\ \forall b \in K\ \exists a_j \colon\ \rho(a_j, b) < \epsilon \\
   (a_1, \dotsc, a_p - finite\ \epsilon-net)$
 \end{thm}
-\begin{proof}
-  $\\\implies \\
-  K \textnormal{--- totally bounded},\ x_n \in K\ n_1 < n_2 < \dotso < n_k < \dotso \\
-  x_n - \textnormal{converges in K} \\
-  \epsilon_k \downarrow \to 0\ \epsilon_1 \quad K \subset \bigcup\limits_{j = 1}^p \overline{V}_j,\ rad = \epsilon_1\ (\epsilon_1 - net) \\
-  \textnormal{n is finite }\implies \textnormal{one ball will contain infinetely many}\ x_n\ \textnormal{elements}. \\
-  \textnormal{Let's look at}\ \overline{V}_{j_0} \cap K\ \textnormal{--- totally bounded}\ = K_1,\ \diam{K_1} \leq 2\epsilon_1 \\
-  \epsilon_2\quad K_1 \subset \bigcup\limits_{j =1}^n
-  \overline{V^{'}}_{j},\ rad = \epsilon_2.\ \\
-  \textnormal{Then one of}\ \overline{V^{'}}\ \textnormal{contains infinitely many elements of the sequence contained in}\ K _1 \\
-  \overline{V^{'}}_{j_0} \cap K_1 = K_2,\ \diam{K_2} \leq 2\epsilon_2\ \textnormal{and so on}. \\
-  K_n \supset K_{n+1} \supset K_{n+2} \supset \dotso,\ \diam{K_N} \leq 2\epsilon_n
-  \xRightarrow{by\ compl.} \underbrace{\bigcap\limits_{n = 1}^\infty K_n}_{\diam{K_n} \to 0,\ \{x\}} \neq \varnothing$ \\
-  Take $x_{n_1}$ from $K_1$, $x_{n_2}$ from $K_2 \dotso$ \\
-  $\impliedby$ \\
-  $K$ --- compact $\forall \epsilon\ \exists$ finite $\epsilon$ --- net? \\
-  By contradiction: $\exists\epsilon_0 > 0\colon$\ finite $\epsilon_0$-net is impossible to construct. \\
-  $\forall x_1 \in K\ \exists x_2 \in K \colon\ \rho(x_1, x_2) > \epsilon_0$ (or else system of $x_1$ --- finite $\epsilon$-net) \\
-  $\{x_1, x_2\}$ - choose $x_3 \in K\colon \rho(x_3, x_i) > \epsilon_0,\ i = 1, 2$ and so on. \\
-  $x_n \in K:\ n\ \neq m\ \rho(x_n, x_m) > \epsilon_0$ --- contains no converging subsequence $\implies$ 
-  set is not a compact. $\contr\qedhere$
+\begin{proof}\leavevmode
+  \begin{itemize}
+    \item Totally bounded $\implies$ compact
+
+      $K$ is totally bounded, $x_n \in K\ n_1 < n_2 < \dotsb < n_k < \dotsb,$
+      $x_n$ converges in $K$
+      \[\epsilon_k \downarrow \to 0\ \epsilon_1 \quad K \subset \bigcup\limits_{j = 1}^p \overline{V}_j,\ rad = \epsilon_1\qquad \text{($\epsilon_1$-net)} \]
+      $n$ is finite $\implies$ one ball will contain infinetely many $x_n$ elements.
+
+      Let's look at $\overline{V}_{j_0} \cap K$ --- totally bounded $= K_1, \diam{K_1} \leq 2\epsilon_1$ \\
+      $\epsilon_2\quad K_1 \subset \bigcup\limits_{j =1}^n
+      \overline{V^{'}}_{j},\ rad = \epsilon_2.$
+
+      Then one of $\overline{V'}$ contains infinitely many elements of the sequence contained in $K_1$.
+
+      $\overline{V'}_{j_0} \cap K_1 = K_2,\ \diam{K_2} \leq 2\epsilon_2$ and so on.
+
+      $K_n \supset K_{n+1} \supset K_{n+2} \supset \dotso,\ \diam{K_N} \leq 2\epsilon_n
+      \xRightarrow{\text{by compl.}} \underbrace{\bigcap\limits_{n = 1}^\infty K_n}_{\diam{K_n} \to 0,\ \{x\}} \neq \varnothing$
+
+      Take $x_{n_1}$ from $K_1$, $x_{n_2}$ from $K_2 \dotso$
+    \item Compact $\implies$ totally bounded
+
+      $K$ --- compact $\forall \epsilon\ \exists$ finite $\epsilon$-net? \\
+      By contradiction: $\exists\epsilon_0 > 0\colon$\ finite $\epsilon_0$-net is impossible to construct. \\
+    $\forall x_1 \in K\ \exists x_2 \in K \colon\ \rho(x_1, x_2) > \epsilon_0$ (or else system of $x_1$ --- finite $\epsilon$-net) \\
+    $\{x_1, x_2\}$ - choose $x_3 \in K\colon \rho(x_3, x_i) > \epsilon_0,\ i = 1, 2$ and so on. \\
+    $x_n \in K:\ n\ \neq m\ \rho(x_n, x_m) > \epsilon_0$ --- contains no converging subsequence $\implies$ 
+    set is not a compact. $\contr$
+  \end{itemize}
 \end{proof}
 \subsection{Normed spaces}
 \begin{defn}
@@ -230,7 +264,7 @@ $x = \lim x_n \overset{def}{\implies} \rho(x_n, x) \to 0 \iff \|x_n - x\| \to 0$
 \begin{stm}
   In the topology of a normed space linear operations are continuous on $X$.
 \end{stm}
-\begin{proof}
+\begin{proof}\leavevmode
   \begin{enumerate}
   \item 
     $\begin{aligned}[t]
@@ -245,7 +279,7 @@ $x = \lim x_n \overset{def}{\implies} \rho(x_n, x) \to 0 \iff \|x_n - x\| \to 0$
         & \leq \tendsto{|\alpha_n - \alpha|}{0} \cdot \underbrace{\|x_n\|}_{bounded} + \tendsto{\alpha\|x_n - x\|}{0}
     \end{aligned}$ \\
     $x_n \to x \implies \|x_n\|$ --- bounded. \\
-    $\alpha_x x_n \to \alpha x\qedhere$
+    $\alpha_x x_n \to \alpha x$
   \end{enumerate}
 \end{proof}
 \begin{stm}
@@ -260,7 +294,7 @@ $x = \lim x_n \overset{def}{\implies} \rho(x_n, x) \to 0 \iff \|x_n - x\| \to 0$
   \item $\|\bar{x}\|_1 \defeq \sum\limits_{k = 1}^n|x_k|$
   \item $\|\bar{x}\|_2 \defeq \max \{|x_1|, \dotsc, |x_n|\}$
   \item $C[a, b]$ --- functions continuous on $[a, b];\ \|f\| = \max\limits_{x \in [a, b]}|f(x)|$ 
-  \item $L_p (E) = \Set{f - \textnormal{measurable},\ \int\limits_E |f|^p < +
+  \item $L_p (E) = \Set{f \textnormal{ --- measurable},\ \int\limits_E \abs{f}^p < +
     \infty}\\
     p \geq 1,\ \|f\|_p = \biggl(\displaystyle\int\limits_E |f|^p\biggr)^{\frac 1p}$
   \end{enumerate}
@@ -278,45 +312,47 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
 \end{thm}
 \begin{proof}
   $l_1, \dotsc, l_n$ --- linearly independent from $X$. $\forall x \in X =
-  \sum\limits_{k = 1}^n \alpha_k l_K \\
-  \bar{x} \leftrightarrow (l_1, \dotsc, l_n) = \bar{l} \in \R^n$ \\
-  Let $\|\cdot\|$ --- some norm in $X$. \\
-  $\begin{aligned}[t]
-  & \|x\| \underset{\triangle}{\leq} \sum\limits_{k = 1}^n \|l_k\| |\alpha_k|
+  \sum\limits_{k = 1}^n \alpha_k l_K$
+  \[\bar{x} \leftrightarrow (l_1, \dotsc, l_n) = \bar{l} \in \R^n\]
+  Let $\|\cdot\|$ --- some norm in $X$.
+  \begin{gather*}
+  \|x\| \underset{\triangle}{\leq} \sum\limits_{k = 1}^n \|l_k\| |\alpha_k|
   \underset{\text{Cauchy}}{\leq} \underbrace{\sqrt{\sum\limits_{k=1}^n \|l_k\|^2}}_{const(B), B - basis}
   \equalto{\sqrt{\sum\limits_{k=1}^n |\alpha_k|^2}}{\|\bar{\alpha{}}\| = \|x\|_1} \\
-  & \|x\|_1 = \sqrt{\sum\limits_{k=1}^n \|\alpha_k\|^2},\ x = \sum \alpha_k l_k  \\
-  & \|x\| \leq b \|x\|_1 \\
-  & ?\exists a > 0\colon a\|x\|_1 \leq \|x\| \implies \|\cdot\| \sim \|\cdot\|_1 \\
-  \end{aligned}$
-  Let $f(\alpha_1, \dotsc, \alpha_n) = \norm{\sum\limits_{k = 1}^n \alpha_k l_k} \\
-  \begin{aligned}[t]
-    \\|f(\bar{\alpha} + \Delta\bar{\alpha}) - f(\bar\alpha)| = &\abs{\norm{\sum_{k=1}^n
-    \alpha_k l_k + \sum\limits_{k=1}^n \Delta \alpha_k l_K } - \norm{\sum_{k=1}^n
+  \|x\|_1 = \sqrt{\sum\limits_{k=1}^n \|\alpha_k\|^2},\ x = \sum \alpha_k l_k  \\
+  \|x\| \leq b \|x\|_1 \\
+  ?\exists a > 0\colon a\|x\|_1 \leq \|x\| \implies \|\cdot\| \sim \|\cdot\|_1 \\
+  \end{gather*}
+  Let $f(\alpha_1, \dotsc, \alpha_n) = \norm{\sum\limits_{k = 1}^n \alpha_k l_k}$
+  \begin{align*}
+    \\|f(\bar{\alpha} + \Delta\bar{\alpha}) - f(\bar\alpha)| = &
+      \abs{\rule{0em}{2em}\norm{\sum_{k=1}^n
+    \alpha_k l_k + \sum_{k=1}^n \Delta \alpha_k l_K } - \norm{\sum_{k=1}^n
     \alpha_k l_k}} \leq \\ & \norm{\sum_{k=1}^n \Delta \alpha_k l_k} \leq \tendsto{\sum
-    \| l_k\| |\Delta \alpha_k|}{0, \Delta \alpha_k \to 0} \implies f
-  \textnormal{--- continuous on}\ \R{}^n
-  \end{aligned}$
-  $S_1 = \{\sum\limits_{k=1}^n |\alpha_k|^2 = 1\} \subset \R{}^m$, f --- continuous
+    \| l_k\| |\Delta \alpha_k|}{0, \Delta \alpha_k \to 0} \implies \text{$f$ is continuous on $\R^n$}
+  \end{align*}
+
+  $S_1 = \Set{\sum\limits_{k=1}^n \abs{\alpha_k}^2 = 1} \subset \R^m$, f --- continuous
   on $S_1$, $S_1$ --- compact, $\bar{\alpha}^* \in S_1$ \\
   By Weierstrass theorem there exists a point $\alpha^* \in S_1$ on a sphere,
   in which function $f$ achieves its minimum
-  $\implies \forall \alpha \in S_1\ f(\bar{\alpha}^*) \leq f(\bar{\alpha}) \\
-  \textnormal{If}\ f(\bar{\alpha}^*) = 0,\
-  \textnormal{then}\ \norm{\sum\limits_{k=1}^n \alpha_k^* l_k} = 0 \implies
-  \sum\limits_{k=1}^n \alpha_k^* l_k = 0,\ \bar{\alpha}^* \in S_1, \\
-  \textnormal{but}\ l_1 \dots l_n\ \textnormal{are linearly independent}\ \contr
-  \implies \min\limits_{S_1} f = m > 0 \\
-  \begin{aligned}[t]
-    \|x\| = \norm{\sum\limits_{k=1}^n \alpha_k l_k}  = f(\bar{\alpha}) =
-    \sqrt{\sum\limits_{k=1}^n \alpha_k^2} \cdot \norm{\sum
+  $\implies \forall \alpha \in S_1\ f(\bar{\alpha}^*) \leq f(\bar{\alpha})$
+
+  If $f(\bar{\alpha}^*) = 0$,
+  then $\norm{\sum\limits_{k=1}^n \alpha_k^* l_k} = 0 \implies
+  \sum\limits_{k=1}^n \alpha_k^* l_k = 0,\ \bar{\alpha}^* \in S_1$, \\
+  but $l_1 \dots l_n$ are linearly independent $\contr
+  \implies \min\limits_{S_1} f = m > 0$
+  \begin{align*}
+    \|x\| = \norm{\sum_{k=1}^n \alpha_k l_k}  = f(\bar{\alpha}) =
+    \sqrt{\sum_{k=1}^n \alpha_k^2} \cdot \norm{\sum
     \underset{\beta_k}{\boxed{\dfrac{\alpha_k}{\sqrt{\sum_{k=1}^n \alpha_k^2}}}}
     \cdot l_k} & \geq ,\ \bar{\beta} = (\beta_1 \dots \beta_n) \in S_1 \\
-    & \geq m \cdot \|x\|_1,\ a = m \qedhere 
-  \end{aligned}$
+    & \geq m \cdot \|x\|_1,\ a = m
+  \end{align*}
 \end{proof}
 \begin{cor}
-  $X$ --- NS, $Y \subset X, \dim{Y} < + \infty \implies Y = \cl{Y}$ \\
+  $X$ --- NS, $Y \subset X, \dim{Y} < + \infty \implies Y = \cl{Y}$
   \begin{note}
     Functional analysis differentiates between linear subset (set of points,
     closed by addition and scalar multiplication) and linear subspace (closed
@@ -338,7 +374,7 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
   \bar{\alpha} = (\alpha_1^{(m)}, \dotsc, \alpha_n^{(m)}) \to \alpha^* =
   (\alpha_1^*, \dotsc , \alpha_n^*) \\
   y^* = \sum\limits_{i=1}^n \alpha_i^* l_I \in Y,\ \|y_m - y\| \to 0, y = y^*
-  \implies y \in Y \qedhere$
+  \implies y \in Y$
 \end{proof}
 \begin{defn}
   If normed space if complete, then it is called \textbf{B-space} or \textbf{Banach space}.
@@ -348,7 +384,7 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
 \end{ex}
 \begin{ex}
   Lebesgue space, 
-  $p \geq 1, L_p(E) = \Set{f - \textnormal{measurable on E},\ \int\limits_E \abs{f}^P < + \infty}$.
+  $p \geq 1, L_p(E) = \Set{f \textnormal{ is measurable on $E$},\ \int\limits_E \abs{f}^P < + \infty}$.
 \end{ex}
 If $X$ --- Banach space, \\
 $\begin{aligned}[t]
