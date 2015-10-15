@@ -1,5 +1,5 @@
-\section{Vector spaces}
-\subsection{Metric spaces.}
+\chapter{Vector spaces}
+\section{Metric spaces.}
 
 X, $\rho\colon X \times X \to \R_+$
 \begin{defn}$\rho$ --- \textbf{metric}
@@ -11,8 +11,7 @@ X, $\rho\colon X \times X \to \R_+$
 \end{defn}
 \begin{defn}$(X, \rho)$ --- \textbf{Metric space}.\end{defn}
 \begin{defn}$x = \lim x_{n} \iff \rho(x_{n}, x) \to 0$\end{defn}
-\vspace{5mm}
-$X, \tau = \{G \subset X\}$
+$X, \tau = \Set{G \subset X}$
 \begin{enumerate}
   \item $\varnothing, X \in \tau$
   \item $G_\alpha \in \tau, \alpha \in \mathscr{A} \implies \bigcup\limits_\alpha G_\alpha \in \tau$
@@ -80,7 +79,7 @@ In this sense metric space is just a special case of topological space.
     \end{tikzpicture}
   \end{minipage}
   \begin{stm}
-    $\rho(\bar{x}_m, \bar{x}) \xrightarrow{m \to \infty} 0 \iff x_j^{(m)} \to x_j\ \forall j$\\
+      $\rho(\bar{x}_m, \bar{x}) \xrightarrow[m \to \infty]{} 0 \iff x_j^{(m)} \to x_j\ \forall j$
   \end{stm}
   \begin{proof}\leavevmode
     \begin{itemize}
@@ -109,18 +108,20 @@ $x_n \to x,\ \epsilon = \frac{1}{2},\ \exists M:\ m > M \implies \rho(x_m, x) < 
 \rho(x_m, x) = 0 \implies x_m = x$
 \end{ex}
 \begin{defn}
-  $\begin{aligned}[t]
-    & (X, \tau);\ \forall A \subset X; \\
-    & \inter{A} \defeq \bigcup\limits_{G \subset A} G - \textnormal{open}; \\
-    & \cl{A} \defeq \bigcap\limits_{A \subset G} G - \textnormal{closed}; \\
-    & \fr{A} = \cl{A} \setminus \inter{A}
-  \end{aligned}$
+    \[(X, \tau);\ \forall A \subset X;\]
+  \begin{align*}
+     \inter{A}& \defeq \bigcup\limits_{G \subset A} G \textnormal{ is open}; \\
+     \cl{A}& \defeq \bigcap\limits_{A \subset G} G \textnormal{ is closed}; \\
+     \fr{A}& \defeq \cl{A} \setminus \inter{A}
+  \end{align*}
 \end{defn}
 \noindent
 $(X, \rho);$ Having a metric space one can describe closure of a set. \\
-$\rho(x, A) \defeq \inf\limits_{a \in A}\rho(x, a) \\
-\rho(A, B) = \inf\limits_{\substack{a \in A\\b \in B}}\rho(a, b) \\
-\rho(x, A) = f(x), x \in X$
+\begin{gather*}
+    \rho(x, A) \defeq \inf\limits_{a \in A}\rho(x, a) \\
+    \rho(A, B) \defeq \inf\limits_{\substack{a \in A\\b \in B}}\rho(a, b) \\
+    \rho(x, A) = f(x), x \in X
+\end{gather*}
 \begin{stm}
   Function f(x) is continuous.
 \end{stm}
@@ -150,7 +151,7 @@ In any metric space separability axiom is true.
   $g(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)}$ --- continuous on X \\
   $x \in F_1,\ \cl{F_1} = F_1,\ \rho(x, F_1) = 0,\ g(x) = 0 \\
   x \in F_2,\ g(x) = 1$ \\
-  Let's look at $(-\infty; \frac{1}{3}), (\frac{2}{3}, \infty)$ --- by continuity their inverse images under g are open. \\
+  Let's look at $(-\infty; \frac{1}{3}), (\frac{2}{3}, \infty)$ --- by continuity their inverse images under $g$ are open. \\
   $G_1 = g^{-1}(-\infty; \frac{1}{3}) \\
   G_2 = g^{-1}(\frac{2}{3}; \infty)$
 \end{proof}
@@ -257,7 +258,7 @@ $\\A \subset X,\ \tau_a = \Set{G \cap A, G \in \tau}$ --- topology induced on $A
     set is not a compact. $\contr$ \qedhere
   \end{itemize}
 \end{proof}
-\subsection{Normed spaces}
+\section{Normed spaces}
 \begin{defn}
   $X$ --- \textbf{linear set}, $x + y, \alpha \cdot x$, $\alpha \in \R$ \\
   The purpose of norm definition, is to construct a topology on $X$, so that 2 linear operations are continuous on it.
