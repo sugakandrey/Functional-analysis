@@ -58,25 +58,26 @@ In this sense metric space is just a special case of topological space.
   $\rho(\bar{x}, \bar{y}) \defeq \sum\limits_{n = 1}^\infty \frac{1}{2^n}\underbrace{\frac{|x_n - y_n|}{1 + |x_n - y_n|}}_{\phi(|x_n - y_n|)}$
   --- \textbf{Urysohn metric}.
 
-  \vspace{-1em}
-  \begin{minipage}{.5\linewidth}
-    $\phi(t) = \frac{t}{1 + t}$ \\
-    $\phi(t_1 + t_2) \leq \phi(t_1) + \phi(t_2)$ \\
-  \end{minipage}
-  \begin{minipage}{.4\linewidth}
-  \begin{tikzpicture}
-    \begin{axis}[
-    width = \linewidth,
-    xmin  = 0,
-    xmax  = 15,
-    domain= 0:15,
-    ymax  = 1.2,
-    samples = 100,
-    minor tick num = 0 ]
-    \addplot[thick]{x/(1+x)};
-  \end{axis}
-  \end{tikzpicture}
-  \\\centering $\phi(t)$ is an upper convex function
+  \noindent
+  \begin{minipage}{.65\linewidth}
+    $\displaystyle\phi(t) = \frac{t}{1 + t} \\ \\
+    \phi(t_1) + \phi(t_2) \geq \phi(t_1 + t_2) \\ \\
+    \phi(t_1) + \phi(t_2) = \frac{t_1}{1 + t_1} + \frac{t_2}{1 + t_2} \geq \frac{t_1}{1 + t_1 + t_2} + \frac{t_2}{1 + t_1 + t_2} \\ \\
+    \phi(t_1) + \phi(t_2) \geq \frac{t_1 + t_2}{1 + t_1 + t_2} = \phi(t_1 + t_2)$
+  \end{minipage}%
+  \begin{minipage}{.35\linewidth}
+    \begin{tikzpicture}
+      \begin{axis}[
+        width = \linewidth,
+        xmin  = 0,
+        xmax  = 15,
+        domain= 0:15,
+        ymax  = 1.2,
+        samples = 100,
+        minor tick num = 0 ]
+        \addplot[thick]{x/(1+x)};
+      \end{axis}
+    \end{tikzpicture}
   \end{minipage}
   \begin{stm}
     $\rho(\bar{x}_m, \bar{x}) \xrightarrow{m \to \infty} 0 \iff x_j^{(m)} \to x_j\ \forall j$\\
