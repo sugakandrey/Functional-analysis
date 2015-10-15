@@ -58,30 +58,46 @@ In this sense metric space is just a special case of topological space.
   $\rho(\bar{x}, \bar{y}) \defeq \sum\limits_{n = 1}^\infty \frac{1}{2^n}\underbrace{\frac{|x_n - y_n|}{1 + |x_n - y_n|}}_{\phi(|x_n - y_n|)}$
   --- \textbf{Urysohn metric}.
 
-  \vspace{-1em}
-  \begin{minipage}{.5\linewidth}
-  \begin{gather*}
-      \phi(t) = \frac{t}{1 + t} \\
-      \phi(t_1 + t_2) \leq \phi(t_1) + \phi(t_2) \\
-      \rho(\bar{x}_m, \bar{x}) \xrightarrow[m \to \infty]{} 0 \iff x_j^{(m)} \to x_j\ \forall j
-  \end{gather*}
+  \noindent
+  \begin{minipage}{.65\linewidth}
+    $\displaystyle\phi(t) = \frac{t}{1 + t} \\ \\
+    \phi(t_1) + \phi(t_2) \geq \phi(t_1 + t_2) \\ \\
+    \phi(t_1) + \phi(t_2) = \frac{t_1}{1 + t_1} + \frac{t_2}{1 + t_2} \geq \frac{t_1}{1 + t_1 + t_2} + \frac{t_2}{1 + t_1 + t_2} \\ \\
+    \phi(t_1) + \phi(t_2) \geq \frac{t_1 + t_2}{1 + t_1 + t_2} = \phi(t_1 + t_2)$
+  \end{minipage}%
+  \begin{minipage}{.35\linewidth}
+    \begin{tikzpicture}
+      \begin{axis}[
+        width = \linewidth,
+        xmin  = 0,
+        xmax  = 15,
+        domain= 0:15,
+        ymax  = 1.2,
+        samples = 100,
+        minor tick num = 0 ]
+        \addplot[thick]{x/(1+x)};
+      \end{axis}
+    \end{tikzpicture}
+  \end{minipage}
+  \begin{stm}
+    $\rho(\bar{x}_m, \bar{x}) \xrightarrow{m \to \infty} 0 \iff x_j^{(m)} \to x_j\ \forall j$\\
+  \end{stm}
+  \begin{proof}\leavevmode
+    \begin{itemize}
+      \item $\Rightarrow$
+
+      $f(|x^{(n)}_k - x_k|) \leq 2^k \rho(x^{(n)}, x)$ \\
+      Let $\rho(x^{(n)}, x) \le \frac{\epsilon}{2^k}$,  then  $f(|x^{(n)}_k - x_k|) < \epsilon$ \\
+      $|x^{(n)}_k - x_k| = t = \frac{1}{1 - f(t)} - 1$, then $t \rightarrow 0$
+      \item $\Leftarrow$
+
+      Lets take such $k_0$ that $\sum\limits_{k=k_0+1}^{\infty} \frac{1}{2^k} < \epsilon$ \\
+      Lets take such $n_0$ that  $\forall k \leq k_0, n > n_0: |x_k^{(n)} - x_k| < \epsilon$. \\ 
+      Then $\rho(x^{(n)}, x) < \sum\limits_{k=1}^{k_0} \frac{\epsilon}{2^k} + \epsilon < 2 \epsilon$ \\
+      Letting  $x \rightarrow 0$, we get what we want \qedhere
+    \end{itemize}
+  \end{proof}
   In this way $\R^\infty$ is a metrizable space.
-  \end{minipage}
-  \begin{minipage}{.4\linewidth}
-  \begin{tikzpicture}
-    \begin{axis}[
-    width = \linewidth,
-    xmin  = 0,
-    xmax  = 15,
-    domain= 0:15,
-    ymax  = 1.2,
-    samples = 100,
-    minor tick num = 0 ]
-    \addplot[thick]{x/(1+x)};
-  \end{axis}
-  \end{tikzpicture}
-  \\\centering $\phi(t)$ is an upper convex function
-  \end{minipage}
 \end{defn}
 \begin{ex}
 $X, \rho(x, y) \defeq
