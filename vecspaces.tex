@@ -10,7 +10,7 @@ X, $\rho\colon X \times X \to \R_+$
   \end{enumerate}
 \end{defn}
 \begin{defn}$(X, \rho)$ --- \textbf{Metric space}.\end{defn}
-\begin{defn}$x = \lim x_{n} \iff \rho(x_{n}, x) \rightarrow 0$\end{defn}
+\begin{defn}$x = \lim x_{n} \iff \rho(x_{n}, x) \to 0$\end{defn}
 \vspace{5mm}
 $X, \tau = \{G \subset X\}$
 \begin{enumerate}
@@ -84,17 +84,17 @@ In this sense metric space is just a special case of topological space.
   \end{stm}
   \begin{proof}\leavevmode
     \begin{itemize}
-      \item $\Rightarrow$
+      \item $\to$
 
       $f(|x^{(n)}_k - x_k|) \leq 2^k \rho(x^{(n)}, x)$ \\
-      Let $\rho(x^{(n)}, x) \le \frac{\epsilon}{2^k}$,  then  $f(|x^{(n)}_k - x_k|) < \epsilon$ \\
-      $|x^{(n)}_k - x_k| = t = \frac{1}{1 - f(t)} - 1$, then $t \rightarrow 0$
+      Let $\rho(x^{(n)}, x) \le \dfrac{\epsilon}{2^k}$, then $f(|x^{(n)}_k - x_k|) < \epsilon$ \\
+      $|x^{(n)}_k - x_k| = t = \dfrac{1}{1 - f(t)} - 1$, then $t \to 0$
       \item $\Leftarrow$
 
-      Lets take such $k_0$ that $\sum\limits_{k=k_0+1}^{\infty} \frac{1}{2^k} < \epsilon$ \\
-      Lets take such $n_0$ that  $\forall k \leq k_0, n > n_0: |x_k^{(n)} - x_k| < \epsilon$. \\ 
-      Then $\rho(x^{(n)}, x) < \sum\limits_{k=1}^{k_0} \frac{\epsilon}{2^k} + \epsilon < 2 \epsilon$ \\
-      Letting  $x \rightarrow 0$, we get what we want \qedhere
+      Let's choose $k_0$ for which $\sum\limits_{k=k_0+1}^{\infty} \dfrac{1}{2^k} < \epsilon$ \\
+      Let's choose $n_0$ for which $\forall k \leq k_0, n > n_0: |x_k^{(n)} - x_k| < \epsilon$. \\ 
+      Then $\rho(x^{(n)}, x) < \sum\limits_{k=1}^{k_0} \dfrac{\epsilon}{2^k} + \epsilon < 2 \epsilon$ \\
+      Letting  $\epsilon \to 0$, we get what we want \qedhere
     \end{itemize}
   \end{proof}
   In this way $\R^\infty$ is a metrizable space.
