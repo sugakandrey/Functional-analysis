@@ -40,7 +40,9 @@
 \newtheorem{lemma}{Lemma}
 
 \renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand\le{\leqslant}
 \renewcommand\leq{\leqslant}
+\renewcommand\ge{\geqslant}
 \renewcommand\geq{\geqslant}
 \renewcommand\phi{\varphi}
 \renewcommand\epsilon{\varepsilon}
@@ -63,7 +65,7 @@
 \DeclareMathOperator{\diamOp}{diam}
 \newcommand{\diam}[1]{\diamOp({#1})}
 
-\titleformat{\subsection}
-  {\centering\normalfont\Large}{\S\thesubsection}{1em}{}
 \titleformat{\section}
-  {\centering\normalfont\Large\bfseries}{\thesection}{1em}{}
+  {\centering\normalfont\Large}{\S\thesection}{1em}{}
+\titleformat{\chapter}
+  {\centering\normalfont\Large\bfseries}{\thechapter}{1em}{}
