@@ -414,6 +414,72 @@ $\begin{aligned}[t]
 \end{aligned}$ \\
 In Banach spaces works the theory of absolute convergence of numerical series.
 \begin{lemma}[Riesz]
-
+  $Y$ --- eigen subspace of $X$ --- normed space.
+  $\forall \epsilon \in (0, 1)\ \exists z_\epsilon \in X \colon$
+\begin{enumerate}
+\item $\|z_\epsilon\| = 1$
+\item $\rho(z_\epsilon, Y) > 1 - \epsilon$
+\end{enumerate}
 \end{lemma}
+\begin{proof}
+  $\exists x \notin Y\ d = \rho(x, Y),\ d = 0\ \exists y_n \in Y\colon \|x -
+  y_n\| < \dfrac{1}{n},\ n \to \infty,\ y_n \to x \\
+  Y = \cl{Y} \implies x \in Y \contr x \notin Y,\ d > 0 \\
+  \forall \epsilon \in (0, 1)\ \dfrac{1}{1 - \epsilon} > 1\ \exists y_\epsilon
+  \in Y\colon \|x - y_\epsilon\| < \dfrac{1}{1 - \epsilon}d \\
+  z_\epsilon = \dfrac{x - y_\epsilon}{\|x - y_\epsilon\|},\ \|z_\epsilon\| = 1,\
+  \forall y \in Y\ \|z_\epsilon - y\| = \norm{\dfrac{x - y_\epsilon}{\|x -
+      y_\epsilon\|}} = \dfrac{\|x - \overbrace{(y_\epsilon + \|x - y_\epsilon\| \cdot y)}^{\in Y}\|
+    \geq d}{\|x- y_\epsilon\| < \dfrac{1}{1 - \epsilon}d} > 1 - \epsilon$
+\end{proof}
+\begin{cor}
+  $\dim{X} = + \infty$, $S$ --- sphere in $X$, $r_S = 1 \Set{x | \|x\| = 1}
+  \implies S$ --- not a compact. 
+\end{cor}
+\begin{proof}
+  $\forall x_1 \in S,\ Y_1 = \alpha\{x_1\}$ --- finite dimensional linear set.
+  $\implies\ \text{closed in}\ X \implies Y_1$ --- subspace. $\dim{X} = + \infty
+  \implies Y_1$ --- eigen subspace. \\
+  Then by the Riesz lemma:
+  \begin{align*}
+    & \exists x_2 \in S\colon \|x_2 - x_1\| > \dfrac 12 \\
+    & Y_2 = \alpha\{x_1, x_2\}\ \exists x_3 \in S\colon \|x_3 - x_j\| > \dfrac 12,\ j = 1,2
+  \end{align*}
+  Continue by induction. Because $\dim{X} = + \infty$ the process willl never
+  stop. \\
+  $x_n \in S \colon \|x_n - x_m\| > \dfrac 12,\ n \neq m$ --- obviously we
+  cannot extract converging subsequence. $\implies S$ --- not a compact.
+\end{proof}
+\section{Inner product (unitary) spaces}
+\begin{defn}
+  $X$ --- linear space. \\
+  $\phi \colon X \times X \to \R$
+  \begin{enumerate}
+  \item $\phi(x, x) > 0,\ = 0 \iff x = 0$
+  \item $\phi(x, y) = \phi(y, x)$
+  \item $\phi(\alpha x + \beta y, z) = \alpha \phi(x, z) + \beta \phi(y, z)$
+  \end{enumerate}
+  $\phi$ --- \textbf{inner product}. \\
+  $\phi(x, y) = \langle x, y \rangle$
+\end{defn}
+\begin{defn}
+  $(X, \langle \cdot, \cdot \rangle)$ --- \textbf{innerp product space}.
+\end{defn}
+\begin{ex}
+  $\R^n, \langle \bar{x}, \bar{y} \rangle = \sum\limits_{j = 1}^n x_j y_j$
+\end{ex}
+\begin{stm}[Schwarz]
+  $\forall x, y \in X \implies \abs{\langle x, y \rangle} \leq \sqrt{\langle x,
+    x \rangle} \cdot \sqrt{\langle y, y \rangle}$
+\end{stm}
+\begin{proof}
+  $\begin{aligned}[t]
+    & \lambda \in \R \\
+    & f(\lambda) = 
+      \equalto{\langle \lambda x + y, \lambda x + y \rangle}
+      {\lambda^2 \langle x, x \rangle + 2 \lambda \langle x, y \rangle + \langle y, y \rangle} \geq 0 \\
+    & D = 4 \langle x, y \rangle^2 - 4 \langle x, x \rangle \cdot \langle y, y
+    \rangle \leq 0 \qedhere
+  \end{aligned}$
+\end{proof}
 
