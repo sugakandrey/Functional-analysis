@@ -7,6 +7,7 @@
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\DeclarePairedDelimiter\inprod{\langle}{\rangle}%
 
 \makeatletter
 \let\oldabs\abs
@@ -14,6 +15,9 @@
 
 \let\oldnorm\norm
 \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+
+\let\oldinprod\inprod
+\def\inprod{\@ifstar{\oldinprod}{\oldinprod*}}
 \makeatother
 
 \newcommand\alim[2]{
@@ -54,6 +58,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathscr{L}}
 \newcommand{\contr}{\rightarrow\leftarrow}
 
 \DeclareMathOperator{\clOp}{Cl}
