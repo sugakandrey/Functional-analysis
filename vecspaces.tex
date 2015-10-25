@@ -413,7 +413,7 @@ $\begin{aligned}[t]
 \sum_{k=1}^n x_k \text{--- converges.}
 \end{aligned}$ \\
 In Banach spaces works the theory of absolute convergence of numerical series.
-\begin{lemma}[Riesz]
+\begin{lemma}[Riesz's lemma about almost perpendicular]
   $Y$ --- eigen subspace of $X$ --- normed space.
   $\forall \epsilon \in (0, 1)\ \exists z_\epsilon \in X \colon$
 \begin{enumerate}
@@ -495,26 +495,28 @@ Any inner product space is a special case of a normed space. The specifics is th
 \[
   x \perp y \iff \inprod{x, y} = 0
 \]
-In this case the Pythagoras theorem takes place:
+In this case the Pythagorean theorem takes place:
 \[
 \norm{x+y}^2 = {\norm x}^2 + {\norm y}^2
 \]
 
-\noindent In inner product spaces the parallelogram equality plays a significant part:
+\noindent In inner product spaces the parallelogram law plays a significant role:
 \[
 \norm{x+y}^2 + \norm{x-y}^2 = 2 \norm{x}^2 + 2 \norm{y}^2 \quad \forall x, y \in X
 \]
 
-% не хуйня ли часом с этого места?
+% не хуйня ли часом с этого места? 
+%Да вроде нет, In an inner product space, the norm is determined using the inner
+%product: \|x\|^2=\langle x, x\rangle.\ (c) https://en.wikipedia.org/wiki/Parallelogram_law
 \noindent
 $\inprod{x, y} \mapsto \norm{x} = \sqrt{\inprod{x, x}}$ \\
-Let $X$ --- NP, $\norm x \stackrel{?}{=} \sqrt{\inprod{x, x}}$
+Let $X$ --- NS, $\norm x \stackrel{?}{=} \sqrt{\inprod{x, x}}$
 
-It can be proved that it's possible iff the norm complies to the parallelogram equality.
+It can be proved that it's possible if and only if the norm satisfies the parallelogram law.
 So, $C_{[a, b]}$ is not an inner product space
 
 \begin{defn}
-  \textbf{Orthonormal set} is a set of points $\Set{l_1, l_2, \dotsc}$ (may be finite):
+  \textbf{Orthonormal set} --- a set of points $\Set{l_1, l_2, \dotsc}$ (may be finite):
   \begin{enumerate}
     \item $\norm{l_i} = 1$
     \item $l_i \perp l_j, \quad i \ne j$
@@ -538,7 +540,7 @@ So, $C_{[a, b]}$ is not an inner product space
 \norm{S_m}^2 = \bigl\langle \sum\limits_{j=1}^m x_j,\sum\limits_{j=1}^m x_j \bigr\rangle = \sum\limits_{j=1}^m \norm{x_j}^2
 \]
 
-\noindent This fact lets us build the orthogonal series theory effectively.
+\noindent This fact allows us to effectively build the theory of orthogonal series.
 
 An important problem is concerned with Fourier series. Let $X$ is a normed space, $Y$ is a subspace of $X$,
 \[
@@ -546,7 +548,7 @@ An important problem is concerned with Fourier series. Let $X$ is a normed space
 \]
 
 \begin{defn}
-  $E_Y (x)$ is \textbf{best approximation} of point $x$ with points of the subspace $Y$, if $\exists y^* \in Y \quad E_y(x) = \norm{x - y^*}$ --- then $y^*$ is an element of best approximation.
+  $E_Y (x)$ --- \textbf{best approximation} of point $x$ with points of the subspace $Y$, if $\exists y^* \in Y \quad E_y(x) = \norm{x - y^*}$ --- then $y^*$ is an element of best approximation.
 \end{defn}
 
 \begin{thm}[Borel]
@@ -555,13 +557,16 @@ An important problem is concerned with Fourier series. Let $X$ is a normed space
 \begin{proof}
   $Y = \L(\underbracket{l_1, l_2, \dotsc, l_n}_{\text{lin. indep.}})$
 
-  Consider $f(\alpha_1, \dotsc, \alpha_n) = \bigl\| x - \sum\limits_{k=1}^n \alpha_k l_k \bigl\| \to \min$. By the triangle inequality for norm, $f(\bar \alpha)$ is continous on $\R^n, f \ge 0, E_Y(x) = \inf f(\bar \alpha)$
-  Easy to find that there always is a ball $B(0, r) \subset \R^n$, outside which $f > 2E_Y(x)$. So, $E_Y(x)$ is somewhere inside. But $f$ is continous, the ball is compact, so, by the Weierstrass theorem, the minimum exists and is on the sphere.
+  Consider $f(\alpha_1, \dotsc, \alpha_n) = \bigl\| x - \sum\limits_{k=1}^n \alpha_k l_k \bigl\| \to \min$. By the triangle inequality for norm, $f(\bar \alpha)$ is continous on $\R^n, f \ge 0, E_Y(x) = \inf f(\bar \alpha)$.
+  It is easy to find that there always is a ball $B(0, r) \subset \R^n$, outside
+  of which $f > 2E_Y(x)$. So, $E_Y(x)$ is somewhere inside. But $f$ is
+  continuous, the ball is compact, so, by the Weierstrass theorem, the minimum
+  exists and it is located on the sphere $S(0, r)$.
 \end{proof}
 
-For abstract Fourier series the Borel theorem can be significantly reinforced by specifying the best approximation element.
+For abstract Fourier series the Borel theorem can be significantly strengthened by specifying the best approximation element.
 
-\begin{thm}[extremal quality of Fourier series' partial sums]
+\begin{thm}[extreme quality of Fourier series' partial sums]
     $\Set{e_j}$ --- ONS in $X$ \\
     $H_n = \L(l1, \dotsc, l_n)$ \\
     $E_{H_n}(x), S_n(x) = \sum\limits_{j=1}^n \inprod{x, l_j} l_j \implies E_{H_n}(x) = \norm{x-S_n(x)}$
