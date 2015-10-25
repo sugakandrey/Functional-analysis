@@ -377,7 +377,7 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
   \end{note}
 \end{cor}
 \begin{proof}
-  $Y = \alpha(l_1, \dotsc, l_n) = \Set{\sum\limits_{i=1}^n \alpha_il_i | l_1, \dotsc, l_n - \text{lin. indep.}} \\
+  $Y = \L(l_1, \dotsc, l_n) = \Set{\sum\limits_{i=1}^n \alpha_il_i | l_1, \dotsc, l_n - \text{lin. indep.}} \\
   y_m \in Y, y_m \to y$ in $X \implies y \in Y?\\
   \norm{y_m - y} \to 0 \implies \norm{y_m - y_p} \to 0,\ m,p \to \infty \\
   \norm{y}, y \in Y.\\
@@ -437,13 +437,13 @@ In Banach spaces works the theory of absolute convergence of numerical series.
   \implies S$ --- not a compact. 
 \end{cor}
 \begin{proof}
-  $\forall x_1 \in S,\ Y_1 = \alpha\{x_1\}$ --- finite dimensional linear set.
+  $\forall x_1 \in S,\ Y_1 = \L\{x_1\}$ --- finite dimensional linear set.
   $\implies\ \text{closed in}\ X \implies Y_1$ --- subspace. $\dim{X} = + \infty
   \implies Y_1$ --- eigen subspace. \\
   Then by the Riesz lemma:
   \begin{align*}
     & \exists x_2 \in S\colon \|x_2 - x_1\| > \dfrac 12 \\
-    & Y_2 = \alpha\{x_1, x_2\}\ \exists x_3 \in S\colon \|x_3 - x_j\| > \dfrac 12,\ j = 1,2
+    & Y_2 = \L\{x_1, x_2\}\ \exists x_3 \in S\colon \|x_3 - x_j\| > \dfrac 12,\ j = 1,2
   \end{align*}
   Continue by induction. Because $\dim{X} = + \infty$ the process willl never
   stop. \\
