@@ -18,7 +18,7 @@ $X, \tau = \Set{G \subset X}$
   \item $G_1, \dotsc, G_n \in \tau \implies \bigcap\limits_{j = 1}^n G_j \in \tau$
 \end{enumerate}
 \begin{defn}$(X, \tau)$ --- \textbf{Topological space}.\end{defn}
-$x = \lim x_n \quad \forall G \in \tau: x \in G \quad \exists N: \forall n > N \implies x_n \in G$\\
+$x = \lim x_n \quad \forall G \in \tau: x \in G \quad \exists N: \forall n > N \quad x_n \in G$\\
 G --- open in $\tau$ \\
 $F = X \setminus G$ --- closed
 \begin{defn}
@@ -91,7 +91,7 @@ In this sense metric space is just a special case of topological space.
       \item $\Leftarrow$
 
       Let's choose $k_0$ for which $\sum\limits_{k=k_0+1}^{\infty} \dfrac{1}{2^k} < \epsilon$ \\
-      Let's choose $n_0$ for which $\forall k \leq k_0, n > n_0: |x_k^{(n)} - x_k| < \epsilon$. \\ 
+      Let's choose $n_0$ for which $\forall k \leq k_0, n > n_0: |x_k^{(n)} - x_k| < \epsilon$. \\
       Then $\rho(x^{(n)}, x) < \sum\limits_{k=1}^{k_0} \dfrac{\epsilon}{2^k} + \epsilon < 2 \epsilon$ \\
       Letting  $\epsilon \to 0$, we get what we want \qedhere
     \end{itemize}
@@ -434,7 +434,7 @@ In Banach spaces works the theory of absolute convergence of numerical series.
 \end{proof}
 \begin{cor}
   $\dim{X} = + \infty$, $S$ --- sphere in $X$, $r_S = 1 \Set{x | \|x\| = 1}
-  \implies S$ --- not a compact. 
+  \implies S$ --- not a compact.
 \end{cor}
 \begin{proof}
   $\forall x_1 \in S,\ Y_1 = \L\{x_1\}$ --- finite dimensional linear set.
