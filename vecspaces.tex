@@ -54,15 +54,15 @@ In this sense metric space is just a special case of topological space.
       \end{itemize}
 \end{ex}
 \begin{defn}
-  $\rho(\bar{x}, \bar{y}) \defeq \sum\limits_{n = 1}^\infty \frac{1}{2^n}\underbrace{\frac{|x_n - y_n|}{1 + |x_n - y_n|}}_{\phi(|x_n - y_n|)}$
+  $\rho(\bar{x}, \bar{y}) \defeq \sum\limits_{n = 1}^\infty \dfrac{1}{2^n}\underbrace{\dfrac{|x_n - y_n|}{1 + |x_n - y_n|}}_{\phi(|x_n - y_n|)}$
   --- \textbf{Urysohn metric}.
 
   \noindent
   \begin{minipage}{.65\linewidth}
-    $\displaystyle\phi(t) = \frac{t}{1 + t} \\ \\
+    $\displaystyle\phi(t) = \dfrac{t}{1 + t} \\ \\
     \phi(t_1) + \phi(t_2) \geq \phi(t_1 + t_2) \\ \\
-    \phi(t_1) + \phi(t_2) = \frac{t_1}{1 + t_1} + \frac{t_2}{1 + t_2} \geq \frac{t_1}{1 + t_1 + t_2} + \frac{t_2}{1 + t_1 + t_2} \\ \\
-    \phi(t_1) + \phi(t_2) \geq \frac{t_1 + t_2}{1 + t_1 + t_2} = \phi(t_1 + t_2)$
+    \phi(t_1) + \phi(t_2) = \dfrac{t_1}{1 + t_1} + \dfrac{t_2}{1 + t_2} \geq \dfrac{t_1}{1 + t_1 + t_2} + \dfrac{t_2}{1 + t_1 + t_2} \\ \\
+    \phi(t_1) + \phi(t_2) \geq \dfrac{t_1 + t_2}{1 + t_1 + t_2} = \phi(t_1 + t_2)$
   \end{minipage}%
   \begin{minipage}{.35\linewidth}
     \begin{tikzpicture}
@@ -104,7 +104,7 @@ $X, \rho(x, y) \defeq
     0, & x = y\\
     1, & x \neq y
 \end{cases}$ --- \textbf{Discrete metric}. \\
-$x_n \to x,\ \epsilon = \frac{1}{2},\ \exists M:\ m > M \implies \rho(x_m, x) < \frac{1}{2} \implies\\
+$x_n \to x,\ \epsilon = \dfrac{1}{2},\ \exists M:\ m > M \implies \rho(x_m, x) < \dfrac{1}{2} \implies\\
 \rho(x_m, x) = 0 \implies x_m = x$
 \end{ex}
 \begin{defn}
@@ -141,7 +141,7 @@ $(X, \rho);$ Having a metric space one can describe closure of a set.
 Let's look at the metric spaces in terms of separation of sets from each other by open sets. \\
 $x, y \\
 r = \rho(x, y) > 0 \\
-B_{\frac{r}{3}}(x),\ B_{\frac{r}{3}}(y)$ \\
+B_{\dfrac{r}{3}}(x),\ B_{\dfrac{r}{3}}(y)$ \\
 In any metric space separability axiom is true.
 \begin{thm}
   Any metric space is a normal space, \\i.e.
@@ -151,9 +151,9 @@ In any metric space separability axiom is true.
   $g(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)}$ --- continuous on X \\
   $x \in F_1,\ \cl{F_1} = F_1,\ \rho(x, F_1) = 0,\ g(x) = 0 \\
   x \in F_2,\ g(x) = 1$ \\
-  Let's look at $(-\infty; \frac{1}{3}), (\frac{2}{3}, \infty)$ --- by continuity their inverse images under $g$ are open. \\
-  $G_1 = g^{-1}(-\infty; \frac{1}{3}) \\
-  G_2 = g^{-1}(\frac{2}{3}; \infty)$
+  Let's look at $(-\infty; \dfrac{1}{3}), (\dfrac{2}{3}, \infty)$ --- by continuity their inverse images under $g$ are open. \\
+  $G_1 = g^{-1}(-\infty; \dfrac{1}{3}) \\
+  G_2 = g^{-1}(\dfrac{2}{3}; \infty)$
 \end{proof}
 \begin{defn}
   Metric space is \textbf{complete} if $\rho(x_n, x_m) \to 0 \implies \exists x = \lim x_n \\
@@ -313,7 +313,7 @@ $x = \lim x_n \overset{def}{\implies} \rho(x_n, x) \to 0 \iff \|x_n - x\| \to 0$
   \item $C[a, b]$ --- functions continuous on $[a, b];\ \|f\| = \max\limits_{x \in [a, b]}|f(x)|$
   \item $L_p (E) = \Set{f \textnormal{ --- measurable},\ \int\limits_E \abs{f}^p < +
     \infty}\\
-    p \geq 1,\ \|f\|_p = \biggl(\displaystyle\int\limits_E |f|^p\biggr)^{\frac 1p}$
+    p \geq 1,\ \|f\|_p = \biggl(\displaystyle\int\limits_E |f|^p\biggr)^{\dfrac 1p}$
   \end{enumerate}
 \end{ex}
 Because the set of points is the same, arises the question about convergence
@@ -508,12 +508,19 @@ In this case the Pythagorean theorem takes place:
 % не хуйня ли часом с этого места? 
 %Да вроде нет, In an inner product space, the norm is determined using the inner
 %product: \|x\|^2=\langle x, x\rangle.\ (c) https://en.wikipedia.org/wiki/Parallelogram_law
-\noindent
-$\inprod{x, y} \mapsto \norm{x} = \sqrt{\inprod{x, x}}$ \\
-Let $X$ --- NS, $\norm x \stackrel{?}{=} \sqrt{\inprod{x, x}}$
+In an inner product space norm is determined by inner product:
+$\|x\|^2 = \inprod{x, x}$ \\
+It can be proved that if parallelogram law holds, then the norm must be
+determined by some inner product. Let $X$ be some normed space, $x \in X$, then 
+$\inprod{\cdot, \cdot} \mapsto \norm{x} = \sqrt{\inprod{x, x}}$.
+For any norm satisfying the parallelogram law, the inner
+product generating the norm is unique.
 
-It can be proved that it's possible if and only if the norm satisfies the parallelogram law.
-So, $C_{[a, b]}$ is not an inner product space
+\begin{ex}
+  $C_{[a, b]},\ \|f\| = \max\limits_{x \in [a, b]}|f(x)|$, $\|f\|$ doesn't satisfy
+  the parallelogram law and thus is not determined by any inner product. This
+  fact implies that $C_{[a, b]}$ is not an inner product space.
+\end{ex}
 
 \begin{defn}
   \textbf{Orthonormal set} --- a set of points $\Set{l_1, l_2, \dotsc}$ (may be finite):
