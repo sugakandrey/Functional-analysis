@@ -12,11 +12,19 @@ X, $\rho\colon X \times X \to \R_+$
 \begin{defn}$(X, \rho)$ --- \textbf{Metric space}.\end{defn}
 \begin{defn}$x = \lim x_{n} \iff \rho(x_{n}, x) \to 0$\end{defn}
 $X, \tau = \Set{G \subset X}$
-\begin{enumerate}
+\begin{defn}
+  Let $X$ be arbitrary set. Then system of its subsets $\tau$ is called a
+  \textbf{topology} if $\colon$
+  \begin{enumerate}
   \item $\varnothing, X \in \tau$
-  \item $G_\alpha \in \tau, \alpha \in \mathscr{A} \implies \bigcup\limits_\alpha G_\alpha \in \tau$
-  \item $G_1, \dotsc, G_n \in \tau \implies \bigcap\limits_{j = 1}^n G_j \in \tau$
-\end{enumerate}
+  \item $G_\alpha \in \tau, \alpha \in \mathscr{A} \implies
+    \bigcup\limits_\alpha G_\alpha \in \tau$
+  \item $G_1, \dotsc, G_n \in \tau \implies \bigcap\limits_{j = 1}^n G_j \in
+    \tau$
+  \end{enumerate}
+And any set $G \in \tau$ is called \textbf{open}.
+\end{defn}
+
 \begin{defn}$(X, \tau)$ --- \textbf{Topological space}.\end{defn}
 $x = \lim x_n \quad \forall G \in \tau: x \in G \quad \exists N: \forall n > N \quad x_n \in G$\\
 G --- open in $\tau$ \\
@@ -24,14 +32,16 @@ $F = X \setminus G$ --- closed
 \begin{defn}
   $B_r (a) = \Set{x | \rho(x, a) < r}$ --- \textbf{open ball}
 \end{defn}
-\noindent
-$\tau = \bigcup B_r (a)$
+\begin{stm}
+  Any metric space gives rise to a topological space in a rather simple way.
+  Let's call the subset $G \subset X$ open if and only if $\forall x \in G$
+  there is some $r$ such that open ball $B_r(x)$ is contained in $G$. Then $\tau = \bigcup B_r (x)$
+\end{stm}
 \begin{stm}
   $b \in B_{r_1} (a_1) \cap B_{r_2} (a_2) \implies \exists r_3 > 0: B_{r_3}
   (a_3) \subset B_{r_1} (a_1) \cap B_{r_2} (a_2)$
 \end{stm}
 \noindent
-In this sense metric space is just a special case of topological space.
 \begin{ex}
   $\R, \rho(x, y) = |x - y|$, MS
 \end{ex}
@@ -300,7 +310,7 @@ $x = \lim x_n \overset{def}{\implies} \rho(x_n, x) \to 0 \iff \|x_n - x\| \to 0$
   \end{enumerate}
 \end{proof}
 \begin{stm}
-  From the triangle inequality $|\|x\| - \|y\|| \leq \|x - y\| \\
+  From the triangle inequality $\bigl|\|x\| - \|y\|\bigr| \leq \|x - y\| \\
   x_n \to x \implies \|x_n\| \to \|x\|$ \\
   Norm is continious.
 \end{stm}
@@ -475,7 +485,7 @@ In Banach spaces works the theory of absolute convergence of numerical series.
 \begin{proof}
   $\begin{aligned}[t]
     & \lambda \in \R \\
-    & f(\lambda) = 
+    & f(\lambda) =
       \equalto{\langle \lambda x + y, \lambda x + y \rangle}
       {\lambda^2 \langle x, x \rangle + 2 \lambda \langle x, y \rangle + \langle y, y \rangle} \geq 0 \\
     & D = 4 \langle x, y \rangle^2 - 4 \langle x, x \rangle \cdot \langle y, y
@@ -505,13 +515,13 @@ In this case the Pythagorean theorem takes place:
 \norm{x+y}^2 + \norm{x-y}^2 = 2 \norm{x}^2 + 2 \norm{y}^2 \quad \forall x, y \in X
 \]
 
-% не хуйня ли часом с этого места? 
+% не хуйня ли часом с этого места?
 %Да вроде нет, In an inner product space, the norm is determined using the inner
 %product: \|x\|^2=\langle x, x\rangle.\ (c) https://en.wikipedia.org/wiki/Parallelogram_law
 In an inner product space norm is determined by inner product:
 $\|x\|^2 = \inprod{x, x}$ \\
 It can be proved that if parallelogram law holds, then the norm must be
-determined by some inner product. Let $X$ be some normed space, $x \in X$, then 
+determined by some inner product. Let $X$ be some normed space, $x \in X$, then
 $\inprod{\cdot, \cdot} \mapsto \norm{x} = \sqrt{\inprod{x, x}}$.
 For any norm satisfying the parallelogram law, the inner
 product generating the norm is unique.
@@ -596,3 +606,92 @@ For abstract Fourier series the Borel theorem can be significantly strengthened 
 \begin{cor}
   The series of Fourier coefficients' squares always converges
 \end{cor}
+% \section{Hilbert space.}
+% \begin{defn}
+%   \textbf{Hilbert space} --- complete, infinite dimensional, inner product space.
+% \end{defn}
+% \begin{ex}
+%   $L_2(E)$ --- Hilbert space. \\
+%   $\inprod{f, g} = \int\limits_E f \cdot g\ d\mu$ \\
+%   $l_2 = \Set{(x_1, \dotsc, x_n, \dotsc) | \sum\limits_{n = 1}^\infty x_n^2 < +\infty}$ \\
+%   $\inprod{\bar{x}, \bar{y}} = \sum\limits_{n = 1}^\infty x_n y_n,\ E = \N,\ \mu\{m\} = 1$
+% \end{ex}
+% \noindent
+% When we have completeness we can define orthonormal basis.
+% \begin{defn}
+%   $H,\ \{l_n\}$ --- ONS $\colon \forall x = \sum\limits_{n = 1}^\infty \alpha_n l_n
+%   \implies \inprod{x, l_m} = \sum\limits_{n = 1}^\infty \alpha_n \inprod{l_n, l_m} = \alpha_m$ \\ 
+% In this sense basis decomposition is always a Fourier series.
+%   \begin{enumerate}
+%   \item Complete ONS\@: $H = \cl{\L\{l_1, l_2, \dots\}}$
+%   \item Closed ONS\@: $\forall m\ \inprod{x, l_m} = 0 \implies x = 0$.
+%   \end{enumerate}
+% \end{defn}
+% \begin{stm}
+%   In Hilbert spaces two of the properties outlined above are equivalent. \\
+%   $\sum\limits_{n = 1}^\infty y_n$ in $H$ --- orthogonal series. \\
+%   $\|S_n - S_m\|^2 = \sum\limits_n^m \|y_n\|^2 \\
+%   \|S_n - S_m\| \to 0 \iff \sum\limits_n^m \|y_k\|^2 \to 0$ \\
+%   in H $\sum\limits_1^\infty \|y_k\|^2 < + \infty$
+% \end{stm}
+% \noindent
+% ONS $x \mapsto \sum\limits_{k = 1}^\infty \inprod{x, l_k} l_k$ \\
+% $\sum\limits_{k = 1}^\infty \inprod{x, l_k}^2 \leq \|x\|^2 < +\infty$
+% \begin{stm}
+%   In Hilbert space Fourier series converges for any point.
+% \end{stm}                                    
+% \begin{proof}
+%   Complete ONS. \\
+%   $\forall x \in H \forall \epsilon > 0\ \exists \sum\limits_{j =
+%     1}^p \alpha_{kj}l_{kj}\colon \underbrace{\|x - \sum\limits_{j = 1}^p
+%     \alpha_{kj}l_{kj}\|^2}_{\geq \|x - \sum\limits_{j = 1}^{k_p} \inprod{x, l_j} l_j\|^2}
+%   \leq \epsilon^2$ \\
+%   $S_m(x) by extremety \|x - S_{m + p}(x)\|^2 \leq \|x - S_m(x)\|^2$ \\
+%   Implies partial sums go to x, $x = \sum\limits_{j = 1}^\infty \inprod{x, l_j} l_j$
+%   If all fourier coefficients are zero, it means the ONS is closed $(x = 0)$. \\
+%   Closed ONS. \\
+%   $y = \sum\limits_{j = 1}^\infty \underbrace{\inprod{x, l_j}}_{ = \inprod{y,
+%       l_j}} l_j \implies \inprod{y, l_j} = \inprod{x, l_j} \implies \inprod{y - x,
+%     l_j} = 0$ \\
+%   Because ONS is closed $y - x = 0,\ y = x$. Thus we can decompose any point into
+%   Fourier series, and this implies that ONS is complete.
+% \end{proof}
+% Considering basis existance.
+% \begin{defn}
+%   Topological space is called \textbf{separable} if there exists countable dense set in it. \\
+%   $X = \cl{\{a_1, \dotsc, a_n, \dotsc\}}$
+% \end{defn}
+% $H$ --- separable, $a_1, \dotsc, a_n, \dotsc$ We can orthogonalize these dots
+% (Gramm-Shmidt), and we will get complete ONS.
+% This means space separability is equivalent to basis existance.
+% \begin{thm}[about best approximation in H]
+%   $H$ --- HS, $M$ --- closed convex subset of H, then $\forall x \in H \exists!
+%   y \in M \colon \|x -y\| = \inf\limits_{z \in M}\|x - z\|$.
+%   M has elemet of best approzimation for any x from X, and only one.
+% \end{thm}
+% \begin{proof}
+%   $d = \inf\limits_{z \in M}\|x - z\|$ by definition of infimum \\
+%   $\forall n \in \N \exists y_n \in M \colon d \leq \|x - y_n\| < d + dfrac 1n$ \\
+%   $\exitst ? y = \lim y_n \in M\ d \leq \|x - y\| \leq d$ \\
+%   $y_n, y_m \in M$ --- convex. Implies $\dfrac{y_n + y_m}{2} \in M \implies d^2
+%   \leq \norm{\dfrac{y_n + y_m}{2} - x}^2 = \dfrac{1}{4}\norm{\underbrace{(y_n - x)}_{z_1} + \underbrace{(y_m -
+%     x)}_{z_2}}^2$ 
+% \\ Let's use parallelogram law. $\|z_1 + z_2\|^2 + \|z_1 - z_2\|^2 = 2\|z_1\|^2
+% + 2\|z_2\|^2$, $\underbrace{\|(y_n - x) + (y_m - x)\|^2}_{\geq 4d^2} + \|y_n -
+% y_m\|^2 = 2\overbrace{\|y_n - x\|^2}^{\leq (d + \dfrac 1n)^2}
+% + 2 \overbrace{\|y_m - x\|^2}^{\leq (d + \dfrac 1m)^2}$ \\
+% $\|y_n - y_m\|^2 \leq 2(d + \dfrac 1n)^2 + 2(d + \dfrac 1m)^2 - 4d^2 = 4d \dfrac
+% 1n + \dfrac{2}{n^2} + 4 d \dfrac 1m + \dfrac{2}{m^2} \xrightarrow{n, m \to
+%   0}{0}$ \\
+% $\|y_n - y_m\| \xrightarrow{n, m \to 0}{0} \implies \exists \lim y_n$
+% \end{proof}
+% \begin{cor}
+%   $H$ --- HS, $H_1$ --- subspace (closed linear subset). $H_2$ = $H_1^{\perp} =
+%   \Set{y \in H | y \perp x, x \in H_1}$ --- \textbf{orthogonal addition}. \\
+%   $\forall x \in H$ can be однозначно. written as $x = x_1 + x _2,\ x_1 \in H_1,\ x_2 \in H_1^{\perp}$
+% \end{cor}
+% \begin{note}
+%   $H = H_1 \oplus H_1^{\perp}$
+% \end{note}
+
+
