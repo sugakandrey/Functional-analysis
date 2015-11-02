@@ -1,4 +1,4 @@
-\chapter{Vector spaces}
+\chapter{Vector spaces.}
 \section{Metric spaces.}
 
 X, $\rho\colon X \times X \to \R_+$
@@ -608,7 +608,7 @@ For abstract Fourier series the Borel theorem can be significantly strengthened 
 \end{cor}
 \section{Hilbert space.}
 \begin{defn}
-  \textbf{Hilbert space} --- complete infinite dimensional inner product space.
+  \textbf{Hilbert space} --- complete, infinite dimensional, inner product space.
 \end{defn}
 \begin{ex}
   $L_2(E)$ --- Hilbert space. \\
@@ -642,12 +642,12 @@ $\sum\limits_{k = 1}^\infty \inprod{x, l_k}^2 \leq \|x\|^2 < +\infty$
 \end{stm}                                    
 \begin{proof}
   Complete ONS. \\
-  $\forall x \in H \forall \epsilon > 0\ \exists \sum\limits_{j =
+  $\forall x \in H\ \forall \epsilon > 0\ \exists \sum\limits_{j =
     1}^p \alpha_{kj}l_{kj}\colon \underbrace{\|x - \sum\limits_{j = 1}^p
     \alpha_{kj}l_{kj}\|^2}_{\geq \|x - \sum\limits_{j = 1}^{k_p} \inprod{x, l_j} l_j\|^2}
   \leq \epsilon^2$ \\
   $S_m(x)$ by extremety $\|x - S_{m + p}(x)\|^2 \leq \|x - S_m(x)\|^2$ \\
-  Implies partial sums go to $x = \sum\limits_{j = 1}^\infty \inprod{x, l_j} l_j$
+  Implies partial sums go to x, $x = \sum\limits_{j = 1}^\infty \inprod{x, l_j} l_j$
   If all fourier coefficients are zero, it means the ONS is closed $(x = 0)$. \\
   Closed ONS. \\
   $y = \sum\limits_{j = 1}^\infty \underbrace{\inprod{x, l_j}}_{ = \inprod{y,
@@ -670,32 +670,83 @@ This means space separability is equivalent to basis existance.
   $M$ has element of best approximation for any $x$ from $X$, and only one.
 \end{thm}
 \begin{proof}
-  $d = \inf\limits_{z \in M}\|x - z\|$ by definition of infimum \\
-  $\forall n \in \N \ \exists y_n \in M \colon d \leq \|x - y_n\| < d + \dfrac 1n$ \\
-  $\exists ? y = \lim y_n \in M\ d \leq \|x - y\| \leq d$ \\
-  $y_n, y_m \in M$ --- convex. Implies
-  \[
-    \dfrac{y_n + y_m}{2} \in M \implies d^2
-    \leq \norm{\dfrac{y_n + y_m}{2} - x}^2 = \dfrac{1}{4}\norm{\underbrace{(y_n - x)}_{z_1}
-    + \underbrace{(y_m - x)}_{z_2}}^2 
-  \]
-\\ Let's use parallelogram law. $\|z_1 + z_2\|^2 + \|z_1 - z_2\|^2 = 2\|z_1\|^2
-+ 2\|z_2\|^2$, \\
-$\underbrace{\|(y_n - x) + (y_m - x)\|^2}_{\geq 4d^2} + \|y_n -
-y_m\|^2 = 2\overbrace{\|y_n - x\|^2}^{\leq \left(d + \frac 1n\right)^2}
-+ 2 \overbrace{\|y_m - x\|^2}^{\leq \left(d + \frac 1m\right)^2}$ \\
-$\|y_n - y_m\|^2 \leq 2(d + \dfrac 1n)^2 + 2(d + \dfrac 1m)^2 - 4d^2 = 4d \dfrac
-1n + \dfrac{2}{n^2} + 4 d \dfrac 1m + \dfrac{2}{m^2} \xrightarrow[n, m \to
-  0]{} 0$ \\
-$\|y_n - y_m\| \xrightarrow[n, m \to 0]{} 0 \implies \exists \lim y_n$
+  $x \in H,\ H_1,\ H_2 = H_1^{\perp} \\
+  \exists x_1 \in H_1 \colon \|x - x_1\| = \inf\limits_{n \in H_1}\|x - n\| \\
+  x_2 = x - x_1\ \in H_2 ? \\
+  \forall y \in H_1 y \perp x_2,\ \lambda > 0,\ x_ 1+ \lambda y \in H_1 (H_1
+  \text{--- subspace}) \\
+  By definition of best approximation element \|x - (x_1 - \lambda^2)\| \geq \|x
+  - x_1\|^2 \forall \lambda > 0 \\$
+  Раскроем квадраты норм через скалярное произедение \\
+  $\inprod{\underbrace{x - x_1}_{x_2} - \lambda y, x - x_1 - \lambda y} \geq
+  \inprod{x - x_1, x - x_1} \\
+   \inprod{x_2 - \lambda y, x_2 - \lambda y} \geq \inprod{x_2, x_2} \\
+   \inprod{x_2, x_2} - 2 \lambda \inprod{y, x_2} + \lambda^2 \inprod{y, y} \geq
+   \inprod{x_2, x_2}\ : \lambda > 0 \\
+   2 \inprod{y, x_2} \leq \lambda \inprod{y, y},\ \lambda \to +0 \implies
+   \inprod{y, x_2} \leq 0 \\$ 
+   Substitute $y$ for $-y$:
+   $\inprod{-y, x_2} \leq 0 \implies \inprod{y, x_2} \geq 0 \implies \inprod{y, x_2} = 0$
 \end{proof}
-\begin{cor}
-  $H$ --- HS, $H_1$ --- subspace (closed linear subset). \\
-  $H_2$ = $H_1^{\perp} = \Set{y \in H | y \perp x, x \in H_1}$ --- \textbf{orthogonal addition}. \\
-  $\forall x \in H$ can be unambiguously written as $x = x_1 + x _2,\ x_1 \in H_1,\ x_2 \in H_1^{\perp}$
-\end{cor}
-\begin{note}
-  $H = H_1 \oplus H_1^{\perp}$
-\end{note}
-
-
+\section{Countably-normed spaces.}
+\begin{defn}
+  $X$ --- linear set, $p$ --- halfnorm (function satisfying all 3 norm axioms,
+  but the first one is weakened $p(x) \geq 0$, but p can be zero on non-zero
+  $x$).
+  \begin{enumerate}
+  \item $p(x) \geq 0$
+  \item $p(\lambda x) = |\lambda| p(x)$
+  \item $p(x + y)$
+  \end{enumerate}
+\end{defn}
+\begin{defn}
+  $p_1, p_2, \dotsc, p_n\ dotsc$ --- halfnorms $\forall n p_n(x) = 0 \implies x
+  = 0$ $(X, p_1, p_2, \dotsc, p_n, \dotsc )$ --- \textbf{countably normed space}.
+\end{defn}
+$x = \lim x_m \iff \forall n \in \N \lim\limits_{m \to \infty} (x_m - x ) = 0\ \|\cdot\|$
+$x_m \to x^{'} \implies \forall n\ p_n(x_m - x^{'}) \to 0
+x_m \to x^{''} \implies \forall n\ p_n$
+If in countably-normed space we assume $p(x, y) = \sum\limits_{n = 1}^\infty
+\dfrac{1}{2^n}\dfrac{p_(x - y)}{1 + p_n(x - y)}\ R^\infty$
+Thus countably-normed space is always metrizable.
+In countably-normed space two linear operations $(x + y, \lambda x)$ are
+continuous, which means any countably normed space is also a topological vector space.
+\begin{ex}
+  $C^\infty[a, b] = \Set{x(t), t \in [a, b] | x(t) \text{--- infinetely diff.}} \\
+  p_n(x) = \max\limits_{[a, b]}|x^{(n)}(t)|\ n = 0,1,2,\ dotsc$
+\end{ex}
+From the next theorem we will see that $C^\infty[a, b]$ is non-normalizable (has no norm convergence
+by which is equivalent to halfnorm convergence).
+We will try to deduce the criteria of countably-normed space normalizability.
+\begin{defn}
+  System of halfnorms is called \textbf{monotonous} if $\forall x \in X,\
+  \forall n \in \N\ p_n(x) \leq p_{n + 1}(X)$
+\end{defn}
+\begin{defn}
+  ${p_n} \sim {q_n}$ if they have the same convergence (limits in both systems
+  are equal).
+\end{defn}
+\begin{defn}
+  $p_m in {p_n}$ --- \textbf{essential} if it can not be majorized by any of
+  the preceeding halfnorms. p_m can be majorized by p_n if \exists C, \forall x \in X
+  p_n(x) \leq C \cdot p_m(x).
+\end{defn}
+\begin{stm}
+  For any halfnorm system there exists equivalent monotonous system.
+\end{stm}
+\begin{proof}
+  Let $q_n(x) = \sum\limits_{k = 1}^n p_k(x)$, it is obvious that every $q_n$ is
+  halfnorm. ${q_n} \sim {p_n}?$
+  $p_n(x_m - x) \to 0 \implies \sum\limits_{k = 1}^n p_k(x_m - x) \to 0 \implies
+  q_n(x_m - x) \ to 0$. Backwards proof is the same.
+\end{proof}
+This statement allows us to operate only on monotonous halfnorm systems.
+\begin{stm}
+  Two monotonous halfnorm systems are equivalent if and only if they majorize
+  each other, i.e. for any halfnorm from first system there exists majorizing
+  halfnorm from another and vice verca.
+\end{stm}
+\begin{proof}
+  If two systems majorize each other obviously they are equivalent.
+  Let two systems be equivalent. ${p_n}$ and ${q_n}$
+\end{proof}
