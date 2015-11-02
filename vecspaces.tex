@@ -133,7 +133,7 @@ $(X, \rho);$ Having a metric space one can describe closure of a set.
     \rho(x, A) = f(x), x \in X
 \end{gather*}
 \begin{stm}
-  Function f(x) is continuous.
+  Function $f(x)$ is continuous.
 \end{stm}
 \begin{proof}
   $\forall x, y \in X \\
@@ -489,7 +489,7 @@ In Banach spaces works the theory of absolute convergence of numerical series.
       \equalto{\langle \lambda x + y, \lambda x + y \rangle}
       {\lambda^2 \langle x, x \rangle + 2 \lambda \langle x, y \rangle + \langle y, y \rangle} \geq 0 \\
     & D = 4 \langle x, y \rangle^2 - 4 \langle x, x \rangle \cdot \langle y, y
-    \rangle \leq 0 \qedhere
+    \rangle \leq 0 \qedhere % FIXME: \qedhere should not be here!
   \end{aligned}$
 \end{proof}
 
@@ -585,7 +585,7 @@ For abstract Fourier series the Borel theorem can be significantly strengthened 
 
 \begin{thm}[extreme quality of Fourier series' partial sums]
     $\Set{e_j}$ --- ONS in $X$ \\
-    $H_n = \L(l1, \dotsc, l_n)$ \\
+    $H_n = \L(l_1, \dotsc, l_n)$ \\
     $E_{H_n}(x), S_n(x) = \sum\limits_{j=1}^n \inprod{x, l_j} l_j \implies E_{H_n}(x) = \norm{x-S_n(x)}$
 \end{thm}
 \begin{proof}
@@ -606,92 +606,96 @@ For abstract Fourier series the Borel theorem can be significantly strengthened 
 \begin{cor}
   The series of Fourier coefficients' squares always converges
 \end{cor}
-% \section{Hilbert space.}
-% \begin{defn}
-%   \textbf{Hilbert space} --- complete, infinite dimensional, inner product space.
-% \end{defn}
-% \begin{ex}
-%   $L_2(E)$ --- Hilbert space. \\
-%   $\inprod{f, g} = \int\limits_E f \cdot g\ d\mu$ \\
-%   $l_2 = \Set{(x_1, \dotsc, x_n, \dotsc) | \sum\limits_{n = 1}^\infty x_n^2 < +\infty}$ \\
-%   $\inprod{\bar{x}, \bar{y}} = \sum\limits_{n = 1}^\infty x_n y_n,\ E = \N,\ \mu\{m\} = 1$
-% \end{ex}
-% \noindent
-% When we have completeness we can define orthonormal basis.
-% \begin{defn}
-%   $H,\ \{l_n\}$ --- ONS $\colon \forall x = \sum\limits_{n = 1}^\infty \alpha_n l_n
-%   \implies \inprod{x, l_m} = \sum\limits_{n = 1}^\infty \alpha_n \inprod{l_n, l_m} = \alpha_m$ \\ 
-% In this sense basis decomposition is always a Fourier series.
-%   \begin{enumerate}
-%   \item Complete ONS\@: $H = \cl{\L\{l_1, l_2, \dots\}}$
-%   \item Closed ONS\@: $\forall m\ \inprod{x, l_m} = 0 \implies x = 0$.
-%   \end{enumerate}
-% \end{defn}
-% \begin{stm}
-%   In Hilbert spaces two of the properties outlined above are equivalent. \\
-%   $\sum\limits_{n = 1}^\infty y_n$ in $H$ --- orthogonal series. \\
-%   $\|S_n - S_m\|^2 = \sum\limits_n^m \|y_n\|^2 \\
-%   \|S_n - S_m\| \to 0 \iff \sum\limits_n^m \|y_k\|^2 \to 0$ \\
-%   in H $\sum\limits_1^\infty \|y_k\|^2 < + \infty$
-% \end{stm}
-% \noindent
-% ONS $x \mapsto \sum\limits_{k = 1}^\infty \inprod{x, l_k} l_k$ \\
-% $\sum\limits_{k = 1}^\infty \inprod{x, l_k}^2 \leq \|x\|^2 < +\infty$
-% \begin{stm}
-%   In Hilbert space Fourier series converges for any point.
-% \end{stm}                                    
-% \begin{proof}
-%   Complete ONS. \\
-%   $\forall x \in H \forall \epsilon > 0\ \exists \sum\limits_{j =
-%     1}^p \alpha_{kj}l_{kj}\colon \underbrace{\|x - \sum\limits_{j = 1}^p
-%     \alpha_{kj}l_{kj}\|^2}_{\geq \|x - \sum\limits_{j = 1}^{k_p} \inprod{x, l_j} l_j\|^2}
-%   \leq \epsilon^2$ \\
-%   $S_m(x) by extremety \|x - S_{m + p}(x)\|^2 \leq \|x - S_m(x)\|^2$ \\
-%   Implies partial sums go to x, $x = \sum\limits_{j = 1}^\infty \inprod{x, l_j} l_j$
-%   If all fourier coefficients are zero, it means the ONS is closed $(x = 0)$. \\
-%   Closed ONS. \\
-%   $y = \sum\limits_{j = 1}^\infty \underbrace{\inprod{x, l_j}}_{ = \inprod{y,
-%       l_j}} l_j \implies \inprod{y, l_j} = \inprod{x, l_j} \implies \inprod{y - x,
-%     l_j} = 0$ \\
-%   Because ONS is closed $y - x = 0,\ y = x$. Thus we can decompose any point into
-%   Fourier series, and this implies that ONS is complete.
-% \end{proof}
-% Considering basis existance.
-% \begin{defn}
-%   Topological space is called \textbf{separable} if there exists countable dense set in it. \\
-%   $X = \cl{\{a_1, \dotsc, a_n, \dotsc\}}$
-% \end{defn}
-% $H$ --- separable, $a_1, \dotsc, a_n, \dotsc$ We can orthogonalize these dots
-% (Gramm-Shmidt), and we will get complete ONS.
-% This means space separability is equivalent to basis existance.
-% \begin{thm}[about best approximation in H]
-%   $H$ --- HS, $M$ --- closed convex subset of H, then $\forall x \in H \exists!
-%   y \in M \colon \|x -y\| = \inf\limits_{z \in M}\|x - z\|$.
-%   M has elemet of best approzimation for any x from X, and only one.
-% \end{thm}
-% \begin{proof}
-%   $d = \inf\limits_{z \in M}\|x - z\|$ by definition of infimum \\
-%   $\forall n \in \N \exists y_n \in M \colon d \leq \|x - y_n\| < d + dfrac 1n$ \\
-%   $\exitst ? y = \lim y_n \in M\ d \leq \|x - y\| \leq d$ \\
-%   $y_n, y_m \in M$ --- convex. Implies $\dfrac{y_n + y_m}{2} \in M \implies d^2
-%   \leq \norm{\dfrac{y_n + y_m}{2} - x}^2 = \dfrac{1}{4}\norm{\underbrace{(y_n - x)}_{z_1} + \underbrace{(y_m -
-%     x)}_{z_2}}^2$ 
-% \\ Let's use parallelogram law. $\|z_1 + z_2\|^2 + \|z_1 - z_2\|^2 = 2\|z_1\|^2
-% + 2\|z_2\|^2$, $\underbrace{\|(y_n - x) + (y_m - x)\|^2}_{\geq 4d^2} + \|y_n -
-% y_m\|^2 = 2\overbrace{\|y_n - x\|^2}^{\leq (d + \dfrac 1n)^2}
-% + 2 \overbrace{\|y_m - x\|^2}^{\leq (d + \dfrac 1m)^2}$ \\
-% $\|y_n - y_m\|^2 \leq 2(d + \dfrac 1n)^2 + 2(d + \dfrac 1m)^2 - 4d^2 = 4d \dfrac
-% 1n + \dfrac{2}{n^2} + 4 d \dfrac 1m + \dfrac{2}{m^2} \xrightarrow{n, m \to
-%   0}{0}$ \\
-% $\|y_n - y_m\| \xrightarrow{n, m \to 0}{0} \implies \exists \lim y_n$
-% \end{proof}
-% \begin{cor}
-%   $H$ --- HS, $H_1$ --- subspace (closed linear subset). $H_2$ = $H_1^{\perp} =
-%   \Set{y \in H | y \perp x, x \in H_1}$ --- \textbf{orthogonal addition}. \\
-%   $\forall x \in H$ can be однозначно. written as $x = x_1 + x _2,\ x_1 \in H_1,\ x_2 \in H_1^{\perp}$
-% \end{cor}
-% \begin{note}
-%   $H = H_1 \oplus H_1^{\perp}$
-% \end{note}
+\section{Hilbert space.}
+\begin{defn}
+  \textbf{Hilbert space} --- complete infinite dimensional inner product space.
+\end{defn}
+\begin{ex}
+  $L_2(E)$ --- Hilbert space. \\
+  $\inprod{f, g} = \int\limits_E f \cdot g\ d\mu$ \\
+  $l_2 = \Set{(x_1, \dotsc, x_n, \dotsc) | \sum\limits_{n = 1}^\infty x_n^2 < +\infty}$ \\
+  $\inprod{\bar{x}, \bar{y}} = \sum\limits_{n = 1}^\infty x_n y_n,\ E = \N,\ \mu\{m\} = 1$
+\end{ex}
+\noindent
+When we have completeness we can define orthonormal basis.
+\begin{defn}
+  $H,\ \{l_n\}$ --- ONS $\colon \forall x = \sum\limits_{n = 1}^\infty \alpha_n l_n
+  \implies \inprod{x, l_m} = \sum\limits_{n = 1}^\infty \alpha_n \inprod{l_n, l_m} = \alpha_m$ \\ 
+In this sense basis decomposition is always a Fourier series.
+  \begin{enumerate}
+  \item Complete ONS\@: $H = \cl{\L\{l_1, l_2, \dots\}}$
+  \item Closed ONS\@: $\forall m\ \inprod{x, l_m} = 0 \implies x = 0$.
+  \end{enumerate}
+\end{defn}
+\begin{stm}
+  In Hilbert spaces two of the properties outlined above are equivalent. \\
+  $\sum\limits_{n = 1}^\infty y_n$ in $H$ --- orthogonal series. \\
+  $\|S_n - S_m\|^2 = \sum\limits_n^m \|y_k\|^2 \\
+  \|S_n - S_m\| \to 0 \iff \sum\limits_n^m \|y_k\|^2 \to 0$ \\
+  in $H\ \sum\limits_1^\infty \|y_k\|^2 < + \infty$
+\end{stm}
+\noindent
+ONS $x \mapsto \sum\limits_{k = 1}^\infty \inprod{x, l_k} l_k$ \\
+$\sum\limits_{k = 1}^\infty \inprod{x, l_k}^2 \leq \|x\|^2 < +\infty$
+\begin{stm}
+  In Hilbert space Fourier series converges for any point.
+\end{stm}                                    
+\begin{proof}
+  Complete ONS. \\
+  $\forall x \in H \forall \epsilon > 0\ \exists \sum\limits_{j =
+    1}^p \alpha_{kj}l_{kj}\colon \underbrace{\|x - \sum\limits_{j = 1}^p
+    \alpha_{kj}l_{kj}\|^2}_{\geq \|x - \sum\limits_{j = 1}^{k_p} \inprod{x, l_j} l_j\|^2}
+  \leq \epsilon^2$ \\
+  $S_m(x)$ by extremety $\|x - S_{m + p}(x)\|^2 \leq \|x - S_m(x)\|^2$ \\
+  Implies partial sums go to $x = \sum\limits_{j = 1}^\infty \inprod{x, l_j} l_j$
+  If all fourier coefficients are zero, it means the ONS is closed $(x = 0)$. \\
+  Closed ONS. \\
+  $y = \sum\limits_{j = 1}^\infty \underbrace{\inprod{x, l_j}}_{ = \inprod{y,
+      l_j}} l_j \implies \inprod{y, l_j} = \inprod{x, l_j} \implies \inprod{y - x,
+    l_j} = 0$ \\
+  Because ONS is closed $y - x = 0,\ y = x$. Thus we can decompose any point into
+  Fourier series, and this implies that ONS is complete.
+\end{proof}
+Considering basis existance.
+\begin{defn}
+  Topological space is called \textbf{separable} if there exists countable dense set in it. \\
+  $X = \cl{\{a_1, \dotsc, a_n, \dotsc\}}$
+\end{defn}
+$H$ --- separable, $a_1, \dotsc, a_n, \dotsc$ We can orthogonalize these dots
+(Gramm-Shmidt), and we will get complete ONS.
+This means space separability is equivalent to basis existance.
+\begin{thm}[about best approximation in $H$]
+  $H$ --- HS, $M$ --- closed convex subset of $H$, then $\forall x \in H \ \exists!
+  y \in M \colon \|x -y\| = \inf\limits_{z \in M}\|x - z\|$.
+  $M$ has element of best approximation for any $x$ from $X$, and only one.
+\end{thm}
+\begin{proof}
+  $d = \inf\limits_{z \in M}\|x - z\|$ by definition of infimum \\
+  $\forall n \in \N \ \exists y_n \in M \colon d \leq \|x - y_n\| < d + \dfrac 1n$ \\
+  $\exists ? y = \lim y_n \in M\ d \leq \|x - y\| \leq d$ \\
+  $y_n, y_m \in M$ --- convex. Implies
+  \[
+    \dfrac{y_n + y_m}{2} \in M \implies d^2
+    \leq \norm{\dfrac{y_n + y_m}{2} - x}^2 = \dfrac{1}{4}\norm{\underbrace{(y_n - x)}_{z_1}
+    + \underbrace{(y_m - x)}_{z_2}}^2 
+  \]
+\\ Let's use parallelogram law. $\|z_1 + z_2\|^2 + \|z_1 - z_2\|^2 = 2\|z_1\|^2
++ 2\|z_2\|^2$, \\
+$\underbrace{\|(y_n - x) + (y_m - x)\|^2}_{\geq 4d^2} + \|y_n -
+y_m\|^2 = 2\overbrace{\|y_n - x\|^2}^{\leq \left(d + \frac 1n\right)^2}
++ 2 \overbrace{\|y_m - x\|^2}^{\leq \left(d + \frac 1m\right)^2}$ \\
+$\|y_n - y_m\|^2 \leq 2(d + \dfrac 1n)^2 + 2(d + \dfrac 1m)^2 - 4d^2 = 4d \dfrac
+1n + \dfrac{2}{n^2} + 4 d \dfrac 1m + \dfrac{2}{m^2} \xrightarrow[n, m \to
+  0]{} 0$ \\
+$\|y_n - y_m\| \xrightarrow[n, m \to 0]{} 0 \implies \exists \lim y_n$
+\end{proof}
+\begin{cor}
+  $H$ --- HS, $H_1$ --- subspace (closed linear subset). \\
+  $H_2$ = $H_1^{\perp} = \Set{y \in H | y \perp x, x \in H_1}$ --- \textbf{orthogonal addition}. \\
+  $\forall x \in H$ can be unambiguously written as $x = x_1 + x _2,\ x_1 \in H_1,\ x_2 \in H_1^{\perp}$
+\end{cor}
+\begin{note}
+  $H = H_1 \oplus H_1^{\perp}$
+\end{note}
 
 
