@@ -674,11 +674,13 @@ This means space separability is equivalent to basis existance.
   \exists x_1 \in H_1 \colon \|x - x_1\| = \inf\limits_{n \in H_1}\|x - n\| \\
   x_2 = x - x_1\ \in H_2 ? \\
   \forall y \in H_1 y \perp x_2,\ \lambda > 0,\ x_ 1+ \lambda y \in H_1 (H_1
-  \text{--- subspace}) \\
-  By definition of best approximation element \|x - (x_1 - \lambda^2)\| \geq \|x
-  - x_1\|^2 \forall \lambda > 0 \\$
+  \text{--- subspace})$
+
+  \noindent
+  By definition of best approximation element
+  $\|x - (x_1 - \lambda^2)\| \geq \|x - x_1\|^2 \quad \forall \lambda > 0 \\$
   Let's expand squared norms via inner product. \\
-  $\inprod{\underbrace{x - x_1}_{x_2} - \lambda y, x - x_1 - \lambda y} \geq
+  $\langle\underbrace{x - x_1}_{x_2} - \lambda y, x - x_1 - \lambda y\rangle \geq
   \inprod{x - x_1, x - x_1} \\
    \inprod{x_2 - \lambda y, x_2 - \lambda y} \geq \inprod{x_2, x_2} \\
    \inprod{x_2, x_2} - 2 \lambda \inprod{y, x_2} + \lambda^2 \inprod{y, y} \geq
@@ -700,20 +702,20 @@ This means space separability is equivalent to basis existance.
   \end{enumerate}
 \end{defn}
 \begin{defn}
-  $p_1, p_2, \dotsc, p_n\ dotsc$ --- halfnorms $\forall n p_n(x) = 0 \implies x
+  $p_1, p_2, \dotsc, p_n, \dotsc$ --- halfnorms $\forall n p_n(x) = 0 \implies x
   = 0$ $(X, p_1, p_2, \dotsc, p_n, \dotsc )$ --- \textbf{countably normed space}.
 \end{defn}
 $x = \lim x_m \iff \forall n \in \N \lim\limits_{m \to \infty} (x_m - x ) = 0\ \|\cdot\|$
 $x_m \to x^{'} \implies \forall n\ p_n(x_m - x^{'}) \to 0
 x_m \to x^{''} \implies \forall n\ p_n$
 If in countably-normed space we assume $p(x, y) = \sum\limits_{n = 1}^\infty
-\dfrac{1}{2^n}\dfrac{p_(x - y)}{1 + p_n(x - y)}\ R^\infty$
+\dfrac{1}{2^n}\dfrac{p_n(x - y)}{1 + p_n(x - y)} \R^\infty$
 Thus countably-normed space is always metrizable.
 In countably-normed space two linear operations $(x + y, \lambda x)$ are
 continuous, which means any countably normed space is also a topological vector space.
 \begin{ex}
   $C^\infty[a, b] = \Set{x(t), t \in [a, b] | x(t) \text{--- infinetely diff.}} \\
-  p_n(x) = \max\limits_{[a, b]}|x^{(n)}(t)|\ n = 0,1,2,\ dotsc$
+  p_n(x) = \max\limits_{[a, b]}\abs{x^{(n)}(t)}\ n = 0,1,2,\dotsc$
 \end{ex}
 From the next theorem we will see that $C^\infty[a, b]$ is non-normalizable (has no norm convergence
 by which is equivalent to halfnorm convergence).
@@ -727,9 +729,9 @@ We will try to deduce the criteria of countably-normed space normalizability.
   are equal).
 \end{defn}
 \begin{defn}
-  $p_m in {p_n}$ --- \textbf{essential} if it can not be majorized by any of
-  the preceeding halfnorms. p_m can be majorized by p_n if \exists C, \forall x \in X
-  p_n(x) \leq C \cdot p_m(x).
+  $p_m in \{p_n\}$ --- \textbf{essential} if it can not be majorized by any of
+  the preceeding halfnorms. $p_m$ can be majorized by $p_n$ if $\exists C, \forall x \in X
+  p_n(x) \leq C \cdot p_m(x)$.
 \end{defn}
 \begin{stm}
   For any halfnorm system there exists equivalent monotonous system.
@@ -738,7 +740,7 @@ We will try to deduce the criteria of countably-normed space normalizability.
   Let $q_n(x) = \sum\limits_{k = 1}^n p_k(x)$, it is obvious that every $q_n$ is
   halfnorm. ${q_n} \sim {p_n}?$
   $p_n(x_m - x) \to 0 \implies \sum\limits_{k = 1}^n p_k(x_m - x) \to 0 \implies
-  q_n(x_m - x) \ to 0$. Backwards proof is the same.
+  q_n(x_m - x) \to 0$. Backwards proof is the same.
 \end{proof}
 This statement allows us to operate only on monotonous halfnorm systems.
 \begin{stm}
