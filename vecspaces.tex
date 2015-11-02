@@ -670,6 +670,34 @@ This means space separability is equivalent to basis existance.
   $M$ has element of best approximation for any $x$ from $X$, and only one.
 \end{thm}
 \begin{proof}
+  $d = \inf\limits_{z \in M}\|x - z\|$ by definition of infimum \\
+  $\forall n \in \N \ \exists y_n \in M \colon d \leq \|x - y_n\| < d + \dfrac 1n$ \\
+  $\exists ? y = \lim y_n \in M\ d \leq \|x - y\| \leq d$ \\
+  $y_n, y_m \in M$ --- convex. Implies
+  \[
+    \dfrac{y_n + y_m}{2} \in M \implies d^2
+    \leq \norm{\dfrac{y_n + y_m}{2} - x}^2 = \dfrac{1}{4}\norm{\underbrace{(y_n - x)}_{z_1}
+    + \underbrace{(y_m - x)}_{z_2}}^2 
+  \]
+\\ Let's use parallelogram law. $\|z_1 + z_2\|^2 + \|z_1 - z_2\|^2 = 2\|z_1\|^2
++ 2\|z_2\|^2$, \\
+$\underbrace{\|(y_n - x) + (y_m - x)\|^2}_{\geq 4d^2} + \|y_n -
+y_m\|^2 = 2\overbrace{\|y_n - x\|^2}^{\leq \left(d + \frac 1n\right)^2}
++ 2 \overbrace{\|y_m - x\|^2}^{\leq \left(d + \frac 1m\right)^2}$ \\
+$\|y_n - y_m\|^2 \leq 2(d + \dfrac 1n)^2 + 2(d + \dfrac 1m)^2 - 4d^2 = 4d \dfrac
+1n + \dfrac{2}{n^2} + 4 d \dfrac 1m + \dfrac{2}{m^2} \xrightarrow[n, m \to
+  0]{} 0$ \\
+$\|y_n - y_m\| \xrightarrow[n, m \to 0]{} 0 \implies \exists \lim y_n$
+\end{proof}
+\begin{cor}
+  $H$ --- HS, $H_1$ --- subspace (closed linear subset). \\
+  $H_2$ = $H_1^{\perp} = \Set{y \in H | y \perp x, x \in H_1}$ --- \textbf{orthogonal addition}. \\
+  $\forall x \in H$ can be unambiguously written as $x = x_1 + x _2,\ x_1 \in H_1,\ x_2 \in H_1^{\perp}$
+\end{cor}
+\begin{note}
+  $H = H_1 \oplus H_1^{\perp}$
+\end{note}
+\begin{proof}
   $x \in H,\ H_1,\ H_2 = H_1^{\perp} \\
   \exists x_1 \in H_1 \colon \|x - x_1\| = \inf\limits_{n \in H_1}\|x - n\| \\
   x_2 = x - x_1\ \in H_2 ? \\
