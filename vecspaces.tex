@@ -692,32 +692,68 @@ For abstract Fourier series the Borel theorem can be significantly strengthened 
   $l_2 = \Set{(x_1, \dotsc, x_n, \dotsc) | \sum\limits_{n = 1}^\infty x_n^2 < +\infty}$ \\
   $\inprod{\bar{x}, \bar{y}} = \sum\limits_{n = 1}^\infty x_n y_n,\ E = \N,\ \mu\{m\} = 1$
 \end{ex}
+
 \noindent
 When we have completeness we can define orthonormal basis.
+
 \begin{defn}
-  $H,\ \{l_n\}$ --- ONS $\colon \forall x = \sum\limits_{n = 1}^\infty \alpha_n l_n
-  \implies \inprod{x, l_m} = \sum\limits_{n = 1}^\infty \alpha_n \inprod{l_n, l_m} = \alpha_m$ \\ 
-In this sense basis decomposition is always a Fourier series.
-  \begin{enumerate}
-  \item Complete ONS\@: $H = \cl{\L\{l_1, l_2, \dots\}}$
-  \item Closed ONS\@: $\forall m\ \inprod{x, l_m} = 0 \implies x = 0$.
-  \end{enumerate}
+  $H,\ \{e_n\}$ --- ONS $\colon \forall x = \sum\limits_{n = 1}^\infty \alpha_n e_n$
+  Then ${e_n}$ is called \textbf{orthonormal basis}.\\
+  Let's look at the inner product of arbitrary vector $x$ from $H$ and basis
+  vector $e_m$ \\ 
+  $\inprod{x, e_m} = \sum\limits_{n = 1}^\infty \alpha_n \inprod{e_n, e_m} =
+  \alpha_m$ \\
+  In this sense basis decomposition is always a Fourier series.
 \end{defn}
+
+\begin{enumerate}
+\item Complete ONS\@: Let $L = \L\{e_1, e_2, \dots\}$, then $H = \cl{L}$ ($L$ is dense in $H$)
+\item Closed ONS\@: $\forall m\ \inprod{x, e_m} = 0 \implies x = 0$.
+\end{enumerate}
+
 \begin{stm}
-  In Hilbert spaces two of the properties outlined above are equivalent. \\
-  $\sum\limits_{n = 1}^\infty y_n$ in $H$ --- orthogonal series. \\
-  $\|S_n - S_m\|^2 = \sum\limits_n^m \|y_k\|^2 \\
-  \|S_n - S_m\| \to 0 \iff \sum\limits_n^m \|y_k\|^2 \to 0$ \\
-  in $H\ \sum\limits_1^\infty \|y_k\|^2 < + \infty$
+\label{stm:ons_properties} In Hilbert spaces two of the properties outlined above are equivalent. \\
 \end{stm}
-\noindent
-ONS $x \mapsto \sum\limits_{k = 1}^\infty \inprod{x, l_k} l_k$ \\
-$\sum\limits_{k = 1}^\infty \inprod{x, l_k}^2 \leq \|x\|^2 < +\infty$
+
+% \noindent
+% $\sum\limits_{n = 1}^\infty y_n$ in $H$ --- orthogonal series. \\
+% Because $H$ is a Hilbert space, it is also a complete space, thus convergence of
+% the partial sums sequence $\lim\limits_{n, m \to +\infty} S_n - S_m = 0$ \\
+% is equivalent to the fact that it is a Cauchy sequence: $\|S_n - S_m\| \to 0$ \\
+% $S_n - S_m = \sum\limits_{k = n + 1}^m y_k \\
+% \|S_n - S_m\|^2 = \left\langle \sum\limits_{i=n+1}^m y_i, \sum\limits_{j=n+1}^m
+%   y_j \right\rangle = \sum\limits_{i, j = n+1}^m \langle y_i, y_j\rangle =
+% \sum\limits_{j=n+1}^m \langle y_j, y_j \rangle = \sum\limits_{j=n+1}^m \|y_j\|^2 \\
+% \|S_n - S_m\| \to 0 \iff \sum\limits_n^m \|y_k\| \to 0$ \\
+% in $H\ \sum\limits_1^\infty \|y_k\|^2 < + \infty$ TODO: разобраться, что тут происходит
+% ONS $x \mapsto \sum\limits_{k = 1}^\infty \inprod{x, l_k} l_k$ \\
+% $\sum\limits_{k = 1}^\infty \inprod{x, l_k}^2 \leq \|x\|^2 < +\infty$
+
 \begin{stm}
   In Hilbert space Fourier series converges for any point.
-\end{stm}                                    
+\end{stm}
+
 \begin{proof}
-  Complete ONS. \\
+  Let $H$ --- Hilbert space, $\sum\limits_{j = 1}^\infty \inprod{x, e_j}e_j$ --- abstract Fourier
+  series, $S_n = \sum\limits_{j = 1}^n \inprod{x, e_j}e_j$ --- it's partial sum.
+  We need to prove, that $\exists \lim\limits_{n \to \infty} S_n$.
+  $H$ is a Hilbert space, which means it is also complete. This means we only
+  have to prove that $\{S_n\}$ is Cauchy sequence, i.e. $\forall \epsilon > 0\
+  \exists N \in \N \colon \forall n, m > N\ \|S_n - S_m\| < \epsilon$ \\
+  Consider $\|S_n - S_m\|^2 = \norm{\sum\limits_{j = 1}^n \inprod{x, e_j} e_j -
+    \sum\limits_{j =  1}^m \inprod{x, e_j}e_j}^2 = \norm{\sum\limits_{j = m +
+      1}^n \inprod{x, e_j}e_j}^2 = \sum\limits_{j = m + 1}^n \abs{\inprod{x,
+      e_j}}^2$ \\
+  Because numerical series $\sum\limits_{j = m + 1}^n \abs{\inprod{x, e_j}}^2$
+  converges, by the Cauchy criteria we have the following: $\forall \epsilon > 0
+  \ \exists N \in \N\colon \forall n > m > N\ \abs{\sum\limits_{j = m + 1}^n
+    \abs{\inprod{x, e_j}}^2} < \epsilon^2$ or $\sum\limits_{j = m + 1}^n
+    \abs{\inprod{x, e_j}}^2 < \epsilon^2$, finally we get $\|S_n - S_m\| < \epsilon$.
+\end{proof}
+
+\begin{proof}
+\ref{stm:ons_properties}
+  Complete ONS $\implies$ Closed ONS \\
   $\forall x \in H\ \forall \epsilon > 0\ \exists \sum\limits_{j =
     1}^p \alpha_{kj}l_{kj}\colon \underbrace{\|x - \sum\limits_{j = 1}^p
     \alpha_{kj}l_{kj}\|^2}_{\geq \|x - \sum\limits_{j = 1}^{k_p} \inprod{x, l_j} l_j\|^2}
@@ -725,18 +761,20 @@ $\sum\limits_{k = 1}^\infty \inprod{x, l_k}^2 \leq \|x\|^2 < +\infty$
   $S_m(x)$ by extremety $\|x - S_{m + p}(x)\|^2 \leq \|x - S_m(x)\|^2$ \\
   Implies partial sums go to x, $x = \sum\limits_{j = 1}^\infty \inprod{x, l_j} l_j$
   If all fourier coefficients are zero, it means the ONS is closed $(x = 0)$. \\
-  Closed ONS. \\
-  $y = \sum\limits_{j = 1}^\infty \underbrace{\inprod{x, l_j}}_{ = \inprod{y,
-      l_j}} l_j \implies \inprod{y, l_j} = \inprod{x, l_j} \implies \inprod{y - x,
-    l_j} = 0$ \\
+  Closed ONS $\implies$ Complete ONS\\
+  $y \in H = \sum\limits_{j = 1}^\infty \underbrace{\inprod{x, e_j}}_{ = \inprod{y,
+      e_j}} e_j \implies \inprod{y, e_j} = \inprod{x, e_j} \implies \inprod{y - x,
+    e_j} = 0$ \\
   Because ONS is closed $y - x = 0,\ y = x$. Thus we can decompose any point into
   Fourier series, and this implies that ONS is complete.
 \end{proof}
+
 Considering basis existance.
 \begin{defn}
   Topological space is called \textbf{separable} if there exists countable dense set in it. \\
   $X = \cl{\{a_1, \dotsc, a_n, \dotsc\}}$
 \end{defn}
+
 $H$ --- separable, $a_1, \dotsc, a_n, \dotsc$ We can orthogonalize these dots
 (Gramm-Shmidt), and we will get complete ONS.
 This means space separability is equivalent to basis existance.
@@ -745,6 +783,7 @@ This means space separability is equivalent to basis existance.
   y \in M \colon \|x -y\| = \inf\limits_{z \in M}\|x - z\|$.
   $M$ has element of best approximation for any $x$ from $X$, and only one.
 \end{thm}
+
 \begin{proof}
   $d = \inf\limits_{z \in M}\|x - z\|$ by definition of infimum \\
   $\forall n \in \N \ \exists y_n \in M \colon d \leq \|x - y_n\| < d + \dfrac 1n$ \\
@@ -765,14 +804,17 @@ $\|y_n - y_m\|^2 \leq 2(d + \dfrac 1n)^2 + 2(d + \dfrac 1m)^2 - 4d^2 = 4d \dfrac
   0]{} 0$ \\
 $\|y_n - y_m\| \xrightarrow[n, m \to 0]{} 0 \implies \exists \lim y_n$
 \end{proof}
+
 \begin{cor}
   $H$ --- HS, $H_1$ --- subspace (closed linear subset). \\
   $H_2$ = $H_1^{\perp} = \Set{y \in H | y \perp x, x \in H_1}$ --- \textbf{orthogonal addition}. \\
   $\forall x \in H$ can be unambiguously written as $x = x_1 + x _2,\ x_1 \in H_1,\ x_2 \in H_1^{\perp}$
 \end{cor}
+
 \begin{note}
   $H = H_1 \oplus H_1^{\perp}$
 \end{note}
+
 \begin{proof}
   $x \in H,\ H_1,\ H_2 = H_1^{\perp} \\
   \exists x_1 \in H_1 \colon \|x - x_1\| = \inf\limits_{n \in H_1}\|x - n\| \\
@@ -794,6 +836,7 @@ $\|y_n - y_m\| \xrightarrow[n, m \to 0]{} 0 \implies \exists \lim y_n$
    Substitute $y$ for $-y$:
    $\inprod{-y, x_2} \leq 0 \implies \inprod{y, x_2} \geq 0 \implies \inprod{y, x_2} = 0$
 \end{proof}
+
 \section{Countably-normed spaces.}
 \begin{defn}
   $X$ --- linear set, $p$ --- halfnorm (function satisfying all 3 norm axioms,
@@ -805,10 +848,12 @@ $\|y_n - y_m\| \xrightarrow[n, m \to 0]{} 0 \implies \exists \lim y_n$
   \item $p(x + y)$
   \end{enumerate}
 \end{defn}
+
 \begin{defn}
   $p_1, p_2, \dotsc, p_n, \dotsc$ --- halfnorms $\forall n p_n(x) = 0 \implies x
   = 0$ $(X, p_1, p_2, \dotsc, p_n, \dotsc )$ --- \textbf{countably normed space}.
 \end{defn}
+
 $x = \lim x_m \iff \forall n \in \N \lim\limits_{m \to \infty} (x_m - x ) = 0\ \|\cdot\|$
 $x_m \to x^{'} \implies \forall n\ p_n(x_m - x^{'}) \to 0
 x_m \to x^{''} \implies \forall n\ p_n$
@@ -816,42 +861,52 @@ If in countably-normed space we assume $p(x, y) = \sum\limits_{n = 1}^\infty
 \dfrac{1}{2^n}\dfrac{p_n(x - y)}{1 + p_n(x - y)} \R^\infty$
 Thus countably-normed space is always metrizable.
 In countably-normed space two linear operations $(x + y, \lambda x)$ are
-continuous, which means any countably normed space is also a topological vector space.
+continuous, which means any countably normed space is also a topological vector
+space.
+
 \begin{ex}
   $C^\infty[a, b] = \Set{x(t), t \in [a, b] | x(t) \text{--- infinetely diff.}} \\
   p_n(x) = \max\limits_{[a, b]}\abs{x^{(n)}(t)}\ n = 0,1,2,\dotsc$
 \end{ex}
+
 From the next theorem we will see that $C^\infty[a, b]$ is non-normalizable (has no norm convergence
 by which is equivalent to halfnorm convergence).
 We will try to deduce the criteria of countably-normed space normalizability.
+
 \begin{defn}
   System of halfnorms is called \textbf{monotonous} if $\forall x \in X,\
   \forall n \in \N\ p_n(x) \leq p_{n + 1}(X)$
 \end{defn}
+
 \begin{defn}
   ${p_n} \sim {q_n}$ if they have the same convergence (limits in both systems
   are equal).
 \end{defn}
+
 \begin{defn}
   $p_m in \{p_n\}$ --- \textbf{essential} if it can not be majorized by any of
   the preceeding halfnorms. $p_m$ can be majorized by $p_n$ if $\exists C, \forall x \in X
   p_n(x) \leq C \cdot p_m(x)$.
 \end{defn}
+
 \begin{stm}
   For any halfnorm system there exists equivalent monotonous system.
 \end{stm}
+
 \begin{proof}
   Let $q_n(x) = \sum\limits_{k = 1}^n p_k(x)$, it is obvious that every $q_n$ is
   halfnorm. ${q_n} \sim {p_n}?$
   $p_n(x_m - x) \to 0 \implies \sum\limits_{k = 1}^n p_k(x_m - x) \to 0 \implies
   q_n(x_m - x) \to 0$. Backwards proof is the same.
 \end{proof}
+
 This statement allows us to operate only on monotonous halfnorm systems.
 \begin{stm}
   Two monotonous halfnorm systems are equivalent if and only if they majorize
   each other, i.e. for any halfnorm from first system there exists majorizing
   halfnorm from another and vice verca.
 \end{stm}
+
 \begin{proof}
   If two systems majorize each other obviously they are equivalent.
   Let two systems be equivalent. ${p_n}$ and ${q_n}$
