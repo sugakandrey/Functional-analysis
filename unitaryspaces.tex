@@ -1,0 +1,156 @@
+\section{Inner product (unitary) spaces}
+\begin{defn}
+  $X$ --- linear space. \\
+  $\phi \colon X \times X \to \R$
+  \begin{enumerate}
+      \item $\phi(x, x) \ge 0,\quad \phi(x, x) = 0 \iff x = 0$
+  \item $\phi(x, y) = \phi(y, x)$
+  \item $\phi(\alpha x + \beta y, z) = \alpha \phi(x, z) + \beta \phi(y, z)$
+  \end{enumerate}
+  $\phi$ --- \textbf{inner product}. \\
+  $\phi(x, y) = \langle x, y \rangle$
+\end{defn}
+
+\begin{defn}
+  $(X, \langle \cdot, \cdot \rangle)$ --- \textbf{inner product space}.
+\end{defn}
+
+\begin{ex}
+  $\R^n, \langle \bar{x}, \bar{y} \rangle = \sum\limits_{j = 1}^n x_j y_j$
+\end{ex}
+
+\begin{stm}[Schwarz]
+  $\forall x, y \in X \quad \abs{\langle x, y \rangle} \leq \sqrt{\langle x,
+    x \rangle} \cdot \sqrt{\langle y, y \rangle}$
+\end{stm}
+
+\begin{proof}
+  Consider $ \lambda \in \R$.
+  \begin{align*}
+    & f(\lambda) =
+      \equalto{\langle \lambda x + y, \lambda x + y \rangle}
+      {\lambda^2 \langle x, x \rangle + 2 \lambda \langle x, y \rangle + \langle y, y \rangle} \geq 0 \\
+    & D = 4 \langle x, y \rangle^2 - 4 \langle x, x \rangle \cdot \langle y, y
+    \rangle \leq 0 \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{cor}[Cauchy inequality for sums]
+  Consider $X = \R^n, \norm{x} \defeq \sqrt{\langle x, x \rangle}$. Then
+  \[
+  \norm{x+y}^2 = \inprod{x+y, x+y} = \norm{x}^2 + 2 \cdot \!\!\underbracket{\inprod{x, y}}_{{} \le \norm{x} \cdot \norm{y}}\!\! + \norm{y}^2 \le \bigl(\norm{x} + \norm{y}\bigr)^2
+  \]
+\end{cor}
+
+Any inner product space is a special case of a normed space. The specifics is that we can measure the angles between points:
+\[
+  x \perp y \iff \inprod{x, y} = 0
+\]
+In this case the Pythagorean theorem takes place:
+\[
+\norm{x+y}^2 = {\norm x}^2 + {\norm y}^2
+\]
+
+\noindent In inner product spaces the parallelogram law plays a significant role:
+\[
+\norm{x+y}^2 + \norm{x-y}^2 = 2 \norm{x}^2 + 2 \norm{y}^2 \quad \forall x, y \in X
+\]
+
+In an inner product space norm is determined by inner product:
+$\|x\|^2 = \inprod{x, x}$ \\
+It can be proved that if parallelogram law holds, then the norm must be
+determined by some inner product. Let $X$ be some normed space, $x \in X$, then
+$\inprod{\cdot, \cdot} \mapsto \norm{x} = \sqrt{\inprod{x, x}}$.
+For any norm satisfying the parallelogram law, the inner
+product generating the norm is unique.
+
+\begin{ex}
+  $C_{[a, b]},\ \|f\| = \max\limits_{x \in [a, b]}|f(x)|$, $\|f\|$ doesn't satisfy
+  the parallelogram law and thus is not determined by any inner product. This
+  fact implies that $C_{[a, b]}$ is not an inner product space.
+\end{ex}
+
+\begin{defn}
+  \textbf{Orthonormal set} --- a set of points $\Set{l_1, l_2, \dotsc}$ (may be finite):
+  \begin{enumerate}
+    \item $\norm{e_i} = 1$
+    \item $l_i \perp e_j,\ i \ne j$
+  \end{enumerate}
+\end{defn}
+\noindent Every orthonormal set is linearly independent.
+
+\begin{defn}
+  Let $x \in X, \Set{e_i}$ --- ONS. Then \\
+  $\inprod{x, e_j}$ --- \textbf{abstract Fourier coefficient}, \\
+  $\sum\limits_j \inprod{x, e_j} e_j$ --- \textbf{abstract Fourier series} of point $x$.
+\end{defn}
+\noindent Fourier series is a special case of orthogonal series.
+
+\begin{defn}
+  $\sum\limits_j x_j$ --- \textbf{orthogonal series} $\iff x_i \perp x_j, \quad i \ne j$
+\end{defn}
+
+\noindent Let $\sum\limits_{j=1}^\infty x_j, S_m = \sum\limits_{j=1}^m x_j$. Then
+\[\textstyle
+\norm{S_m}^2 = \bigl\langle \sum\limits_{j=1}^m x_j,\sum\limits_{j=1}^m x_j \bigr\rangle = \sum\limits_{j=1}^m \norm{x_j}^2
+\]
+
+\noindent This fact allows us to effectively build the theory of orthogonal series.
+
+An important problem is concerned with Fourier series. Let $X$ is a normed space, $Y$ is a subspace of $X$,
+\[
+\forall x \in X \quad E_Y(x) = \rho(x, Y) = \inf_{y \in Y} \norm{x-y}
+\]
+
+\begin{defn}
+  $E_Y (x)$ --- \textbf{best approximation} of point $x$ with points of the subspace $Y$. 
+  If $\exists y^* \in Y\ E_Y(x) = \norm{x - y^*}$, then $y^*$ is called the \textbf{element of best approximation}.
+\end{defn}
+
+\begin{thm}[Borel]
+  $\dim Y < +\infty \implies \forall x \in X\ \exists y^* \in Y$ --- element of best approximation.
+\end{thm}
+\begin{proof}
+  $Y = \L(\underbracket{l_1, l_2, \dotsc, l_n}_{\text{lin. indep.}})$
+  Consider $f(\alpha_1, \dotsc, \alpha_n) = \bigl\| x - \sum\limits_{k=1}^n \alpha_k l_k \bigl\| \to \min$. 
+  By the triangle inequality for norm, $f(\bar \alpha)$ is continous on $\R^n, f
+  \ge 0, E_Y(x) = \inf\limits_{\bar{\alpha} \in \R^n} f(\bar \alpha)$.
+  It is easy to find out that there always is a ball $B(0, r) \subset \R^n$, outside
+  of which $f > 2E_Y(x)$. So, $E_Y(x)$ is somewhere inside. But $f$ is
+  continuous, ball $B(0, r)$ is compact, so, by the Weierstrass theorem, the minimum
+  exists and is located inside the $B(0, r)$.
+\end{proof}
+
+For abstract Fourier series the Borel theorem can be significantly strengthened by specifying the best approximation element.
+
+\begin{thm}[extreme quality of Fourier series' partial sums]
+    $\{e_j\}$ --- ONS in $X$ \\
+    $H_n = \L(e_1, \dotsc, e_n)$ \\
+    $E_{H_n}(x), S_n(x) = \sum\limits_{j=1}^n \inprod{x, e_j} e_j \implies E_{H_n}(x) = \norm{x-S_n(x)}$
+\end{thm}
+
+\begin{proof}
+  $y = \sum\limits_{j=1}^n \alpha_j e_j \in H_n$
+  \begin{align*}
+    \norm{x-y}^2 &= \inprod{x - \sum \alpha_j e_j, x - \sum \alpha_j e_j} = \norm{x}^2 - 2 \sum \alpha_j \inprod{x, e_j} + \sum{\alpha_j^2} = \\
+    {} &= {\underbracket{\norm{x}}_{\mathrm{const}}}^2 + \sum (\alpha_j - \inprod{x, e_j})^2 - \underbracket{\sum \inprod{x, e_j}^2}_{\mathrm{const}} \to \min
+  \end{align*}
+  \noindent So, the sum goes to minimum when the second summand is minimal. Obviously, it's minimal when $\forall (\alpha_j - \inprod{x, l_j}) = 0$. $E_Y(x)$ --- Fourier sum.
+\end{proof}
+
+\begin{cor}[Bessel's inequality]
+  $\sum\limits_j \inprod{x, e_j}^2 \le \norm{x}^2$
+\end{cor}
+
+\begin{proof}
+  Bessel's inequality follows from the identity:
+  \begin{align*}
+    0 \le \norm{x - y^*}^2 = \norm{x - \sum\limits_{j = 1}^n \inprod{x,
+    e_j}e_j}^2 &= \norm{x}^2 - 2\sum\limits_{j = 1}^n \abs{\inprod{x, e_j}}^2 +
+    \sum\limits_{j = 1}^n \abs{\inprod{x, e_j}}^2\\  &= \norm{x}^2 - \sum\limits_j \inprod{x, e_j}^2 \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{cor}
+  The series of Fourier coefficients' squares always converges
+\end{cor}

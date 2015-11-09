@@ -1,0 +1,74 @@
+\section{Countably-normed spaces.}
+\begin{defn}
+  $X$ --- linear set, $p$ --- halfnorm (function satisfying all 3 norm axioms,
+  but the first one is weakened $p(x) \geq 0$, but p can be zero on non-zero
+  $x$).
+  \begin{enumerate}
+  \item $p(x) \geq 0$
+  \item $p(\lambda x) = |\lambda| p(x)$
+  \item $p(x + y)$
+  \end{enumerate}
+\end{defn}
+
+\begin{defn}
+  $p_1, p_2, \dotsc, p_n, \dotsc$ --- halfnorms $\forall n p_n(x) = 0 \implies x
+  = 0$ $(X, p_1, p_2, \dotsc, p_n, \dotsc )$ --- \textbf{countably normed space}.
+\end{defn}
+
+$x = \lim x_m \iff \forall n \in \N \lim\limits_{m \to \infty} (x_m - x ) = 0\ \|\cdot\|$
+$x_m \to x^{'} \implies \forall n\ p_n(x_m - x^{'}) \to 0
+x_m \to x^{''} \implies \forall n\ p_n$
+If in countably-normed space we assume $p(x, y) = \sum\limits_{n = 1}^\infty
+\dfrac{1}{2^n}\dfrac{p_n(x - y)}{1 + p_n(x - y)} \R^\infty$
+Thus countably-normed space is always metrizable.
+In countably-normed space two linear operations $(x + y, \lambda x)$ are
+continuous, which means any countably normed space is also a topological vector
+space.
+
+\begin{ex}
+  $C^\infty[a, b] = \Set{x(t), t \in [a, b] | x(t) \text{--- infinetely diff.}} \\
+  p_n(x) = \max\limits_{[a, b]}\abs{x^{(n)}(t)}\ n = 0,1,2,\dotsc$
+\end{ex}
+
+From the next theorem we will see that $C^\infty[a, b]$ is non-normalizable (has no norm convergence
+by which is equivalent to halfnorm convergence).
+We will try to deduce the criteria of countably-normed space normalizability.
+
+\begin{defn}
+  System of halfnorms is called \textbf{monotonous} if $\forall x \in X,\
+  \forall n \in \N\ p_n(x) \leq p_{n + 1}(X)$
+\end{defn}
+
+\begin{defn}
+  ${p_n} \sim {q_n}$ if they have the same convergence (limits in both systems
+  are equal).
+\end{defn}
+
+\begin{defn}
+  $p_m in \{p_n\}$ --- \textbf{essential} if it can not be majorized by any of
+  the preceeding halfnorms. $p_m$ can be majorized by $p_n$ if $\exists C, \forall x \in X
+  p_n(x) \leq C \cdot p_m(x)$.
+\end{defn}
+
+\begin{stm}
+  For any halfnorm system there exists equivalent monotonous system.
+\end{stm}
+
+\begin{proof}
+  Let $q_n(x) = \sum\limits_{k = 1}^n p_k(x)$, it is obvious that every $q_n$ is
+  halfnorm. ${q_n} \sim {p_n}?$
+  $p_n(x_m - x) \to 0 \implies \sum\limits_{k = 1}^n p_k(x_m - x) \to 0 \implies
+  q_n(x_m - x) \to 0$. Backwards proof is the same.
+\end{proof}
+
+This statement allows us to operate only on monotonous halfnorm systems.
+\begin{stm}
+  Two monotonous halfnorm systems are equivalent if and only if they majorize
+  each other, i.e. for any halfnorm from first system there exists majorizing
+  halfnorm from another and vice verca.
+\end{stm}
+
+\begin{proof}
+  If two systems majorize each other obviously they are equivalent.
+  Let two systems be equivalent. ${p_n}$ and ${q_n}$
+\end{proof}
