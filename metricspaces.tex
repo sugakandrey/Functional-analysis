@@ -166,11 +166,11 @@ $(X, \rho);$ Having a metric space one can describe closure of a set.
 \begin{stm}
   $x \in \cl{A} \iff \rho(x, A) = 0$
 \end{stm}
-
+\noindent
 Let's look at the metric spaces in terms of separation of sets from each other by open sets. \\
 $x, y \\
 r = \rho(x, y) > 0 \\
-B_{\dfrac{r}{3}}(x),\ B_{\dfrac{r}{3}}(y)$ \\
+B_{\sfrac{r}{3}}(x),\ B_{\sfrac{r}{3}}(y)$ \\
 In any metric space separability axiom is true.
 
 \begin{thm}
@@ -182,9 +182,9 @@ In any metric space separability axiom is true.
   $g(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)}$ --- continuous on X \\
   $x \in F_1,\ \cl{F_1} = F_1,\ \rho(x, F_1) = 0,\ g(x) = 0 \\
   x \in F_2,\ g(x) = 1$ \\
-  Let's look at $(-\infty; \dfrac{1}{3}), (\dfrac{2}{3}, \infty)$ --- by continuity their inverse images under $g$ are open. \\
-  $G_1 = g^{-1}(-\infty; \dfrac{1}{3}) \\
-  G_2 = g^{-1}(\dfrac{2}{3}; \infty)$
+  Let's look at $(-\infty; \frac{1}{3}), (\frac{2}{3}, \infty)$ --- by continuity their inverse images under $g$ are open. \\
+  $G_1 = g^{-1}(-\infty; \frac{1}{3}) \\
+  G_2 = g^{-1}(\frac{2}{3}; \infty)$
 \end{proof}
 
 \begin{defn}
@@ -222,7 +222,7 @@ $\\A \subset X,\ \tau_a = \Set{G \cap A, G \in \tau}$ --- topology induced on $A
 
 \begin{note}
   It is easy to understand, that in metric spaces nowhere density means the following: \\
-  $\forall \text{ ball } V\ \exists V^{'} \subset V\colon V^{'}$ contains no
+  $\forall \text{ ball } V\ \exists V' \subset V\colon V'$ contains no
   points from A.
 \end{note}
 
@@ -260,16 +260,16 @@ $\\A \subset X,\ \tau_a = \Set{G \cap A, G \in \tau}$ --- topology induced on $A
   $K$ --- \textbf{compact} if
   \begin{enumerate}
     \item $K = \cl{K}$
-    \item \label{itm:second}$x_n \in K\ \exists n_1 < n_2 < \dotso\ x_{n_j} - \textnormal{converges in $X$}$.
+    \item \label{itm:precomp}$x_n \in K\ \exists n_1 < n_2 < \dotso\ x_{n_j} - \textnormal{converges in $X$}$.
   \end{enumerate}
-  If only \ref{itm:second} is present, the set is called \textbf{precompact}.
+  If only \ref{itm:precomp} is present, the set is called \textbf{precompact}.
 \end{defn}
 
 \begin{thm}[Hausdorff]
   Let $X$ --- metric space, $K$ --- closed in $X$. \\
   \underline{Then:} $K$ --- compact $\iff$ $K$ --- totally bounded, \\
   i.e. $\forall \epsilon > 0\ \exists a_1,\dotsc, a_p \in X \colon\ \forall b \in K\ \exists a_j \colon\ \rho(a_j, b) < \epsilon \\
-  (a_1, \dotsc, a_p - finite\ \epsilon-net)$
+  (a_1, \dotsc, a_p\text{ --- finite $\epsilon$-net})$
 \end{thm}
 
 \begin{proof}\leavevmode
@@ -283,14 +283,14 @@ $\\A \subset X,\ \tau_a = \Set{G \cap A, G \in \tau}$ --- topology induced on $A
 
       Let's look at $\overline{V}_{j_0} \cap K$ --- totally bounded $= K_1, \diam{K_1} \leq 2\epsilon_1$ \\
       $\epsilon_2\quad K_1 \subset \bigcup\limits_{j =1}^n
-      \overline{V^{'}}_{j},\ rad = \epsilon_2.$
+      \overline{V'}_j,\ \mathrm{rad} = \epsilon_2.$
 
       Then one of $\overline{V'}$ contains infinitely many elements of the sequence contained in $K_1$.
 
       $\overline{V'}_{j_0} \cap K_1 = K_2,\ \diam{K_2} \leq 2\epsilon_2$ and so on.
 
       $K_n \supset K_{n+1} \supset K_{n+2} \supset \dotso,\ \diam{K_N} \leq 2\epsilon_n
-      \xRightarrow{\text{by compl.}} \underbrace{\bigcap\limits_{n = 1}^\infty K_n}_{\diam{K_n} \to 0,\ \{x\}} \neq \varnothing$
+      \xRightarrow{\text{by compl.}} \underbrace{\bigcap\limits_{n = 1}^\infty K_n}_{\diam{K_n} \to 0,\ \{x\}} \!\!\!\!\!\!\!\!\neq \varnothing$
 
       Take $x_{n_1}$ from $K_1$, $x_{n_2}$ from $K_2 \dotso$
     \item Compact $\implies$ totally bounded
