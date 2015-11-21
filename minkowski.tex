@@ -1,0 +1,37 @@
+\section{Minkowski functional.}
+$X$ --- linear set. $M \subset X$, $M$ --- convex $\iff$ $x,y \in M \implies
+\alpha x + \beta y \in M,\ \alpha + \beta = 1, \alpha, \beta \geq 0$ \\
+\begin{defn}
+  $M$ --- \textbf{absorbs} $A \subset X$ if $\exists \lambda_0 \colon \forall
+  \lambda \colon |\lambda| \geq \lambda_0 \implies A \subset \lambda M =
+  \Set{\lambda x, x \in M}$ \\
+\end{defn}
+
+\begin{defn}
+  If $M$ absorbs any finite number of points, its is called \textbf{radial set}.
+\end{defn}
+
+\begin{defn}
+  $M$ is called \textbf{circled}, if $\forall \lambda \colon |\lambda| \leq 1\ \lambda M
+  \subset M$
+\end{defn}
+
+\begin{ex}
+  $X$ --- NS, $\overline{V} = \Set{\|x\| \leq 1}$ --- convex, radial and circled.
+\end{ex}
+
+Next definition has fundamental meaning for our theory.
+\begin{defn}
+  $M$ --- radial set. $\forall x \in X$ \\
+  $\phi_M(x) = \inf \Set{lambda \geq 0 | x \in \lambda M}$ ---
+  \textbf{Minkowski functional}.
+\end{defn}
+
+\begin{ex}
+  $\phi_{\overline{V}}(x) = \|x\|$
+\end{ex}
+
+It is easy to find out the following:
+\begin{stm}
+  $\phi_M$ is a halfnorm on $X$ if and only if $M$ --- radial, convex and circled.
+\end{stm}

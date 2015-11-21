@@ -162,15 +162,15 @@ $\|\cdot\|_1 \sim \|\cdot\|_2,\ x_n \overset{\|\cdot\|_1}{\to} x \iff x_n \overs
   Lebesgue space,
   $p \geq 1, L_p(E) = \Set{f \textnormal{ is measurable on $E$},\ \int\limits_E \abs{f}^P < + \infty}$.
 \end{ex}
-If $X$ --- Banach space,
-\begin{align*}
+If $X$ --- Banach space, \\
+$\begin{aligned}[t]
 & \sum_{n = 1}^\infty x_n = \lim_{n \to \infty}
 \sum_{k = 1}^n x_k,\ \sum_{n=1}^\infty \|x_n\| < + \infty \\
 & \|S_n - S_m\| = \norm{\sum_{k = m + 1}^n x_k} \leq \sum_{m + 1}^n
 \|x_k\| \xrightarrow[n, m \to \infty]{} 0 \\
 & \implies \|S_n - S_m\| \to 0 \implies  \exists \lim_{n \to \infty} S_n,
-\sum_{k=1}^n x_k \text{ converges.}
-\end{align*}
+\sum_{k=1}^n x_k \text{--- converges.}
+\end{aligned}$ \\
 
 In Banach spaces works the theory of absolute convergence of numerical series.
 
@@ -193,7 +193,7 @@ In Banach spaces works the theory of absolute convergence of numerical series.
   z_\epsilon = \dfrac{x - y_\epsilon}{\|x - y_\epsilon\|},\ \|z_\epsilon\| = 1 \\
   \forall y \in Y\ \|z_\epsilon - y\| = \norm{\dfrac{x - y_\epsilon}{\|x -
       y_\epsilon\|} - y} = \dfrac{\|x - \overbrace{(y_\epsilon + \|x - y_\epsilon\| \cdot y)}^{\in Y}\|
-    \geq d}{\|x- y_\epsilon\| < \frac{1}{1 - \epsilon}d} > 1 - \epsilon$
+    \geq d}{\|x- y_\epsilon\| < \dfrac{1}{1 - \epsilon}d} > 1 - \epsilon$
 \end{proof}
 
 \begin{cor}
@@ -205,7 +205,7 @@ In Banach spaces works the theory of absolute convergence of numerical series.
   $\forall x_1 \in S,\ Y_1 = \L\{x_1\}$ --- finite dimensional linear set.
   $\implies\ \text{closed in}\ X \implies Y_1$ --- subspace. \\
   $\dim{X} = + \infty > \dim{Y_1} \implies Y_1$ --- eigen subspace. \\
-  Then by the Riesz lemma $(\epsilon = \frac 12)$:
+  Then by the Riesz lemma ($\epsilon = \dfrac 12$):
   \begin{align*}
     & \exists x_2 \in X \colon \|x_2\| = 1,\ \|x_2 - x_1\| > \dfrac 12\ \textnormal{(Notice that $x_2$ appears to be an element of $S$)} \\
     & Y_2 = \L\{x_1, x_2\}\ \exists x_3 \in S\colon \|x_3 - x_j\| > \dfrac 12,\ j = 1,2

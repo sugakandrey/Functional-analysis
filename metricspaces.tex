@@ -35,13 +35,15 @@ G --- open in $\tau$ \\
 $F = X \setminus G$ --- closed
 
 \begin{defn}
-  $B_r (a) = \Set{x | \rho(x, a) < r}$ --- \textbf{open ball}
+  Given a metric space $(X, \rho)$ an \textbf{open ball} with radius r around a
+  is defined as the set
+  $B_r (a) = \Set{x | \rho(x, a) < r},\ r \in \R_+$
 \end{defn}
 
 \begin{stm}
   Any metric space gives rise to a topological space in a rather simple way.
-  Let's call the subset $G \subset X$ open if and only if $\forall x \in G$
-  there is some $r$ such that open ball $B_r(x)$ is contained in $G$. Then $\tau = \bigcup B_r (x)$
+  Let's call $G \subset X$ open if and only if $\forall x \in G$
+  there exists some $r$ such that open ball $B_r(x)$ is contained in $G$.
 \end{stm}
 
 \begin{stm}
@@ -131,7 +133,7 @@ $x_n \to x,\ \epsilon = \dfrac{1}{2},\ \exists M:\ m > M \implies \rho(x_m, x) <
 \end{ex}
 
 \begin{defn}
-    \[(X, \tau);\ \forall A \subset X;\]
+    $(X, \tau);\ \forall A \subset X$
   \begin{align*}
      \inter{A}& \defeq \bigcup\limits_{G \subset A} G \textnormal{ is open}; \\
      \cl{A}& \defeq \bigcap\limits_{A \subset G} G \textnormal{ is closed}; \\
@@ -140,7 +142,7 @@ $x_n \to x,\ \epsilon = \dfrac{1}{2},\ \exists M:\ m > M \implies \rho(x_m, x) <
 \end{defn}
 
 \noindent
-$(X, \rho);$ Having a metric space one can describe closure of a set.
+Having a metric space $(X, \rho)$ one can describe closure of a set.
 
 \begin{gather*}
     \rho(x, A) \defeq \inf\limits_{a \in A}\rho(x, a) \\
@@ -174,8 +176,8 @@ B_{\sfrac{r}{3}}(x),\ B_{\sfrac{r}{3}}(y)$ \\
 In any metric space separability axiom is true.
 
 \begin{thm}
-  Any metric space is a normal space, \\i.e.
-  $\forall\ closed\ disjoint\ F_1, F_2 \in X,\ \exists\ open\ disjoint\ G_1, G_2\colon F_j \in G_j,\ j = 1, 2$
+  Any metric space is a normal space, \\
+  i.e. $\forall\ closed\ disjoint\ F_1, F_2 \in X,\ \exists\ open\ disjoint\ G_1, G_2\colon F_j \in G_j,\ j = 1, 2$
 \end{thm}
 
 \begin{proof}

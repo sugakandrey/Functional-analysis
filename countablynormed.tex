@@ -68,7 +68,36 @@ This statement allows us to operate only on monotonous halfnorm systems.
   halfnorm from another and vice verca.
 \end{stm}
 
-\begin{proof}
-  If two systems majorize each other obviously they are equivalent.
-  Let two systems be equivalent. ${p_n}$ and ${q_n}$
-\end{proof}
+% \begin{proof}
+%   If two systems majorize each other obviously they are equivalent.
+%   Let two systems be equivalent. ${p_n} \sim {q_n}$ \\
+%   $\{p_n\},\ \{p_n^{'}\}\ \forall p_n\ \exists p_m^{'} \colon\ const C\ \forall
+%   x \in X\ p_n(x) \leq C \cdot p_m^{'}(x)$ \\
+%   Proof by contradiction. Let $\exists p_{n_0} \colon \forall p_m^{'} \exists
+%   x_m \in X \colon p_{n_0}(x_m) \geq m \cdot p_m^{'}(x_m)$ \\
+%   $p_m^{'}(\dfrac{x_m}{p_{n_0}(x_m)}) \leq \dfrac 1m,\ y_m =
+%   \dfrac{x_m}{p_{n_0}(x_m)},\ P_m^{'}(y_m) \leq \dfrac 1m,\ p_{n_0}(y_m) = 1$ \\
+%   $p_m'$ --- monotonous, $m_0$ --- fix. $m \geq m_0\ p_{m_0}(y_m) \leq p_m(y_m)
+%   \leq \dfrac{1}{m}\ p_{m_0}(y_m) \leq \dfrac 1m,\ m \geq m_0,\ m \to +\infty$ \\
+%   $p_{m_0}(y_m) \to 0 \forall m_0 \{p_m'\} y_m \to 0$
+%   But $p_{n_0}(y_m) = 1 \not\to 0 m\to \infty \cntr$
+% \end{proof}
+
+% \begin{thm}[Normalizability criterion]
+%   Countably-normed space with monotonous halfnorm system is normalizable if and
+%   only if this system has finite number of essential halfnorms.
+% \end{thm}
+
+% \begin{proof}
+%   Let system has finite amount of essential halfnorms. $\{p_{n_1}, \dotsc
+%   p_{n_m}\}$ \\
+%   $\|x\| = \sum\limits_{k = 1}^{n_m}p_k(x)$ --- norm. Given system and this
+%   majorize each other. \\
+%   If the space is normalizable then 
+% \end{proof}
+
+% \begin{ex}
+%   $\R^\infty\ \bar{x} = (x_1, \dotsc, x_n, \dotsc)\ p_n(\bar{x}) = |x_n|$ All
+%   halfnorms are essential, thus $\R^\infty$ is not normalizable. The same
+%   applies to $C^\infty[a, b]$.
+% \end{ex}
