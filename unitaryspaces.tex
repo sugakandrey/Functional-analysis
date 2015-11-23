@@ -38,7 +38,7 @@
 \begin{cor}[Cauchy inequality for sums]
   Consider $X = \R^n, \norm{x} \defeq \sqrt{\langle x, x \rangle}$. Then
   \[
-  \norm{x+y}^2 = \inprod{x+y, x+y} = \norm{x}^2 + 2 \cdot \!\!\underbracket{\inprod{x, y}}_{{} \le \norm{x} \cdot \norm{y}}\!\! + \norm{y}^2 \le \bigl(\norm{x} + \norm{y}\bigr)^2
+  \norm{x+y}^2 = \inprod{x+y, x+y} = \norm{x}^2 + 2 \cdot \!\!\underbrace{\inprod{x, y}}_{{} \le \norm{x} \cdot \norm{y}}\!\! + \norm{y}^2 \le \bigl(\norm{x} + \norm{y}\bigr)^2
   \]
 \end{cor}
 
@@ -71,7 +71,7 @@ product generating the norm is unique.
 \end{ex}
 
 \begin{defn}
-  \textbf{Orthonormal set} --- a set of points $\Set{e_1, e_2, \dotsc}$ (may be finite):
+  \textbf{Orthonormal set} --- a set of points $\{e_1, e_2, \dotsc\}$ (may be finite):
   \begin{enumerate}
     \item $\norm{e_i} = 1$
     \item $e_i \perp e_j,\ i \ne j$
@@ -118,8 +118,8 @@ An important problem is concerned with Fourier series. Let $X$ is a normed space
 \end{thm}
 
 \begin{proof}
-  $Y = \L(\underbracket{l_1, l_2, \dotsc, l_n}_{\text{lin. indep.}})$
-  Consider $f(\alpha_1, \dotsc, \alpha_n) = \bigl\| x - \sum\limits_{k=1}^n \alpha_k l_k \bigl\| \to \min$. 
+  $Y = \L(\underbrace{e_1, e_2, \dotsc, e_n}_{\text{lin. indep.}})$
+  Consider $f(\alpha_1, \dotsc, \alpha_n) = \bigl\| x - \sum\limits_{k=1}^n \alpha_k e_k \bigl\| \to \min$. 
   By the triangle inequality for norm, $f(\bar \alpha)$ is continous on $\R^n, f
   \ge 0, E_Y(x) = \inf\limits_{\bar{\alpha} \in \R^n} f(\bar \alpha)$.
   It is easy to find out that there always is a ball $B(0, r) \subset \R^n$, outside
@@ -140,7 +140,7 @@ For abstract Fourier series the Borel theorem can be significantly strengthened 
   $y = \sum\limits_{j=1}^n \alpha_j e_j \in H_n$
   \begin{align*}
     \norm{x-y}^2 &= \inprod{x - \sum \alpha_j e_j, x - \sum \alpha_j e_j} = \norm{x}^2 - 2 \sum \alpha_j \inprod{x, e_j} + \sum{\alpha_j^2} = \\
-    {} &= {\underbracket{\norm{x}}_{\mathrm{const}}}^2 + \sum (\alpha_j - \inprod{x, e_j})^2 - \underbracket{\sum \inprod{x, e_j}^2}_{\mathrm{const}} \to \min
+    {} &= {\underbrace{\norm{x}}_{\mathrm{const}}}^2 + \sum (\alpha_j - \inprod{x, e_j})^2 - \underbrace{\sum \inprod{x, e_j}^2}_{\mathrm{const}} \to \min
   \end{align*}
   \noindent So, the sum goes to minimum when the second summand is minimal. Obviously, it's minimal when $\forall (\alpha_j - \inprod{x, l_j}) = 0$. $E_Y(x)$ --- Fourier sum.
 \end{proof}
