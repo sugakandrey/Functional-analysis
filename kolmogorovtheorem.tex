@@ -1,72 +1,85 @@
 \section{Kolmogorov theorem}
-% \begin{defn}
-%   $X$ --- linear set, $\tau$ --- topology on $X$, $\alpha x, x + y$ are
-%   continuous on $\tau$. $E(x)$ --- vicinity $x$.
-%   $\alpha x$ continuity means $\forall E(\alpha_0 x_0)\ \exists \delta > 0,\
-%   \exists E(x_0) \colon |\alpha - \alpha_0| < \delta,\ x \in E(x_0) \implies
-%   \alpha x \in E(\alpha_0 x_0)$ or $\alpha_0 x_0 = \lim\limits_{\alpha \to
-%     \alpha _0, x \to x_0} \alpha x$
-%   $x + y$ continuity means $\forall E(x_0 + y_0)\ \exists E(x_0), E(y_0) \colon
-%   x \in E(x_0), y \in E(y_0) \implies x + y \in E(x_0 + y_0)$ or $x_0 + y_0 =
-%   \lim\limits_{x \to x_0, y \to y_0}(x + y)$
-% \end{defn}
-% It is clear that normed and countably-normed spaces are just a special case of
-% topological vector spaces.
-% $x_0$ --- fix.
+\begin{defn}
+  $X$ --- linear set, $\tau$ --- topology on $X$, $\alpha x$, $x + y$ are
+  continuous on $\tau$.
 
-% $f(x) = x + x_0,\ X \times X $
-% $f^{-1}(y) = y - x_0$
-% $f$ and $f^{-1}$ are continuous (by addition continuity) --- gomeomorphism.
-% $G$ --- open in $X$, $G \in \tau$, $x_0 + G = \Set{x_0 + x, x \in G}$ --- open.
-% This means any topology is invariant relative to shift.
-% If $\Sigma$ --- base of zero localities (union of all zero localities), any
-% other zero locality 
+  \noindent $E(x)$ is neighbourhood of $x$.
+  
+  \noindent $\alpha x$ continuity means:
+  \[
+    \forall E(\alpha_0 x_0)\ \exists \delta > 0,\ \exists E(x_0) \colon
+    |\alpha - \alpha_0| < \delta,\ x \in E(x_0) \implies
+    \alpha x \in E(\alpha_0 x_0),
+  \]
+  or $\alpha_0 x_0 = \lim\limits_{\substack{\alpha \to \alpha _0\\ x \to x_0}} \alpha x$.
 
-% $x \to 0$ in $\tau$ $x + x \to 0 + 0 = 0$\\
-% $\forall V \in \sigma\ \exists U \in \sigma \colon U + U \subset V,\ 2 \cdot U
-% \subset U + U \subset V$ \\
-% $\lambda x \to 0,\ \lambda \to 0,\ x \to 0\ \forall V \sigma\ \exists \epsilon >
-% 0,\ U \in \sigma\ |\lambda| \leq \epsilon \implies \lambda U \subset V$ \\
-% $\bigcup\limits_{|\lambda| \leq \epsilon} \lambda U$ --- radial, also zero
-% locality. That means if $X$ is a topological vector space then system of open
-% sets is invariant in relation to shift and such base can be created that:
-% $\sigma$ 
-% \begin{enumerate}
-% \item $\forall V \in \sigma\ \exists U \in \sigma: U + U \subset V$
-% \item All elements of $\sigma$ are radial, circled sets.
-% \end{enumerate}
+  \noindent $x + y$ continuity means:
+  \[
+    \forall E(x_0 + y_0)\ \exists E(x_0), E(y_0) \colon
+    x \in E(x_0), y \in E(y_0) \implies x + y \in E(x_0 + y_0),
+  \]
+  or $x_0 + y_0 = \lim\limits_{\substack{x \to x_0\\ y \to y_0}}(x + y)$.
+\end{defn}
 
-% \begin{defn}
-%   Topological space is called Hausdorff space, if any couple of points can be
-%   divided by their localities, i.e. there exist disjoint localities of such points.
-% \end{defn}
+It is clear that normed and countably-normed spaces are just a special case of
+topological vector spaces.
 
-% \begin{thm}[Kolmogorov]
-%   Hausdorff topological vector space is normalizable if and only if zero has at least one 
-%   limited, convex locality (the set is limited if it is absorbed by any zero's locality).
-% \end{thm}
+\noindent
+$x_0$ --- fix. \\
+$f(x) = x + x_0,\ X \times X $ \\
+$f^{-1}(y) = y - x_0$ \\
+$f$ and $f^{-1}$ are continuous (by addition continuity) --- gomeomorphism. \\
+$G$ --- open in $X$, $G \in \tau$, $x_0 + G = \Set{x_0 + x, x \in G}$ --- open. \\
+This means any topology is invariant relative to shift. \\
+If $\Sigma$ --- base of zero neighbourhoods (union of all zero neighbourhoods), any
+other zero neighbourhood 
 
-% \begin{proof}
-%   Minkowski functional is halfnorm if and only if it is produced by radial,
-%   circled set. If space is normalizable then unit ball is limited, convex zero's
-%   locality.
-%   By the former characterization of vector space topology, having limited, convex zero's
-%   locality we can assume we have radial, circled locality. Produce Minkowski
-%   functional using it (it will be halfnorm). We can assume the set is limited.
-%   $V$ --- limited, convex, circled. $\Set{\dfrac{1}{n}V, b \in \N}$
-%   $\forall$ limited. $W$ $|\lambda| \geq \lambda_0$, $V \subset \lambda W$
-%   $\exists n_0 \in \N > \lambda_0$
-%   $V \subset n_0 W$ $\dfrac{1}{n_0} V \subset W$ \\
-%   Now we only have to check that functional is norm.
-%   $p_V(x) = 0 \implies x = 0?$ \\
-%   $x \in \bigcap\limits_{n = 1}^\infty (\dfrac{1}{n} V) = \{0\}$
-% \end{proof}
+$x \to 0$ in $\tau$ $x + x \to 0 + 0 = 0$\\
+$\forall V \in \sigma\ \exists U \in \sigma \colon U + U \subset V,\ 2 \cdot U
+\subset U + U \subset V$ \\
+$\lambda x \to 0,\ \lambda \to 0,\ x \to 0\ \forall V \sigma\ \exists \epsilon >
+0,\ U \in \sigma\ |\lambda| \leq \epsilon \implies \lambda U \subset V$ \\
+$\bigcup\limits_{|\lambda| \leq \epsilon} \lambda U$ --- radial, also zero
+neighbourhood. That means if $X$ is a topological vector space then system of open
+sets is shift-invariant and such base can be created that:
+$\sigma$ 
+\begin{enumerate}
+\item $\forall V \in \sigma\ \exists U \in \sigma: U + U \subset V$
+\item All elements of $\sigma$ are radial, circled sets.
+\end{enumerate}
 
-% \begin{ex}
-%   $\R^\infty = \Set{(x_1, \dotsc, x_n, \dotsc)}$ \\
-%   $\Set{\bar{x} \colon x_{i_1} \in (-\delta_!, \delta_1),\ x_{i_2} \in
-%     (-\delta_2, \delta_2), \dotsc, x_{i_p} \in (-\delta_p, \delta_p),\ \delta_j
-%     > 0}$ --- this system will produce zero's base and insure coordinatewise
-%   convergence. $P_n(\bar{x}) = |x_n|$ all of the halfnorms are essential, which
-%   means the space is not normalizable.
-% \end{ex}
+\begin{defn}
+  Topological space is called Hausdorff space, if any pair of points can be
+  divided by their neighbourhoods, i.e. there exist disjoint neighbourhoods of such points.
+\end{defn}
+
+\begin{thm}[Kolmogorov]
+  Hausdorff topological vector space is normalizable if and only if zero has at least one 
+  limited, convex neighbourhood (the set is limited if it is absorbed by any zero's neighbourhood).
+\end{thm}
+
+\begin{proof}
+  Minkowski functional is halfnorm if and only if it is produced by radial,
+  circled set. If space is normalizable then unit ball is limited, convex zero's
+  neighbourhood.
+  By the former characterization of vector space topology, having limited, convex zero's
+  neighbourhood we can assume we have radial, circled neighbourhood. Produce Minkowski
+  functional using it (it will be halfnorm). We can assume the set is limited.
+  $V$ --- limited, convex, circled. $\Set{\dfrac{1}{n}V, b \in \N}$
+  $\forall$ limited.
+  $W$ $|\lambda| \geq \lambda_0$, $V \subset \lambda W$
+  $\exists n_0 \in \N > \lambda_0$
+  $V \subset n_0 W$ $\dfrac{1}{n_0} V \subset W$ \\
+  Now we only have to check that functional is norm.
+  $p_V(x) = 0 \implies x = 0?$ \\
+  $x \in \bigcap\limits_{n = 1}^\infty \left(\dfrac{1}{n} V\right) = \{0\}$
+\end{proof}
+
+\begin{ex}
+  $\R^\infty = \Set{(x_1, \dotsc, x_n, \dotsc)}$ \\
+  $\Set{\bar{x} \colon x_{i_1} \in (-\delta_1, \delta_1),\ x_{i_2} \in
+    (-\delta_2, \delta_2), \dotsc, x_{i_p} \in (-\delta_p, \delta_p),\ \delta_j
+    > 0}$ --- this system will produce zero's base and insure coordinatewise
+  convergence. $P_n(\bar{x}) = |x_n|$ all of the halfnorms are essential, which
+  means the space is not normalizable.
+\end{ex}
