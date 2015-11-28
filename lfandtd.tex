@@ -3,20 +3,24 @@
   $X$, $Y$ --- linear subset of $X$, $\forall x, y \in X,\ x \sim y \iff x - y
   \in Y$ \\
   $[x] = \Set{y | y \sim x}$ \\
-  $\faktor{X}{Y} = \Set{[x]}$ --- factor set. \\
-  $[x] + [y] = [x + y],\ \alpha [x] = [\alpha x]$ 
-  $\faktor{X}{Y}$ --- linear set.
+  $\faktor{X}{Y} = \Set{[x]}$ --- \textbf{factor set}. \\
+  $[x] + [y] = [x + y],\ \alpha [x] = [\alpha x] \implies \faktor{X}{Y}$ --- linear set.
 \end{defn}
 \begin{defn}
-  $\codim{Y} = \dim{\faktor{X}{Y}}$
+  $\codim{Y} \defeq \dim{\faktor{X}{Y}}$
 \end{defn}
 
 \begin{stm}
-  Let $\dim\left(\faktor{X}{Y}\right) = p$, then $\exists e_1, \dotsc, e_p \in X$ --- lin. indep. \\
+  Let $\dim{\faktor{X}{Y}} = p$, then $\exists e_1, \dotsc, e_p \in X$ --- lin. indep. \\
   $\forall x \in X\ x = \sum\limits_{k = 1}^p \alpha_k e_k + y,\ y \in Y$
 \end{stm}
 
-\noindent If $\codim{Y} = 1$, $Y$ is called hyperplane in $X$.\\
+\noindent 
+\begin{defn}
+  If $\codim{Y} = 1$, $Y$ is called \textbf{hyperplane} in $X$.\\
+\end{defn}
+
+\noindent
 Analytical definition of hyperplane is given via so called linear functionals.
 
 \begin{defn}
@@ -26,7 +30,7 @@ Analytical definition of hyperplane is given via so called linear functionals.
 \end{defn}
 
 \begin{defn}
-  $\ker{f} = \Set{x | f(x) = 0}$
+  $\ker{f} \defeq \Set{x | f(x) = 0}$
 \end{defn}
 
 \begin{stm}
@@ -36,13 +40,16 @@ Analytical definition of hyperplane is given via so called linear functionals.
 \begin{proof}
   \begin{enumerate}
   \item $f$ --- nontrivial linear functional. $Y = \ker{f},\ \codim{Y} = 1?$ \\
-    By nontriviality of $f$, $\exists x_0 \in X \colon f(x_9) \neq 0,\ e =
-    \dfrac{x_0}{f(x_0)}$ \\
-    $f(e) = \dfrac{f(x_0)}{f(x_0)} = 1.\ \forall x \in X \exists ? t \in \R
-    \colon x - t e \in \ker{f}$ \\
-    $x - te = y,\ x = te + y$ \\
-    $f(x - te) = 0$  \\
-    $f(x) - tf(e) = f(x) - t = 0 \implies t = f(x)$ 
+    By nontriviality of $f$, $\exists x_0 \in X \colon f(x_0) \neq 0,\ e \coloneqq
+    \dfrac{x_0}{f(x_0)}$ 
+    \begin{align*}
+      &f(e) = \dfrac{f(x_0)}{f(x_0)} = 1.\ \forall x \in X\ \exists ? t \in \R
+      \colon x - t e \in \ker{f} \\
+      &x - te = y,\ x = te + y \\
+      &f(x - te) = 0  \\
+      &f(x) - tf(e) = f(x) - t = 0 \implies t = f(x)
+    \end{align*}
+
   \item Let $\codim{Y} = 1, \forall x \in X, x = te + y,\ y \in Y$ \\
     Then $f(x) = t$, by uniqueness of $x$. $\ker{f} = Y$.
   \end{enumerate}

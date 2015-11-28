@@ -1,25 +1,24 @@
 \section{Countably-normed spaces.}
 \begin{defn}
-  $X$ --- linear set, $p$ --- halfnorm (function satisfying all 3 norm axioms,
-  but the first one is weakened $p(x) \geq 0$, but p can be zero on non-zero
-  $x$).
+  $X$ --- linear set, $p$ --- \textbf{seminorm}:
   \begin{enumerate}
   \item $p(x) \geq 0$
   \item $p(\lambda x) = |\lambda| p(x)$
-  \item $p(x + y)$ % TODO дописать
+  \item $p(x + y) \geq p(x) + p(y)$ 
   \end{enumerate}
 \end{defn}
 
 \begin{defn}
-  $p_1, p_2, \dotsc, p_n, \dotsc$ --- halfnorms $\forall n\ p_n(x) = 0 \implies x
+  $p_1, p_2, \dotsc, p_n, \dotsc$ --- seminorms \\
+  $\forall n\ p_n(x) = 0 \implies x
   = 0$ $(X, p_1, p_2, \dotsc, p_n, \dotsc )$ --- \textbf{countably normed space}.
 \end{defn}
 
-$x = \lim x_m \iff \forall n \in \N \lim\limits_{m \to \infty} (x_m - x ) = 0\ \|\cdot\|$
-$x_m \to x' \implies \forall n\ p_n(x_m - x') \to 0$
-$x_m \to x'' \implies \forall n\ p_n$
-If in countably-normed space we assume $p(x, y) = \sum\limits_{n = 1}^\infty
-\dfrac{1}{2^n}\dfrac{p_n(x - y)}{1 + p_n(x - y)} \R^\infty$
+\noindent
+$x = \lim x_m \iff \forall n \in \N \lim\limits_{m \to \infty} (x_m - x ) = 0$
+with respect to corresponding seminorn $p_n$\\
+If in countably-normed space we assume $\rho(x, y) = \sum\limits_{n = 1}^\infty
+\dfrac{1}{2^n}\dfrac{p_n(x - y)}{1 + p_n(x - y)}$, we will get a valid metric.
 Thus countably-normed space is always metrizable.
 In countably-normed space two linear operations $(x + y, \lambda x)$ are
 continuous, which means any countably normed space is also a topological vector
@@ -31,73 +30,84 @@ space.
 \end{ex}
 
 From the next theorem we will see that $C^\infty[a, b]$ is non-normalizable (has no norm convergence
-by which is equivalent to halfnorm convergence).
-We will try to deduce the criteria of countably-normed space normalizability.
+by which is equivalent to seminorm convergence).
+We will also try to deduce the criterion of countably-normed space normalizability.
 
 \begin{defn}
-  System of halfnorms is called \textbf{monotonous} if $\forall x \in X,\
-  \forall n \in \N\ p_n(x) \leq p_{n + 1}(X)$
+  System of seminorms is called \textbf{monotone} if $\forall x \in X,\
+  \forall n \in \N\ p_n(x) \leq p_{n + 1}(x)$
 \end{defn}
 
 \begin{defn}
-  ${p_n} \sim {q_n}$ if they have the same convergence (limits in both systems
+  $\{p_n\} \sim \{q_n\}$ if they have the same convergence (limits in both systems
   are equal).
 \end{defn}
 
 \begin{defn}
-  $p_m in \{p_n\}$ --- \textbf{essential} if it can not be majorized by any of
-  the preceeding halfnorms. $p_m$ can be majorized by $p_n$ if $\exists C, \forall x \in X
-  p_n(x) \leq C \cdot p_m(x)$.
+  $p_m \in \{p_n\}$ is called \textbf{essential} if it can not be majorized by any of
+  the preceeding seminorms. $p_m$ is majorized by $p_n$ if $\exists C: \forall x \in X\
+  p_m(x) \leq C \cdot p_n(x)$.
 \end{defn}
 
 \begin{stm}
-  For any halfnorm system there exists equivalent monotonous system.
+  For system of seminorms there exists equivalent monotone system.
 \end{stm}
 
 \begin{proof}
   Let $q_n(x) = \sum\limits_{k = 1}^n p_k(x)$, it is obvious that every $q_n$ is
-  halfnorm. ${q_n} \sim {p_n}?$
+  seminorm. $\{q_n\} \sim \{p_n\}?$ \\
   $p_n(x_m - x) \to 0 \implies \sum\limits_{k = 1}^n p_k(x_m - x) \to 0 \implies
   q_n(x_m - x) \to 0$. Backwards proof is the same.
 \end{proof}
 
-This statement allows us to operate only on monotonous halfnorm systems.
+\noindent
+This statement allows us to operate only on monotone seminorm systems.
 \begin{stm}
-  Two monotonous halfnorm systems are equivalent if and only if they majorize
-  each other, i.e. for any halfnorm from first system there exists majorizing
-  halfnorm from another and vice verca.
+  \label{stm:seminorm_equiv}
+  Two monotone seminorm systems are equivalent if and only if they majorize
+  each other, i.e. for any seminorm $p_n$ from $\{p_n\}$ there exists majorizing
+  seminorm $q_m$ from $\{q_m\}$ and vice verca.
 \end{stm}
 
-% \begin{proof}
-%   If two systems majorize each other obviously they are equivalent.
-%   Let two systems be equivalent. ${p_n} \sim {q_n}$ \\
-%   $\{p_n\},\ \{p_n^{'}\}\ \forall p_n\ \exists p_m^{'} \colon\ const C\ \forall
-%   x \in X\ p_n(x) \leq C \cdot p_m^{'}(x)$ \\
-%   Proof by contradiction. Let $\exists p_{n_0} \colon \forall p_m^{'} \exists
-%   x_m \in X \colon p_{n_0}(x_m) \geq m \cdot p_m^{'}(x_m)$ \\
-%   $p_m^{'}(\dfrac{x_m}{p_{n_0}(x_m)}) \leq \dfrac 1m,\ y_m =
-%   \dfrac{x_m}{p_{n_0}(x_m)},\ P_m^{'}(y_m) \leq \dfrac 1m,\ p_{n_0}(y_m) = 1$ \\
-%   $p_m'$ --- monotonous, $m_0$ --- fix. $m \geq m_0\ p_{m_0}(y_m) \leq p_m(y_m)
-%   \leq \dfrac{1}{m}\ p_{m_0}(y_m) \leq \dfrac 1m,\ m \geq m_0,\ m \to +\infty$ \\
-%   $p_{m_0}(y_m) \to 0 \forall m_0 \{p_m'\} y_m \to 0$
-%   But $p_{n_0}(y_m) = 1 \not\to 0 m\to \infty \cntr$
-% \end{proof}
+\begin{proof}
+  If two systems majorize each other obviously they are equivalent. 
+  Let two systems be equivalent. $\{p_n\} \sim \{q_n\}$ \\
+  $\{p_n\},\ \{q_n\}\ \forall p_n\ \exists q_m \colon\ \exists C\ \forall
+  x \in X\ p_n(x) \leq C \cdot q_m'(x)$ \\
+  Proof by contradiction. Let there be some $p_{n_0} \colon$
+  \begin{align*}
+    &\forall q_m \exists x_m \in X \colon p_{n_0}(x_m) \geq m \cdot q_m(x_m) \\
+    &q_m(\dfrac{x_m}{p_{n_0}(x_m)}) \leq \dfrac 1m,\ y_m =
+      \dfrac{x_m}{p_{n_0}(x_m)},\ q_m(y_m) \leq \dfrac 1m,\ p_{n_0}(y_m) = 1
+  \end{align*}
 
-% \begin{thm}[Normalizability criterion]
-%   Countably-normed space with monotonous halfnorm system is normalizable if and
-%   only if this system has finite number of essential halfnorms.
-% \end{thm}
+  Let's fix $m_0$, because $q_m$ is monotone:
+  \begin{align*}
+    &m \geq m_0,\ q_{m_0}(y_m) \leq q_m(y_m) \leq \dfrac{1}{m} \\ 
+    &q_{m_0}(y_m) \leq \dfrac 1m,\ m \geq m_0,\ m \to +\infty \\
+    &q_{m_0}(y_m) \to 0\quad \forall m_0\ q_m(y_m) \to 0
+  \end{align*}
 
-% \begin{proof}
-%   Let system has finite amount of essential halfnorms. $\{p_{n_1}, \dotsc
-%   p_{n_m}\}$ \\
-%   $\|x\| = \sum\limits_{k = 1}^{n_m}p_k(x)$ --- norm. Given system and this
-%   majorize each other. \\
-%   If the space is normalizable then 
-% \end{proof}
+  But $p_{n_0}(y_m) = 1 \not\to 0,\ m\to \infty\ \contr$
+\end{proof}
 
-% \begin{ex}
-%   $\R^\infty\ \bar{x} = (x_1, \dotsc, x_n, \dotsc)\ p_n(\bar{x}) = |x_n|$ All
-%   halfnorms are essential, thus $\R^\infty$ is not normalizable. The same
-%   applies to $C^\infty[a, b]$.
-% \end{ex}
+\begin{thm}[Normalizability criterion]
+  Countably-normed space with monotone seminorm system is normalizable if and
+  only if this system has finite number of essential seminorms.
+\end{thm}
+
+\begin{proof}
+  $\leftarrow$ \\
+  Let system has finite amount of essential seminorms. 
+  $\{p_{n_1}, \dotsc p_{n_m}\}$ \\
+  $\|x\| = \sum\limits_{k = 1}^{n_m}p_k(x)$ --- norm. Given system and this
+  majorize each other. \\
+  $\Rightarrow$ \\
+  Easily proovable using statement \ref{stm:seminorm_equiv}
+\end{proof}
+
+\begin{ex}
+  $\R^\infty\ \bar{x} = (x_1, \dotsc, x_n, \dotsc)\ p_n(\bar{x}) = |x_n|$. All
+  seminorms are essential, thus $\R^\infty$ is not normalizable. The same
+  applies to $C^\infty[a, b]$.
+\end{ex}

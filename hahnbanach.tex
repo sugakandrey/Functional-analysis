@@ -1,6 +1,6 @@
 \section{Continuous functionals. Hahn-Banach theorem}
 $X$ --- linear set, $f \colon X \to \R$ --- linear functional if $f(\alpha x_1 +
-\beta x_2) = \alpha f(x_1) + \betaf(x_2)$ \\
+\beta x_2) = \alpha f(x_1) + \beta f(x_2)$ \\
 Let $X$ be arbitrary normed space. We call functional $f$ continuous on $X$ if
 $x_n \to x \implies f(x_n) \to f(x)$. Because in normed space addition and
 scalar multiplication are continuous, by functional lineriarity $f(x_n) - f(x) =
@@ -9,10 +9,9 @@ f(x_n - x),\ x_n \to x \iff x_n - x \to 0,\ f(0) = 0$\\
 \begin{stm}
   $f$ is continuous on $X$ if and only if $f$ is continuous in 0.
 \end{stm}
-\noindent
 
 \begin{defn}
-  $\sup\limits_{\|x\| \leq 1}{|f(x)}$ = \|f\|, $f$ --- limited $\iff \|f\| < +\infty$
+  $\sup\limits_{\|x\| \leq 1}{|f(x)|} = \|f\|$, $f$ --- limited $\iff \|f\| < +\infty$
 \end{defn}
 
 \begin{thm}
@@ -20,17 +19,24 @@ f(x_n - x),\ x_n \to x \iff x_n - x \to 0,\ f(0) = 0$\\
 \end{thm}
 
 \begin{proof}
-  Let $f$ be limited linear functional. $\|f\| < +\infty,\ |f(x)| \leq
-  \|f\| \cdot \|x\|,\ x_n \to 0 \implies \|x_n\| \to 0$ \\
- $|f(x_n)| \leq \underbrace{\|f\| \cdot \|x_n\|}_{\to 0} \implies f(x_n) \to 0$ \\
- Let $f$ be continuous functional, $\|f\| = +\infty = \sup\limits_{\|x\| \leq
-   1}|f(x)|\ \forall b \in \N\ \exists x_n \colon \|x_n\| \leq 1,\ |f(x_n)| > n$ \\
- $|f(\dfrac{x_n}{n})| > 1\ \|\dfrac{x_n}{n}\| = \dfrac{\|x_n\|}{n} \leq
- \dfrac{1}{n}\ \dfrac{x_n}{n} \to 0 \implies f(\dfrac{x_n}{n}) \to 0 \cntr$
+  Let $f$ be limited linear functional:
+  \begin{align*}
+    &\|f\| < +\infty,\ |f(x)| \leq 
+      \|f\| \cdot \|x\|,\ x_n \to 0 \implies \|x_n\| \to 0 \\
+    &|f(x_n)| \leq \tendsto{\|f\| \cdot \|x_n\|}{0} \implies f(x_n) \to 0
+  \end{align*}
+ Let $f$ be continuous functional: 
+ \begin{align*}
+   &\|f\| = +\infty = \sup\limits_{\|x\| \leq
+     1}|f(x)|,\ \forall b \in \N : \exists x_n : \|x_n\| \leq 1,\ |f(x_n)| > b \\
+   &\abs{f(\dfrac{x_n}{n})} > 1,\ \norm{\dfrac{x_n}{n}} = \dfrac{\|x_n\|}{n} \leq
+     \dfrac{1}{n}\ \dfrac{x_n}{n} \to 0 \implies f(\dfrac{x_n}{n}) \to 0 \contr \qedhere
+ \end{align*}
+
 \end{proof}
 
 \begin{note}
-  by functional lineriarity it's kernel is linear set.
+  By functional lineriarity it's kernel is linear set.
 \end{note}
 
 \begin{thm}
@@ -38,32 +44,40 @@ f(x_n - x),\ x_n \to x \iff x_n - x \to 0,\ f(0) = 0$\\
 \end{thm}
 
 \begin{proof}
-  Let $f$ be continuous, $x_n \in \ker{f},\ x_n \to x \implies
-  \underbrace{f(x_n)}_0 \to f(x) \implies f(x) = 0 \implies x \in \ker{f}$ \\
-  $\ker{f}$ --- closed. $\codim{\ker{f}} = 1$ \\
-  $\exists e \in X : \forall x = y + t \cdot e,\ y \in \ker{f},\ t \in \R$
-  \\
-  $f(x) = \underbrace{f(y)}_0 + t \cdot f(e) = t \cdot f(e)$ \\
-  $x_n = y_n + t_n \cdot e \to x = y + t \cdot e,\ f(x_n) = t_n \cdot f(e),\
-  ?t_n \to t \implies t_n \cdot f(e) \to t \cdot f(e) = f(x) \implies f(x_n) \to
-  f(x)$. \\
-  $x_n = y_n + t_n \cdot e,\ x = y + t \cdot e,\ x_n \to x,\ y_n,y \in \ker{f}$.
+  Let $f$ be continuous, then 
+  \[
+    x_n \in \ker{f},\ x_n \to x \implies
+    \tendsto{f(x_n)}{0} \to f(x) \implies f(x) = 0 \implies x \in \ker{f}
+  \]
+  Let $\ker{f}$ be closed, $\codim{(\ker{f})} = 1$
+  \begin{align*}
+    &\exists e \in X : \forall x = y + t \cdot e,\ y \in \ker{f},\ t \in \R \\
+    &f(x) = f(y) + t \cdot f(e) = t \cdot f(e) \\
+    &x_n = y_n + t_n \cdot e \to x = y + t \cdot e,\ f(x_n) = t_n \cdot f(e)\\
+    &?t_n \to t \implies t_n \cdot f(e) \to t \cdot f(e) = f(x) \implies f(x_n) \to
+      f(x). \\
+    &x_n = y_n + t_n \cdot e,\ x = y + t \cdot e,\ x_n \to x,\ y_n,y \in \ker{f}.
+  \end{align*}
   If we can prove that all converging subsequences $t_{n_k} \to t^*$ then $t_n$ will
-  converge too. \\
-  $y_{n_k} = x_{n_k} - t_{n_k} \cdot e$ \\
-  $\underbrace{y_{n_k}}_{\in \ker{f}} \to x - t^* \cdot e \implies z = x - t^*
-  \cdot e \in \ker{f}$ \\
-  $x = z + t^* \cdot e,\ x = y + t \cdot e \implies t^* = t$.
+  converge too. 
+  \begin{align*}
+    &y_{n_k} = x_{n_k} - t_{n_k} \cdot e \\
+    &y_{n_k} \in \ker{f} \to x - t^* \cdot e \implies z = x - t^*
+      \cdot e \in \ker{f} \\
+    &x = z + t^* \cdot e,\ x = y + t \cdot e \implies t^* = t. \qedhere
+  \end{align*}
 \end{proof}
 
 \noindent
-$X$ --- NS, $Y$ --- linear set in $X$, $Y$ dense in $X$.
+$X$ --- normed space, $Y$ --- linear set in $X$, $Y$ dense in $X$.
 $C[0, 1]$ \\
-$\forall \epsilon > 0\ \ exists P_n(x) : |f(x) - P_n(x)| < \epsilon\ \forall x \in [0, 1]$ 
+$\forall \epsilon > 0\ \exists P_n(x) : |f(x) - P_n(x)| < \epsilon\ \forall x \in [0, 1]$\\ 
 S.N. Bernstein constructively showed these polynoms. \\
 $B_n(f, x) = \sum\limits_{k = 0}^n C_n^k f(\dfrac{k}{n}) x^k (1 - x)^{n - k}$ \\
-From the point of view of functional analysis Wierstrascz theorem means that 
-$Y = \Set{\text{all} P_n(x)}$ --- linear set in $C[0, 1]$ \\
+From functional analysis point of view Weierstrass theorem means that:
+\[
+  Y = \{\text{all}\ P_n(x)\}\ \text{--- linear set in}\ C[0, 1]
+\]
 That means $Y$ is dense in $C[0, 1]$.
 
 \begin{note}
@@ -76,8 +90,10 @@ That means $Y$ is dense in $C[0, 1]$.
 \end{thm}
 
 \begin{proof}
-  $f$ --- continuous on $X$, $g$ --- continuous on $X$, $f|_Y = g|_y$ \\
-  $\forall x \in X,\ \cl{Y} = X\ \exists y_n \in Y : y_n \to x$ \\
-  $f(y_n) \to f(x), g(y_n) \to g(x) \implies f(x) = g(x)$
+  $f$ --- continuous on $X$, $g$ --- continuous on $X$, $f|_Y = g|_y$
+  \begin{align*}
+    &\forall x \in X,\ \cl{Y} = X\ \exists y_n \in Y : y_n \to x \\
+    &f(y_n) \to f(x),\ g(y_n) \to g(x) \implies f(x) = g(x)
+  \end{align*}
 \end{proof}
 
