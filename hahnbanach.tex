@@ -86,14 +86,150 @@ That means $Y$ is dense in $C[0, 1]$.
 \end{note}
 
 \begin{thm}
-  Given task is always has (unique) solution.
+  Given task is always has (unique) solution. $\|f\|_X = \|f_0\|_Y$
 \end{thm}
 
 \begin{proof}
-  $f$ --- continuous on $X$, $g$ --- continuous on $X$, $f|_Y = g|_y$
+  $f$ --- continuous on $X$, $g$ --- continuous on $X$, $f|_Y = g|_Y$
   \begin{align*}
     &\forall x \in X,\ \cl{Y} = X\ \exists y_n \in Y : y_n \to x \\
-    &f(y_n) \to f(x),\ g(y_n) \to g(x) \implies f(x) = g(x)
+    &f(y_n) \to f(x),\ g(y_n) \to g(x) \implies f(x) = g(x) \\
+    &\cl{Y} = X\ \forall x \in X\ \exists y_n \in Y : y_n \to x\\
+    &f_0\ \text{--- continuous on}\ Y \implies \|f_0\|_Y < +\infty \\
+    &|f_0(y_m) - f_0(y_n)| = |f_0(y_n - y_m)| \leq \|f_0\|_Y \cdot \tendsto{\|y_n - y_m\|}{0} \implies \{f_0(y_n)\}\ \text{--- Cauchy seq.} \\
+    &f(x) \coloneqq \lim f_0(y_n), y_n \to x,\ y_n' \to x \implies \lim f_0(y_n) = \lim f_0(y_n') \\
+    &|f_0(y_n) - f_0(y_n')| \leq \|f_0\|_Y \cdot \tendsto{\|y_n - y_n'\|}{0} \\
+    &\tendsto{f_0(y_n)}{a} - \tendsto{f_0(y_n')}{b} \to 0 \implies a = b \\
+    &f(x) = \lim f_0(y_n), y_n \to x
+  \end{align*}
+  $f(x)$ --- linear functional. \\
+  $\|f\|_X = \|f_0\|_Y$
+  \begin{align*}
+    \begin{cases}
+      \|f\|_X = \sup\limits_{\|x\| \leq 1} |f(x)| \\
+      \|f_0\|_Y = \sup\limits_{\|y\| \leq 1} |f_0(y)|
+    \end{cases}
+        \implies \|f_0\|_Y \leq \|f\|_X
+  \end{align*}
+  By the norm definition it is clear that supremum is achievable on the sphere.
+  \begin{align*}
+    &\sup_{\|x\| \leq 1}|f(x)| \leq \sup_{\|x'\| = 1} |f(x')| \\
+    &\|x\| = 1,\ \exists y_n \in Y : y_n \to x,\ \|y_n\| \to \|x\| = 1 \\
+    &y_n' = \dfrac{y_n}{\|y_n\|} \to \dfrac x1 = 1 \\
+    &\|y_n'\| = 1,\ y_n' \in Y \\
+    &\|x\| = 1\ \exists y_n \in Y : \|y_n\| = 1 \implies y_n \to x \\
+    &f_0(y_n) \to f(x) \\
+    &|f_0(y_n)| \leq \|f_0\|_Y,\ \|y_n\| = 1 \\
+    &|f(x)| \leq \|f_0\|_Y \implies \|f\|_x \leq \|f_0\|_Y \qedhere 
   \end{align*}
 \end{proof}
+
+$X$, $p(x)$ --- seminorm, $Y$ --- linear set in $X$. \\
+$f_0$ --- linear functional on $Y$, satisfying the so called 
+seminorm submission property, i.e. 
+\[
+  \forall y \in Y\ |f_0(y)| \leq p(y)
+\]
+
+\begin{thm}[Hahn-banach]
+  Any linear functional on linear set in $X$ satisfying some
+  seminorm submission property on $Y$, can be continued to $X$ saving this
+  property. \\
+  $\exists f\colon X \to \R$ --- linear functional
+  \begin{enumerate}
+  \item $f|_Y = f_0$
+  \item $\forall x \in X \implies |f(x)| \leq p(x)$
+  \end{enumerate}
+\end{thm}
+
+\begin{lemma}[Banach]
+  $X$ --- linear set, $p(x)$ --- seminorm, $Y$ --- linear eigen subset X.
+  $f_0 \colon Y \to \R$ --- linear functional. $|f_0(y)| \leq p(y)$ \\
+  $e \notin Y.\ Y_1 = \L(Y, e) = \Set{\alpha y + \beta e,\ y \in Y, \alpha,
+    \beta \in \R}$ \\
+  $\implies \exists f \colon Y_1 \to R$ --- linear.
+  \begin{enumerate}
+  \item $f|_y = f_0$
+  \item on $Y_1\ |f(y)| \leq p(y)$
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  $\alpha y + \beta e \in Y_1$, $f$ --- linear $f(\alpha y + \beta e) = \alpha
+  f(y) + \beta f(e)$, $f|_Y = f_0$ \\
+  $f(\alpha y + \beta e) = \alpha f_0(y) + \beta f(e)$ \\
+  With any value of $f(e)$ we will get $f_0$ on Y. $c \coloneqq f(e)$. 
+  \begin{align*}
+    &|f(\alpha y + \beta e)| \leq p(\alpha y + \beta e) \\
+    &\alpha y \in Y,\ \alpha y, y \in Y \\
+    &f(y \in Y + t \cdot e) = f_0(y) + t \cdot c \\
+    &|f_0(y) - t \cdot c| \leq p(y - t \cdot e)\ \forall y \in Y,\ \forall t \in \R \\
+    &|f_0(y)| \leq p(y) \text{--- given}. \\
+    &f_0(y) - p(y - t \cdot e) \leq t \cdot c \leq f_0(y) + p(y - t \cdot e),\ t >
+      0 (t < 0) \text{is the same}. \\
+    &f_0(\dfrac{y}{t}) - p(\dfrac{y}{t} - e) \leq c \leq f_0(\dfrac{y}{t}) +
+      p(\dfrac{y}{t} - e),\ \dfrac{y}{t} \in Y \\
+    &f_0(y) - p(y - e) \leq c \leq f_0(y) + p(y - e) \\
+    &\forall y_1, y_2 \in Y\ f_0(y_1) - p(y_1 - e) \leq c \leq f_0(y_2) + p(y_2 -
+      e) \\
+    &f_0(y_1) - f_0(y_2) \leq p(y_1 - e) + p(y_2 - e)
+      f_0(y_1 - y_2) \leq p(y_1 - y_2) = p((y_1 - e) - (y_2 - e))
+      \leq p(y_1 - e) + p(y_2 - e) \\
+    &\sup\limits_{y \in Y}(f_0(y) - p(y - e)) \leq f_0(y_2) + p(y_2 - e) \\
+    &\underbrace{\sup\limits_Y (f_0(y) - p(y - e))}_{a} \leq \underbrace{\inf\limits_Y (f_0(y) + p(y - e))}_{b}
+      \in \R \\
+    &c \in [a, b] \neq \varnothing
+  \end{align*}
+
+    \begin{note}
+      If $a < b$ there exists infinetely many continuations.
+     \end{note}
+\end{proof}
+
+To fully prove Hahn-Banach theorem, we need to enter the theory of semi-ordered
+sets and discuss Цорн lemma. We will prove only the separable normed space case with
+$p(x) = a \cdot \|x\|,\ a > 0$ 
+
+\begin{thm}[Hahn-Banach (separable normed space case)]
+  Let $X$ be separable normed space, i.e. there exists countable, dense set in it.
+  Let $Y$ be linear set (not subspace) in $X$, $f_0$ --- continuous linear
+  functional on $Y$, then there exists continuous linear functional $f$ on $X$:
+  \begin{enumerate}
+  \item $f|_Y = f_0$
+  \item $\|f\|_X = \|f_0\|_Y$
+  \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  If $X$ is separable, $A = \{a_1, \dotsc, a_n, \dotsc\} : \cl{A} = X$. We will
+  assume that all $a_n$ are distinct. It is clear that separability gives us a
+  way to define $L_0 = Y,\ L_n = \L\{L_{n - 1}, a_n\} \subset L_{n + 1},\ L =
+  \bigcup\limits_{n = 1}^\infty L_n$ --- linear set and $\cl{L} = X$.
+  By the lemma we can continue $f_0$ from $L_0$ to $L_1$, from $L_1$ to $L_2$ and
+  so on. And then by the first theorem we can continue it on the $X$.
+\end{proof}
+
+\begin{cor}
+  Let $X$ be normed space then $\forall x_0 \neq 0\ \exists f$ --- linear
+  functional:
+  \begin{enumerate}
+  \item $\|f\| = 1$
+  \item $f(x_0) = \|x_0\|$
+  \end{enumerate}
+\end{cor}
+
+\begin{proof}
+  On $Y = \Set{t x_0,\ t \in \R}$ we build linear functional $f_0 : \|f_0\|_Y =
+  1,\ f_0(x) = \|x_0\|$
+  \begin{align*}
+    &f_0(t x_0) = t \cdot f_0(x_0) \\
+    &f_0(x_0) = \|x_0\|,\ t = 1 \\
+    &f_0(t x_0) = t \cdot \|x_0\|
+  \end{align*}
+\end{proof}
+
+\begin{cor}
+  $\forall x_1 \neq x_2\ \exists\ \text{linear limited functional} : f(x_1)
+  \neq f(x_2)$
+\end{cor}
 
