@@ -25,13 +25,13 @@ f(x_n - x),\ x_n \to x \iff x_n - x \to 0,\ f(0) = 0$\\
       \|f\| \cdot \|x\|,\ x_n \to 0 \implies \|x_n\| \to 0 \\
     &|f(x_n)| \leq \tendsto{\|f\| \cdot \|x_n\|}{0} \implies f(x_n) \to 0
   \end{align*}
- Let $f$ be continuous functional: 
- \begin{align*}
-   &\|f\| = +\infty = \sup\limits_{\|x\| \leq
-     1}|f(x)|,\ \forall b \in \N : \exists x_n : \|x_n\| \leq 1,\ |f(x_n)| > b \\
-   &\abs{f(\dfrac{x_n}{n})} > 1,\ \norm{\dfrac{x_n}{n}} = \dfrac{\|x_n\|}{n} \leq
-     \dfrac{1}{n}\ \dfrac{x_n}{n} \to 0 \implies f(\dfrac{x_n}{n}) \to 0 \contr \qedhere
- \end{align*}
+  Let $f$ be continuous functional: 
+  \begin{align*}
+    &\|f\| = +\infty = \sup\limits_{\|x\| \leq
+      1}|f(x)|,\ \forall b \in \N : \exists x_n : \|x_n\| \leq 1,\ |f(x_n)| > b \\
+    &\abs{f(\dfrac{x_n}{n})} > 1,\ \norm{\dfrac{x_n}{n}} = \dfrac{\|x_n\|}{n} \leq
+      \dfrac{1}{n}\ \dfrac{x_n}{n} \to 0 \implies f(\dfrac{x_n}{n}) \to 0 \contr \qedhere
+  \end{align*}
 
 \end{proof}
 
@@ -72,8 +72,10 @@ f(x_n - x),\ x_n \to x \iff x_n - x \to 0,\ f(0) = 0$\\
 $X$ --- normed space, $Y$ --- linear set in $X$, $Y$ dense in $X$.
 $C[0, 1]$ \\
 $\forall \epsilon > 0\ \exists P_n(x) : |f(x) - P_n(x)| < \epsilon\ \forall x \in [0, 1]$\\ 
-S.N. Bernstein constructively showed these polynoms. \\
-$B_n(f, x) = \sum\limits_{k = 0}^n C_n^k f(\dfrac{k}{n}) x^k (1 - x)^{n - k}$ \\
+S.N. Bernstein constructively showed these polynoms.
+\[
+  B_n(f, x) = \sum\limits_{k = 0}^n C_n^k f(\dfrac{k}{n}) x^k (1 - x)^{n - k}
+\]
 From functional analysis point of view Weierstrass theorem means that:
 \[
   Y = \{\text{all}\ P_n(x)\}\ \text{--- linear set in}\ C[0, 1]
@@ -86,7 +88,7 @@ That means $Y$ is dense in $C[0, 1]$.
 \end{note}
 
 \begin{thm}
-  Given task is always has (unique) solution. $\|f\|_X = \|f_0\|_Y$
+  Given task is always has (unique) solution, also $\|f\|_X = \|f_0\|_Y$
 \end{thm}
 
 \begin{proof}
@@ -97,10 +99,10 @@ That means $Y$ is dense in $C[0, 1]$.
     &\cl{Y} = X\ \forall x \in X\ \exists y_n \in Y : y_n \to x\\
     &f_0\ \text{--- continuous on}\ Y \implies \|f_0\|_Y < +\infty \\
     &|f_0(y_m) - f_0(y_n)| = |f_0(y_n - y_m)| \leq \|f_0\|_Y \cdot \tendsto{\|y_n - y_m\|}{0} \implies \{f_0(y_n)\}\ \text{--- Cauchy seq.} \\
-    &f(x) \coloneqq \lim f_0(y_n), y_n \to x,\ y_n' \to x \implies \lim f_0(y_n) = \lim f_0(y_n') \\
+    &f(x) \coloneqq \lim f_0(y_n),\ y_n \to x,\ y_n' \to x \implies \lim f_0(y_n) = \lim f_0(y_n') \\
     &|f_0(y_n) - f_0(y_n')| \leq \|f_0\|_Y \cdot \tendsto{\|y_n - y_n'\|}{0} \\
     &\tendsto{f_0(y_n)}{a} - \tendsto{f_0(y_n')}{b} \to 0 \implies a = b \\
-    &f(x) = \lim f_0(y_n), y_n \to x
+    &f(x) = \lim f_0(y_n),\ y_n \to x
   \end{align*}
   $f(x)$ --- linear functional. \\
   $\|f\|_X = \|f_0\|_Y$
@@ -109,7 +111,7 @@ That means $Y$ is dense in $C[0, 1]$.
       \|f\|_X = \sup\limits_{\|x\| \leq 1} |f(x)| \\
       \|f_0\|_Y = \sup\limits_{\|y\| \leq 1} |f_0(y)|
     \end{cases}
-        \implies \|f_0\|_Y \leq \|f\|_X
+    \implies \|f_0\|_Y \leq \|f\|_X
   \end{align*}
   By the norm definition it is clear that supremum is achievable on the sphere.
   \begin{align*}
@@ -149,7 +151,7 @@ seminorm submission property, i.e.
     \beta \in \R}$ \\
   $\implies \exists f \colon Y_1 \to R$ --- linear.
   \begin{enumerate}
-  \item $f|_y = f_0$
+  \item $f|_Y = f_0$
   \item on $Y_1\ |f(y)| \leq p(y)$
   \end{enumerate}
 \end{lemma}
@@ -166,24 +168,26 @@ seminorm submission property, i.e.
     &|f_0(y) - t \cdot c| \leq p(y - t \cdot e)\ \forall y \in Y,\ \forall t \in \R \\
     &|f_0(y)| \leq p(y) \text{--- given}. \\
     &f_0(y) - p(y - t \cdot e) \leq t \cdot c \leq f_0(y) + p(y - t \cdot e),\ t >
-      0 (t < 0) \text{is the same}. \\
+      0\ (t < 0) \text{is the same}. \\
     &f_0(\dfrac{y}{t}) - p(\dfrac{y}{t} - e) \leq c \leq f_0(\dfrac{y}{t}) +
       p(\dfrac{y}{t} - e),\ \dfrac{y}{t} \in Y \\
     &f_0(y) - p(y - e) \leq c \leq f_0(y) + p(y - e) \\
     &\forall y_1, y_2 \in Y\ f_0(y_1) - p(y_1 - e) \leq c \leq f_0(y_2) + p(y_2 -
-      e) \\
-    &f_0(y_1) - f_0(y_2) \leq p(y_1 - e) + p(y_2 - e)
-      f_0(y_1 - y_2) \leq p(y_1 - y_2) = p((y_1 - e) - (y_2 - e))
-      \leq p(y_1 - e) + p(y_2 - e) \\
+      e)
+  \end{align*}
+  \begin{align*}
+    f_0(y_1) - f_0(y_2) &\leq p(y_1 - e) + p(y_2 - e) f_0(y_1 - y_2) \leq \\ 
+                        &\leq p(y_1 - y_2) = p((y_1 - e) - (y_2 - e)) \leq p(y_1 - e) + p(y_2 - e)
+  \end{align*}
+  \begin{align*}
     &\sup\limits_{y \in Y}(f_0(y) - p(y - e)) \leq f_0(y_2) + p(y_2 - e) \\
     &\underbrace{\sup\limits_Y (f_0(y) - p(y - e))}_{a} \leq \underbrace{\inf\limits_Y (f_0(y) + p(y - e))}_{b}
       \in \R \\
-    &c \in [a, b] \neq \varnothing
+    &c \in [a, b] \neq \varnothing \qedhere
   \end{align*}
-
-    \begin{note}
-      If $a < b$ there exists infinetely many continuations.
-     \end{note}
+  \begin{note}
+    If $a < b$ there exists infinetely many continuations.
+  \end{note}
 \end{proof}
 
 To fully prove Hahn-Banach theorem, we need to enter the theory of semi-ordered
@@ -232,4 +236,50 @@ $p(x) = a \cdot \|x\|,\ a > 0$
   $\forall x_1 \neq x_2\ \exists\ \text{linear limited functional} : f(x_1)
   \neq f(x_2)$
 \end{cor}
+
+\begin{thm}[Riesz]
+  $H$ --- Hilbert space, $f$ --- linear, limited functional on $H$, then $\exists
+  y \in H\colon$
+  \begin{enumerate}
+  \item $\forall x \in H\ f(x) = \inprod{x, y}$
+  \item $\|f\| = \|y\|$
+  \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  First, we will prove that $\|f\| = \|y\|$. Let $f(x) = \inprod{x, y}$, then by Shwarz inequality:
+  \begin{align*}
+    &|f(x)| = |\inprod{x. y}| \leq \|y\| \cdot \|x\| \implies \|f\| \leq \|y\| \\
+    &x_0 = \dfrac{y}{\|y\|},\ \|x_0\| = 1,\ |f(x_0)| = \dfrac{|f(y)|}{\|f(y)\|} =
+      \dfrac{|\inprod{y, y}|}{\|y\|} = \dfrac{\|y\|^2}{\|y\|} = \|y\| \\ 
+    &\|f\| =
+      \sup\limits_{\|x\| \leq 1}|f(x)|,\ \|x_0\| = 1, \|f\| \leq \|y\| \implies
+      \|f\| = \|y\|
+  \end{align*}
+  Now we prove that $\forall x \in H\ f(x) = \inprod{x, y}$ \\
+  $H_1 = \ker{f}$ --- closed, $H_1$ --- subspace of $H$. Let $H_2 =
+  H_1^{\perp},\ H = H_1 \oplus H_2$ \\
+  $H_1$ --- hyperplane $\implies \codim{H_1} = 1, \dim{H_1} = 1\ H_2 = \Set{te,\ t\in
+    \R,\ e \in H_2} \\
+  \forall x \in H\ x \overset{!}{=} x_1 \in H_1 + t \cdot e$ \\
+  $f(x) = f(x_1) + t \cdot f(e) = t \cdot f(e)$. Let $y = \alpha \cdot e,\ \alpha
+  \in \R\ \inprod{x, \alpha e} = \inprod{x_1 + te, \alpha e} = \alpha t
+  \|e\|^2$. \\
+  Choose such $\alpha$, so that $f(x) = \inprod{x, \alpha e}\ \forall x \in H,\ t
+  \cdot f(e) = \alpha t \|e\|^2,\ \alpha = \dfrac{f(e)}{\|e\|^2},\ y =
+  \dfrac{f(e)}{\|e\|^2} \cdot e$ 
+\end{proof}
+
+\begin{ex}
+  $H = L_2[0, 1]$ \\
+  $\forall\ \text{linear limited functional}\ L_2[0, 1]$ \\
+  $\exists g \in L_2[0, 1]$ \\
+  $f(\hat{g}) = \int\limits_0^1 f(t)g(t) dt$
+\end{ex}
+
+\begin{ex}
+  $C[0, 1]$ $f$ --- limear limited functional on $C[0, 1]$ \\
+  $\exists g$ --- limited вар on [0, 1]
+  $f(\hat{g}) = \int\limits_0^1 \hat{g}(t)dg(t)$ --- интеграл римана стильтеса
+\end{ex}
 

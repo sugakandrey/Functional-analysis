@@ -1,0 +1,39 @@
+\section{Linear limited operators}
+\begin{defn}
+  $X, Y$ \\
+  $A \colon X \xrightarrow{linear} Y\\
+  A(\alpha_1 x_1 + \alpha_2 x_2) = \alpha_1A(x_1) + \alpha_2 A(x_2)$ \\
+  Then A is called \textbf{linear operator}. In case $Y = \R$ we get linear functional.
+\end{defn}
+
+\begin{defn}
+  $A$ --- continuous if $x_n \to x \implies Ax_n \to Ax \iff x_n \to 0 \implies
+  Ax_n \to 0 = A0$
+\end{defn}
+
+\begin{defn}
+  $A$ --- limited, if $\exists const\ M : \|Ax\| \leq M \|x\|\ \forall x \in X
+  \iff \sup\limits_{\|x\| \leq 1} \|Ax\| < +\infty$
+\end{defn}
+
+\begin{defn}
+  $\|A\| = \sup\limits_{\|x\| \leq 1} \|Ax\|$ \\
+  $\|Ax\| \leq \|A\| \cdot \|x\|\ \forall x \in X$
+\end{defn}
+
+\begin{thm}
+  $A$ --- continuous $\iff$ $A$ --- limited.
+\end{thm}
+
+\begin{proof}
+  Is identical to proof for functionals.
+\end{proof}
+
+\begin{note}
+  $L(X, Y)$ --- linear space of linear, limited operators from X to Y, which is
+  normed by the operator norm.
+\end{note}
+
+\begin{thm}
+  $Y$ --- Banach space $\implies L(X, Y)$ is also a Banach space.
+\end{thm}
