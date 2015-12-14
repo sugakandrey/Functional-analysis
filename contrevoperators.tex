@@ -1,0 +1,42 @@
+\section{Continuously reversible operators}
+\begin{defn}
+  $A \in L(X, Y)$ \\
+  $A \colon X \xrightarrow{bijection} Y\ \exists A^{-1} \colon Y
+  \xrightarrow{linear} X$ \\
+  $A^{-1} \in L(Y, X)$ $A$ --- \textbf{continuously reversible}.
+\end{defn}
+
+\begin{thm}[Banach]
+  $X$ --- Banach space, $C \in L(X),\ \|C\\ < 1 \implies I - C,\ Ix = x$ --- continuously reversible.
+\end{thm}
+\begin{proof}
+  $\sum\limits_{n = 0}^\infty C^n,\ S_n = \sum\limits_{k = 0}^n C^k$\\
+  $S_n(I - C) = S_n - S_n \cdot C S_n - \sum\limits_{k = 1}^{n + 1}C^k = I -
+  C^{n + 1}$ \\
+  $S_n(I - C) = I - C^{n + 1}$ \\
+  $(I - C)S_n = I - C^{n + 1}$ \\
+  $\|C^n\| \leq \|C\|^n$ \\
+  $\sum\limits_{n = 0}^\infty\|C^n\| \leq \sum\limits_{n = 0}^\infty \|C\|^n < +
+  \infty,\ \|C\| < 1$ \\
+  $\exists S = s\um\limits_{n = 0}^\infty,\ S \in L(X),\ C^n \to 0$ \\
+  $S_n(I - C) = I - C^{n + 1},\ n \to \infty$ \\
+  $S(I - C) = I$ \\
+  $(I - C)S = I$ \\
+  $S = (I - C)^{-1} \in L(X)$
+  $I - C$ --- continuously reversible.
+\end{proof}
+
+$A \colon X \to Y$ \\
+$R(A) = \Set{x | x \in X}$ --- lienar set in $Y$.
+Closed $R(A)$.
+$y \in R(A)\ Ax = y$
+
+\begin{defn}
+  If $\exists const \alpha > 0 : \exists \hat{x} Ax = y,\ \forall y \in R(A) :
+  \|\hat{x} \leq \alpha \|y\|$, then $Ax = y$ has априорную оценку for its solutions.
+\end{defn}
+
+\begin{thm}
+  If operator equation $Ax = y$ has априорную оценку for its solutions, then
+  $R(A) = \cl{R(A)}$
+\end{thm}
