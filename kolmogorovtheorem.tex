@@ -3,7 +3,10 @@
   $X$ --- linear set, $\tau$ --- topology on $X$, $\alpha x$, $x + y$ are
   continuous on $\tau$.
 
-  \noindent $E(x)$ is neighbourhood of $x$.
+  \noindent $E(x) \subset X$ is called a neighbourhood of $x \in X$ if there
+  exists open set $U \in \tau: x \in U \subset E(x)$.
+  
+  \noindent $(X, \tau)$ is called a \textbf{topological vector space}.
   
   \noindent $\alpha x$ continuity means:
   \[
@@ -26,18 +29,43 @@
   \]
 \end{defn}
 
-It is clear that normed and countably-normed spaces are just a special case of
-topological vector spaces.
+\noindent
+It is clear that normed and countably-normed spaces are just special cases of
+topological vector space.
 
 \noindent
-$x_0$ --- fix. \\
-$f(x) = x + x_0,\ X \times X $ \\
+Let's fix $x_0$.\\
+It is clear that $f(x) = x + x_0$ is a bijection $X \to X$ \\
 $f^{-1}(y) = y - x_0$ \\
-$f$ and $f^{-1}$ are continuous (by addition continuity) --- gomeomorphism. \\
-$G$ --- open in $X$, $G \in \tau$, $x_0 + G = \Set{x_0 + x, x \in G}$ --- open. \\
+
+\begin{defn}
+  A function $f \colon X \to Y$ between two topological spaces $(X, \tau_X)$ and
+  $(Y, \tau_Y)$ is called a \textbf{homeomorphism} if it has the following properties:
+  \begin{enumerate}
+  \item $f$ is a bijection
+  \item $f$ is continuous 
+  \item the inverse function $f^{-1}$ is continuous
+  \end{enumerate}
+\end{defn}
+
+\noindent
+If $G$ is open in $X$, $G \in \tau$, then $x_0 + G = \Set{x_0 + x, x \in G}$ is
+open too. \\
 This means any topology is invariant relative to shift. \\
-If $\Sigma$ --- base of zero neighbourhoods (union of all zero neighbourhoods), any
-other zero neighbourhood 
+
+\begin{defn}
+  A \textbf{neighbourhood basis} or \textbf{local basis} for a point $x$ is a 
+  \[
+    \mathcal{B}(x) \subset \mathcal{V}(x) 
+  \]
+  such that 
+  \[
+    \forall V \in \mathcal{V}(x) \quad \exists B \in \mathcal{B}(x): B \subset V.
+  \]
+  Where $\mathcal{V}(x)$ is the collection of all neighbourhoods for the point
+  x.
+  We will use $\Sigma$ to denote neighbourhood basis for point 0.
+\end{defn}
 
 $x \to 0$ in $\tau$ $x + x \to 0 + 0 = 0$\\
 $\forall V \in \sigma\ \exists U \in \sigma \colon U + U \subset V,\ 2 \cdot U
@@ -60,18 +88,18 @@ $\sigma$
 
 \begin{thm}[Kolmogorov]
   Hausdorff topological vector space is normalizable if and only if zero has at least one 
-  limited, convex neighbourhood (the set is limited if it is absorbed by any zero's neighbourhood).
+  bounded, convex neighbourhood (the set is bounded if it is absorbed by any zero's neighbourhood).
 \end{thm}
 
 \begin{proof}
   Minkowski functional is seminorm if and only if it is produced by radial,
-  circled set. If space is normalizable then unit ball is limited, convex zero's
+  circled set. If space is normalizable then unit ball is bounded, convex zero's
   neighbourhood.
-  By the former characterization of vector space topology, having limited, convex zero's
+  By the former characterization of vector space topology, having bounded, convex zero's
   neighbourhood we can assume we have radial, circled neighbourhood. Produce Minkowski
-  functional using it (it will be seminorm). We can assume the set is limited.
-  $V$ --- limited, convex, circled. $\Set{\dfrac{1}{n}V, b \in \N}$
-  $\forall$ limited.
+  functional using it (it will be seminorm). We can assume the set is bounded.
+  $V$ --- bounded, convex, circled. $\Set{\dfrac{1}{n}V, b \in \N}$
+  $\forall$ bounded.
   $W$ $|\lambda| \geq \lambda_0$, $V \subset \lambda W$
   $\exists n_0 \in \N > \lambda_0$
   $V \subset n_0 W$ $\dfrac{1}{n_0} V \subset W$ \\

@@ -11,15 +11,15 @@ f(x_n - x),\ x_n \to x \iff x_n - x \to 0,\ f(0) = 0$\\
 \end{stm}
 
 \begin{defn}
-  $\sup\limits_{\|x\| \leq 1}{|f(x)|} = \|f\|$, $f$ --- limited $\iff \|f\| < +\infty$
+  $\sup\limits_{\|x\| \leq 1}{|f(x)|} = \|f\|$, $f$ --- bounded $\iff \|f\| < +\infty$
 \end{defn}
 
 \begin{thm}
-  Linear functional is continuous if and only if it is limited.
+  Linear functional is continuous if and only if it is bounded.
 \end{thm}
 
 \begin{proof}
-  Let $f$ be limited linear functional:
+  Let $f$ be bounded linear functional:
   \begin{align*}
     &\|f\| < +\infty,\ |f(x)| \leq 
       \|f\| \cdot \|x\|,\ x_n \to 0 \implies \|x_n\| \to 0 \\
@@ -186,7 +186,7 @@ seminorm submission property, i.e.
     &c \in [a, b] \neq \varnothing \qedhere
   \end{align*}
   \begin{note}
-    If $a < b$ there exists infinetely many continuations.
+    If $a < b$ there exists infinitely many continuations.
   \end{note}
 \end{proof}
 
@@ -228,17 +228,17 @@ $p(x) = a \cdot \|x\|,\ a > 0$
   \begin{align*}
     &f_0(t x_0) = t \cdot f_0(x_0) \\
     &f_0(x_0) = \|x_0\|,\ t = 1 \\
-    &f_0(t x_0) = t \cdot \|x_0\|
+    &f_0(t x_0) = t \cdot \|x_0\| \qedhere
   \end{align*}
 \end{proof}
 
 \begin{cor}
-  $\forall x_1 \neq x_2\ \exists\ \text{linear limited functional} : f(x_1)
+  $\forall x_1 \neq x_2\ \exists\ \text{linear bounded functional} : f(x_1)
   \neq f(x_2)$
 \end{cor}
 
 \begin{thm}[Riesz]
-  $H$ --- Hilbert space, $f$ --- linear, limited functional on $H$, then $\exists
+  $H$ --- Hilbert space, $f$ --- linear, bounded functional on $H$, then $\exists
   y \in H\colon$
   \begin{enumerate}
   \item $\forall x \in H\ f(x) = \inprod{x, y}$
@@ -272,14 +272,14 @@ $p(x) = a \cdot \|x\|,\ a > 0$
 
 \begin{ex}
   $H = L_2[0, 1]$ \\
-  $\forall\ \text{linear limited functional}\ L_2[0, 1]$ \\
+  $\forall\ \text{linear bounded functional}\ L_2[0, 1]$ \\
   $\exists g \in L_2[0, 1]$ \\
   $f(\hat{g}) = \int\limits_0^1 f(t)g(t) dt$
 \end{ex}
 
 \begin{ex}
-  $C[0, 1]$ $f$ --- limear limited functional on $C[0, 1]$ \\
-  $\exists g$ --- limited вар on [0, 1]
+  $C[0, 1]$ $f$ --- limear bounded functional on $C[0, 1]$ \\
+  $\exists g$ --- bounded вар on [0, 1]
   $f(\hat{g}) = \int\limits_0^1 \hat{g}(t)dg(t)$ --- Riemann--Stieltjes integral.
 \end{ex}
 

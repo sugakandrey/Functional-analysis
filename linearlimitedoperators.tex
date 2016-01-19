@@ -1,4 +1,4 @@
-\section{Linear limited operators}
+\section{Linear bounded operators}
 \begin{defn}
   $X, Y$ \\
   $A \colon X \xrightarrow{linear} Y\\
@@ -12,7 +12,7 @@
 \end{defn}
 
 \begin{defn}
-  $A$ --- limited, if $\exists const\ M : \|Ax\| \leq M \|x\|\ \forall x \in X
+  $A$ --- bounded, if $\exists const\ M : \|Ax\| \leq M \|x\|\ \forall x \in X
   \iff \sup\limits_{\|x\| \leq 1} \|Ax\| < +\infty$
 \end{defn}
 
@@ -22,7 +22,7 @@
 \end{defn}
 
 \begin{thm}
-  $A$ --- continuous $\iff$ $A$ --- limited.
+  $A$ --- continuous $\iff$ $A$ --- bounded.
 \end{thm}
 
 \begin{proof}
@@ -30,7 +30,7 @@
 \end{proof}
 
 \begin{note}
-  $L(X, Y)$ --- linear space of linear, limited operators from X to Y, which is
+  $L(X, Y)$ --- linear space of linear, bounded operators from X to Y, which is
   normed by the operator norm.
 \end{note}
 
@@ -38,51 +38,58 @@
   $Y$ --- Banach space $\implies L(X, Y)$ is also a Banach space.
 \end{thm}
 
+%TODO: \rightarrows
 \begin{proof}
-  $A_N \in  L(X ,Y),\ \|A_n - A_m\| \to 0\ ?\exists A \in L(X, Y): \|A_n - A\|
-  \to 0$ \\
-  $\|A_n - A\| \to 0 \iff A_n \xrightarrows{\bar{V}} A, \bar{V} = \Set{\|x\| \leq
-    1}\ \forall \epsilon > 0\ \exists N \forall n > N, \forall x \in \bar{V}
-  \implies \|A_nx - Ax\| < \epsilon$ \\
-  $\forall x \in X\ \|A_nx - A_mx\| = \|(A_n - A_m)x\| \leq \tendstp{\|A_n - A_m\|}{0} \|x\|
-  \implies A_nx - A_mx \to 0$ in $Y$ --- Banach space.
-  $\implies \exists \lim\limits_{n \to \infty}A_nx = Ax$
-  It is obvious that $A$ is linear operator. $A$ --- limited?, $A = \lim A_n$ in
-  $L(X, Y)$?  \\
-  $x \in \bar{V}\ \|Ax\| \leq \|A_nx - Ax\| + \|A_nx\|$, $\|A_nx - A_mx\| \leq
-  \epsilon,\ \forall n, m > N,\ \forall x \in \bar{V},\ m \to \infty$\\
-  $\|A_nx - Ax\| \leq \epsilon,\ \forall n > N,\ \forall x \in \bar{V}$ \\
-  $\|(A_n - A)x\| \leq \epsilon \implies \|A_n - A\| \leq \epsilon, \forall n > N$ \\
-  $A_n - A \in L(X, Y),\ A = \underbrace{A_n}{\text{limited}} - \underbrace{(A_n -
-    A)}{\text{limited}} \implies A$ --- limited.
-  $A = \lim A_n$ in $L(X, Y)$.
-  \begin{note}
-    $X$ --- normed space, $\R$ --- Banach space, then $L(X, R)$ is Banach space.
-    $X^{*} \defeq L(X, R)$ --- space dual to $X$.
-  \end{note}
+  Let $A_n$ be sequence of linear operators $A_n \in L(X, Y): \|A_n - A_n\| \to 0$
+  \begin{align*}
+    &?\exists A \in L(X, Y): \|A_n - A\| \to 0 \\
+    &\|A_n - A\| \to 0 \iff A_n \overset{\overline{V}}{\rightarrow} A, \overline{V} = \Set{\|x\| \leq
+      1}\ \\ 
+    &\forall \epsilon > 0\ \exists N \forall n > N, \forall x \in \overline{V}
+      \implies \|A_nx - Ax\| < \epsilon \\
+    &\forall x \in X\ \|A_nx - A_mx\| = \|(A_n - A_m)x\| \leq \tendsto{\|A_n - A_m\|}{0} \|x\| \\
+    & \implies A_nx - A_mx \to 0\ \text{in}\ Y\ \text{--- Banach space}.
+      \implies \exists \lim\limits_{n \to \infty}A_nx = Ax
+  \end{align*}
+  It is obvious that $A$ is linear operator. We only have to prove that $A$ is
+  bounded and $A = \lim A_n$ in $L(X, Y)$
+  \begin{align*}
+    &x \in \overline{V}\ \|Ax\| \leq \|A_nx - Ax\| + \|A_nx\| \\ 
+    &\|A_nx - A_mx\| \leq \epsilon,\ \forall n, m > N,\ \forall x \in \overline{V},\ m \to \infty\\
+    &\|A_nx - Ax\| \leq \epsilon,\ \forall n > N,\ \forall x \in \overline{V} \\
+    &\|(A_n - A)x\| \leq \epsilon \implies \|A_n - A\| \leq \epsilon, \forall n > N \\
+    &A_n - A \in L(X, Y),\ A = \underbrace{A_n}_{\text{bounded}} - \underbrace{(A_n -
+      A)}_{\text{bounded}} \implies A\ \text{--- bounded}. \\
+    &A = \lim A_n\ \text{in}\ L(X, Y). \qedhere
+  \end{align*}
 \end{proof}
 
+\begin{note}
+  $X$ --- normed space, $\R$ --- Banach space, then $L(X, R)$ is Banach space. \\
+  $X^{*} \defeq L(X, R)$ --- space dual to $X$.
+\end{note}
+
 \begin{thm}[Banach-Steinhaus]
-  $X$ --- Banach space, $Y$ --- normed space, $A_n \in L(X, Y)\ \ forall x \in
-  X\ \sup\limits_n\|A_nx\| < +\infty$. (Operator sequence is pointwise
-  limited).
-  $\implies \sup\limits_n\|A_n\| < +\infty$ (Uniform bounded.)
+  $X$ --- Banach space, $Y$ --- normed space, $A_n \in L(X, Y)\\ 
+  \forall x \in X\ \sup\limits_n\|A_nx\| < +\infty$. (Operator sequence is pointwise
+  bounded).
+  Then $\sup\limits_n\|A_n\| < +\infty$ (Uniform bounded.)
 \end{thm}
 
 \begin{proof}
-  $\forall x \in \bar{V}, n = 1,2, \dots\ \|A_nx\| \leq M?$ \\
-  Assume $\exists \bar{V}_r(a) : \forall x \in \bar{V}_r(a),\ n = 1,2 \dots \implies
+  $\forall x \in \overline{V}, n = 1,2, \dots\ \|A_nx\| \leq M?$ \\
+  Assume $\exists \overline{V}_r(a) : \forall x \in \overline{V}_r(a),\ n = 1,2 \dots \implies
   \|A_nx\| \leq P$, then \\
-  $x = r y + a,\ \y \bar{V}, \bar{x} \in \bar{V}_r(a)\ y = \dfrac{x - a}{r}$ \\
-  $\|A_ny\| = \dfrac 1r \|A_nx - A_na\| \leq \dfrac 12 (\overbrace{\|A_nx\|}{\in
-    \bar{V}_r(a)} + \overbrace{\|A_na\|}{\in \bar{V}_r(a)}) \leq \dfrac{2P}{r} = M$
-  Proof by contradiction, let there be no such $\bar{V}_r(a)$.
-  $\forall \bar{V}_{r_1}(a_1)$ it does not satisfy our requirements $\implies\
-  \exists n_1, \exists x_1 \in \bar{V}_{r_1}(a_1): \|A_{n_1}x_1\| > 1$. But
-  $A_{n_1}$ is continuous, then by continuity $\exists \bar{V}_{r_2}(x_1): \forall
-  x \in \bar{V}_{r_2}(x_1) \implies \|A_{n_1}(x)\| > 1$ \\
-  $\exists n_2 > n_1\ \exists x_2 \in \bar{V}_{r_2}(x_1): \|A_{n_2}(x_2)\| > 2\
-  \bar{V}_{r_3}(x_2)$.
+  $x = r y + a,\ y \overline{V}, \overline{x} \in \overline{V}_r(a)\ y = \dfrac{x - a}{r}$ \\
+  $\|A_ny\| = \dfrac 1r \|A_nx - A_na\| \leq \dfrac 12 (\overbrace{\|A_nx\|}^{\in
+    \overline{V}_r(a)} + \overbrace{\|A_na\|}^{\in \overline{V}_r(a)}) \leq \dfrac{2P}{r} = M$
+  Proof by contradiction, let there be no such $\overline{V}_r(a)$.
+  $\forall \overline{V}_{r_1}(a_1)$ it does not satisfy our requirements $\implies\
+  \exists n_1, \exists x_1 \in \overline{V}_{r_1}(a_1): \|A_{n_1}x_1\| > 1$. But
+  $A_{n_1}$ is continuous, then by continuity $\exists \overline{V}_{r_2}(x_1): \forall
+  x \in \overline{V}_{r_2}(x_1) \implies \|A_{n_1}(x)\| > 1$ \\
+  $\exists n_2 > n_1\ \exists x_2 \in \overline{V}_{r_2}(x_1): \|A_{n_2}(x_2)\| > 2\
+  \overline{V}_{r_3}(x_2)$.
   We can assume that each consecutive radius is at least two times smaller than
   the previous one. Continuing by induction, we get the sequence of nested balls
   with radiuses going to 0. Then they will have commmon point. 
