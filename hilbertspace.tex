@@ -78,7 +78,7 @@ When we have completeness we can define orthonormal basis.
   \begin{align*}
     \|x\|^2 = \inprod{x, x} = \lim_n \inprod{S_n, S_n} &= \inprod{\sum_{i = 1}^n \inprod{x,
         e_i} e_i, \sum\limits_{j = 1}^n \inprod{x, e_j} e_j} = \\
-    &= \lim_k \sum_{k = 1}^n |\inprod{x, e_k}|^2 = \sum |\inprod{x, e_i}|^2 \qedhere
+    &= \lim_n \sum_{k = 1}^n |\inprod{x, e_k}|^2 = \sum^\infty |\inprod{x, e_i}|^2 \qedhere
   \end{align*}
 \end{proof}
 
@@ -170,7 +170,7 @@ When we have completeness we can define orthonormal basis.
   \noindent
   By definition of best approximation element
   \[
-    \|x - (x_1 - \lambda^2)\| \geq \|x - x_1\|^2 \ \forall \lambda > 0
+    \|x - (x_1 + \lambda y)\|^2 \geq \|x - x_1\|^2 \ \forall \lambda > 0
   \]
   Let's expand squared norms via inner product. 
   \begin{align*}
