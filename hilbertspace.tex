@@ -24,8 +24,8 @@ When we have completeness we can define orthonormal basis.
 \end{defn}
 
 \begin{enumerate}
-\item Closed ONS\@: Let $L = \L\{e_1, e_2, \dots\}$, then $H = \cl{L}$ ($L$ is dense in $H$)
-\item Complete ONS\@: $\forall m\ \inprod{x, e_m} = 0 \implies x = 0$.
+\item Complete ONS\@: Let $L = \L\{e_1, e_2, \dots\}$, then $H = \cl{L}$ ($L$ is dense in $H$)
+\item Closed ONS\@: $\forall m\ \inprod{x, e_m} = 0 \implies x = 0$.
 \end{enumerate}
 
 \begin{stm}
@@ -79,15 +79,15 @@ When we have completeness we can define orthonormal basis.
   $S_m(x)$ by extremality $\|x - S_{m + p}(x)\|^2 \leq \|x - S_m(x)\|^2$ \\
   Implies partial sums go to x, $x = \sum\limits_{j = 1}^\infty \inprod{x, e_j} e_j$
   If all fourier coefficients are zero, it means the ONS is closed $(x = 0)$. \\
-  Complete ONS $\implies$ Closed ONS \\
+  Closed ONS $\implies$ Complete ONS \\
   Let $x \in H$, $y \coloneqq \sum\limits_{j = 1}^\infty \inprod{x, e_j}e_j$ \\
   \begin{align*}
     \forall n\ \inprod{x - y, e_n} &= \inprod{x - \sum_{j = 1}^\infty \inprod{x, e_j} e_j, e_n} =
                                      \inprod{x, e_n} - \inprod{\sum_{j = 1}^\infty \inprod{x, e_j} e_j, e_n} =\\
                                    &= \inprod{x, e_n} - \sum_{j = 1}^\infty \inprod{x, e_j} \inprod{e_j, e_n} =
-                                     =  \inprod{x, e_n} - \sum_{j = 1}^\infty \inprod{x, e_j} \delta_{j,n} = 0.
+                                      \inprod{x, e_n} - \sum_{j = 1}^\infty \inprod{x, e_j} \delta_{j,n} = 0.
   \end{align*}
-  Because ONS is complete $\inprod{x - y, e_n} = 0 \implies x - y = 0 \implies x =
+  Because ONS is closed $\inprod{x - y, e_n} = 0 \implies x - y = 0 \implies x =
   y$. Thus we can decompose any point into
   Fourier series, and this implies that ONS is complete.
 \end{proof}
