@@ -108,14 +108,14 @@ $F = X \setminus G$ --- closed
     \begin{itemize}
       \item $\Rightarrow$
 
-      $f(|x^{(n)}_k - x_k|) \leq 2^k \rho(x^{(n)}, x)$ \\
-      Let $\rho(x^{(n)}, x) \le \dfrac{\epsilon}{2^k}$, then $f(|x^{(n)}_k - x_k|) < \epsilon$ \\
-      $|x^{(n)}_k - x_k| = t = \dfrac{1}{1 - f(t)} - 1$, then $t \to 0$
+      $\phi(|x^{(m)}_k - x_k|) \leq 2^k \rho(x^{(m)}, x)$ \\
+      Let $\rho(x^{(m)}, x) \le \dfrac{\epsilon}{2^k}$, then $\phi(|x^{(m)}_k - x_k|) < \epsilon$ \\
+      $|x^{(m)}_k - x_k| = t = \dfrac{1}{1 - \phi(t)} - 1$, then $t \to 0$
       \item $\Leftarrow$
 
       Let's choose $k_0$ for which $\sum\limits_{k=k_0+1}^{\infty} \dfrac{1}{2^k} < \epsilon$ \\
-      Let's choose $n_0$ for which $\forall k \leq k_0, n > n_0: |x_k^{(n)} - x_k| < \epsilon$. \\
-      Then $\rho(x^{(n)}, x) < \sum\limits_{k=1}^{k_0} \dfrac{\epsilon}{2^k} + \epsilon < 2 \epsilon$ \\
+      Let's choose $m_0$ for which $\forall k \leq k_0, m > m_0: |x_k^{(m)} - x_k| < \epsilon$. \\
+      Then $\rho(x^{(m)}, x) < \sum\limits_{k=1}^{k_0} \dfrac{\epsilon}{2^k} + \epsilon < 2 \epsilon$ \\
       Letting  $\epsilon \to 0$, we get what we want \qedhere
     \end{itemize}
   \end{proof}
@@ -191,12 +191,8 @@ In any metric space separability axiom is true.
 
 \begin{defn}
   Metric space is \textbf{complete} if $\rho(x_n, x_m) \to 0 \implies \exists x = \lim x_n \\
-  \R^\infty$ --- complete (by completeness of the rational numbers). \\
+  \R^\infty$ --- complete (by completeness of rational numbers). \\
   In complete metric spaces the nested balls principle is true.
-  \[
-    \overline{V}_{r_i} \subset X,\ \overline{V}_{r_{i + 1}} \subset
-    \overline{V}_{r_i},\ r_i \to 0 \implies \exists ! d \in \bigcap \overline{V}_{r_i}
-  \]
 \end{defn}
 
 \begin{thm}
@@ -205,7 +201,7 @@ In any metric space separability axiom is true.
       \item $\overline{V}_{r_{n + 1}} \subset \overline{V}_{r_n}$ --- the system is nested.
       \item $r_n \to 0$
     \end{enumerate}
-  \underline{Then:} $\bigcap\limits_n \overline{V}_{r_n} = \{a\}$
+  \underline{Then:} $\exists ! a \in \bigcap\limits_n \overline{V}_{r_n}$
 \end{thm}
 
 \begin{proof}
@@ -283,9 +279,14 @@ $\\A \subset X,\ \tau_a = \Set{G \cap A, G \in \tau}$ --- topology induced on $A
     \item Totally bounded $\implies$ compact
 
       $K$ is totally bounded, $x_n \in K\ n_1 < n_2 < \dotsb < n_k < \dotsb,$
-      $x_n$ converges in $K$
-      \[\epsilon_k \downarrow \to 0\ \epsilon_1 \quad K \subset \bigcup\limits_{j = 1}^p \overline{V}_j,\ rad = \epsilon_1\qquad \text{($\epsilon_1$-net)} \]
-      $n$ is finite $\implies$ one ball will contain infinetely many $x_n$ elements.
+      $x_{n_k}$ converges in $K$?
+      \[
+        \epsilon_k \downarrow \to 0 \quad \epsilon_1 \quad K \subset
+        \bigcup\limits_{j = 1}^p \overline{V}_j,\ rad = \epsilon_1\qquad
+        \text{($\epsilon_1$-net)} 
+      \]
+      $p$ is finite $\implies$ one ball will contain infinetely many $x_n$
+      elements. Let's name that ball $\overline{V}_{j_0}$
 
       Let's look at $\overline{V}_{j_0} \cap K$ --- totally bounded $= K_1, \diam{K_1} \leq 2\epsilon_1$ \\
       $\epsilon_2\quad K_1 \subset \bigcup\limits_{j =1}^n
