@@ -32,7 +32,7 @@ When we have completeness we can define orthonormal basis.
   \label{stm:ons_properties} In Hilbert spaces two of the properties outlined above are equivalent.
 \end{stm}
 
-\begin{stm}
+\begin{stm}[Riesz-Fischer]
   In Hilbert space Fourier series converges for any point.
 \end{stm}
 
@@ -67,6 +67,19 @@ When we have completeness we can define orthonormal basis.
   \[
     \|S_n - S_m\| < \epsilon.
   \]
+\end{proof}
+
+\begin{stm}[Parseval's identity]
+  $x \in H = \sum \inprod{x, e_i}e_i$, then $\|x\|^2 = \sum |\inprod{x, e_i}|^2$
+\end{stm}
+
+\begin{proof}
+  By inner product continuity
+  \begin{align*}
+    \|x\|^2 = \inprod{x, x} = \lim_n \inprod{S_n, S_n} &= \inprod{\sum_{i = 1}^n \inprod{x,
+        e_i} e_i, \sum\limits_{j = 1}^n \inprod{x, e_j} e_j} = \\
+    &= \lim_k \sum_{k = 1}^n |\inprod{x, e_k}|^2 = \sum |\inprod{x, e_i}|^2 \qedhere
+  \end{align*}
 \end{proof}
 
 \begin{proof}
