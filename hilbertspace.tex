@@ -24,8 +24,8 @@ When we have completeness we can define orthonormal basis.
 \end{defn}
 
 \begin{enumerate}
-\item Complete ONS\@: Let $L = \L\{e_1, e_2, \dots\}$, then $H = \cl{L}$ ($L$ is dense in $H$)
-\item Closed ONS\@: $\forall m\ \inprod{x, e_m} = 0 \implies x = 0$.
+\item Closed ONS\@: Let $L = \L\{e_1, e_2, \dots\}$, then $H = \cl{L}$ ($L$ is dense in $H$)
+\item Compelte ONS\@: $\forall m\ \inprod{x, e_m} = 0 \implies x = 0$.
 \end{enumerate}
 
 \begin{stm}
@@ -84,7 +84,7 @@ When we have completeness we can define orthonormal basis.
 
 \begin{proof}
   \ref{stm:ons_properties}
-  Complete ONS $\implies$ Closed ONS \\
+  Closed ONS $\implies$ Complete ONS \\
   $\forall x \in H\ \forall \epsilon > 0\ \exists \sum\limits_{j =
     1}^p \alpha_{kj}e_{kj}\colon \underbrace{\|x - \sum\limits_{j = 1}^p
     \alpha_{kj}e_{kj}\|^2}_{\geq \|x - \sum\limits_{j = 1}^{k_p} \inprod{x, e_j} e_j\|^2}
@@ -92,7 +92,7 @@ When we have completeness we can define orthonormal basis.
   $S_m(x)$ by extremality $\|x - S_{m + p}(x)\|^2 \leq \|x - S_m(x)\|^2$ \\
   Implies partial sums go to x, $x = \sum\limits_{j = 1}^\infty \inprod{x, e_j} e_j$
   If all fourier coefficients are zero, it means the ONS is closed $(x = 0)$. \\
-  Closed ONS $\implies$ Complete ONS \\
+  Complete ONS $\implies$ Closed ONS \\
   Let $x \in H$, $y \coloneqq \sum\limits_{j = 1}^\infty \inprod{x, e_j}e_j$ \\
   \begin{align*}
     \forall n\ \inprod{x - y, e_n} &= \inprod{x - \sum_{j = 1}^\infty \inprod{x, e_j} e_j, e_n} =
@@ -100,9 +100,9 @@ When we have completeness we can define orthonormal basis.
                                    &= \inprod{x, e_n} - \sum_{j = 1}^\infty \inprod{x, e_j} \inprod{e_j, e_n} =
                                       \inprod{x, e_n} - \sum_{j = 1}^\infty \inprod{x, e_j} \delta_{j,n} = 0.
   \end{align*}
-  Because ONS is closed $\inprod{x - y, e_n} = 0 \implies x - y = 0 \implies x =
+  Because ONS is complte $\inprod{x - y, e_n} = 0 \implies x - y = 0 \implies x =
   y$. Thus we can decompose any point into
-  Fourier series, and this implies that ONS is complete.
+  Fourier series, and this implies that ONS is closed.
 \end{proof}
 
 \begin{defn}
