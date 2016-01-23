@@ -74,7 +74,7 @@ $C[0, 1]$ \\
 $\forall \epsilon > 0\ \exists P_n(x) : |f(x) - P_n(x)| < \epsilon\ \forall x \in [0, 1]$\\ 
 S.N. Bernstein constructively showed these polynoms.
 \[
-  B_n(f, x) = \sum\limits_{k = 0}^n C_n^k f(\dfrac{k}{n}) x^k (1 - x)^{n - k}
+  B_n(f, x) = \sum\limits_{k = 0}^n C_n^k \cdot f\left(\frac{k}{n}\right) x^k (1 - x)^{n - k}
 \]
 From functional analysis point of view Weierstrass theorem means that:
 \[
@@ -168,9 +168,9 @@ seminorm submission property, i.e.
     &|f_0(y) - t \cdot c| \leq p(y - t \cdot e)\ \forall y \in Y,\ \forall t \in \R \\
     &|f_0(y)| \leq p(y) \text{--- given}. \\
     &f_0(y) - p(y - t \cdot e) \leq t \cdot c \leq f_0(y) + p(y - t \cdot e),\ t >
-      0\ (t < 0) \text{is the same}. \\
-    &f_0(\dfrac{y}{t}) - p(\dfrac{y}{t} - e) \leq c \leq f_0(\dfrac{y}{t}) +
-      p(\dfrac{y}{t} - e),\ \dfrac{y}{t} \in Y \\
+      0\ (t < 0) \text{ is the same}. \\
+    &f_0\left(\frac{y}{t}\right) - p\left(\dfrac{y}{t} - e\right) \leq c \leq f_0\left(\dfrac{y}{t}\right) +
+      p\left(\frac{y}{t} - e\right),\ \dfrac{y}{t} \in Y \\
     &f_0(y) - p(y - e) \leq c \leq f_0(y) + p(y - e) \\
     &\forall y_1, y_2 \in Y\ f_0(y_1) - p(y_1 - e) \leq c \leq f_0(y_2) + p(y_2 -
       e)
