@@ -1,0 +1,70 @@
+\section{Bounded operator spectrum}
+\noindent
+All spaces in out theory are considered to be Banach spaces, we also operate on
+complex numbers, since it is easier to reason about.
+
+\begin{defn}
+  $A\colon X \to X$ --- linear bounded operator or $A \in L(X)$,
+  $\lambda \in \C,\ Ix = x$.
+  If operator $A - \lambda I$ is continuously reversible, then
+  $R_\lambda(A) = (A - \lambda I)^{-1}$ is called \textbf{resolvent operator} and
+  $\lambda$ is a \textbf{regular point} of $A$. 
+\end{defn}
+
+\begin{defn}
+  $\rho(A)$ --- set of all regular
+  points is called \textbf{resolvent set}. 
+\end{defn}
+
+\begin{defn}
+  $\sigma(A) = \C \setminus \rho(A)$ is called \textbf{spectrum}
+  of $A$.
+\end{defn}
+
+\begin{thm}[About bounded operator spectrum]
+  $\forall A \in L(X) \implies \sigma(A) \neq \varnothing$
+\end{thm}
+
+\begin{thm}
+  $\rho(A)$ is open in $\C$.
+\end{thm}
+
+\begin{proof}
+  \[
+    \forall \lambda_0 \in \rho(A)\ \exists \delta > 0:\ |\lambda - \lambda_0| <
+    \delta \overset{?}{\implies} \lambda \in \rho(A)
+  \]
+  By Banach theorem:
+  \begin{align*}
+    &C \in L(X),\ \|C\| < 1 \implies I - C \text{ --- continuously reversible},\ (I -
+      C)^{-1} = \sum_{n = 0}^\infty C^n\\
+    &A - \lambda I = (A - \lambda_0 I) - (\lambda - \lambda_0) I \\
+    &I = (A - \lambda_0 I)R_{\lambda_0}(A)\\
+    &A -\lambda I = \underbrace{(A - \lambda_0 I)}_{\text{cont. reversible}}(I - (\lambda - \lambda_0)R_{\lambda_0}(A)) \\
+    &|\lambda - \lambda_0| \cdot \|R_{\lambda_0}(A)\| < 1\\
+    &|\lambda - \lambda_0| < \underbrace{\frac{1}{\|R_{\lambda_0}(A)\|}}_\delta \implies \lambda \in \rho(A) \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{thm}
+  $\sigma(A) \subset \{\lambda : \abs{\lambda} \leq \|A\| \}$
+\end{thm}
+
+\begin{proof}
+  \begin{align*}
+    &|\lambda| > \|A\| \implies \lambda \in \rho(A)\\
+    &A - \lambda I = -\lambda \underbrace{(I - \frac 1\lambda A)}_{\text{cont. reversible}} \\
+    &\|\frac 1 \lambda A\| < 1\ \lambda \in \rho(A) \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{defn}
+  $r_\sigma(A) = r_\sigma = \inf\limits_{n \in \N} \sqrt[n]{\|A^n\|}$
+\end{defn}
+
+\begin{thm} 
+  \begin{enumerate}
+  \item $r_\sigma(A) = \lim\limits_{n \to \infty} \sqrt[n]{\|A^n\|}$ 
+  \item $\sigma(A) \subset \Set{\lambda : \abs{\lambda} \leq r_\sigma(A)}$
+  \end{enumerate}
+\end{thm}
