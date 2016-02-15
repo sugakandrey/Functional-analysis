@@ -62,32 +62,32 @@ complex numbers, since it is easier to reason about.
   $r_\sigma(A) = r_\sigma = \inf\limits_{n \in \N} \sqrt[n]{\|A^n\|}$
 \end{defn}
 
-\begin{thm} 
+\begin{thm}\leavevmode
   \begin{enumerate}
   \item $r_\sigma(A) = \lim\limits_{n \to \infty} \sqrt[n]{\|A^n\|}$ 
   \item $\sigma(A) \subset \Set{\lambda : \abs{\lambda} \leq r_\sigma(A)}$
   \end{enumerate}
 \end{thm}
 
-\begin{proof}
+\begin{proof}\leavevmode
   \begin{enumerate}
   \item 
-    \begin{align*}
-      &\forall \epsilon > 0 \exists n_0 : \|A^n\|^{\frac{1}{n_0}} < r_\sigma + \epsilon \\
+    $\begin{aligned}[t]
+      &\forall \epsilon > 0\ \exists n_0 : \|A^n\|^{\frac{1}{n_0}} < r_\sigma + \epsilon \\
       &\forall n > n_0\  n = p_n \cdot n + d_n,\ d_n = 0,1,\dotsc, n_0 - 1 \\
-      &\|A^n\|^{\frac 1n} = \|A^{p_n \cdot n + d_n }\|^{\frac{1}{p_n \cdot n + d_n}} \leq {(\|A^{n_0}\|^{p_n} \cdot \|A\|^{d_n})}^{\frac{1}{p_n \cdot n + d_n}} = (\|A^{n_0}\|^{\frac{1}{n_0}})^{\frac{p_n \cdot n_0}{n}} \cdot \tendsto{1}{\|A\|^{\frac{d_n}{n}}} \\
-      & r_\sigma \leq \tendsto{r_\sigma}{\|A^n\|^{\frac{1}{n}}} \leq r_\sigma + \epsilon\ \forall n > n_1 > n_0 \qedhere
-    \end{align*}
+      &\|A^n\|^{\frac 1n} = \|A^{p_n \cdot n + d_n }\|^{\frac{1}{p_n \cdot n + d_n}} \leq {(\|A^{n_0}\|^{p_n} \cdot \|A\|^{d_n})}^{\frac{1}{p_n \cdot n + d_n}} = (\|A^{n_0}\|^{\frac{1}{n_0}})^{\frac{p_n \cdot n_0}{n}} \cdot \tendsto{\|A\|^{\frac{d_n}{n}}}{1} \\
+      & r_\sigma \leq \tendsto{\|A^n\|^{\frac{1}{n}}}{r_\sigma} \leq r_\sigma + \epsilon\ \forall n > n_1 > n_0
+    \end{aligned}$
   \item
-    \begin{align*}
+    $\begin{aligned}[t]
       &A - \lambda I = -\lambda (I - \frac 1\lambda A) \\
-      &\sum_{n = 0}^\infty \frac{1}{\lambda^n} A^n,\ \sum_{n = 0}^\infty \|A^n\| \frac{1}{|\lambda|^n},\ t = frac{1}{|\lambda|},\ R = \frac{1}{\lim \sqrt[n]{\|A^n\|}}\\
+      &\sum_{n = 0}^\infty \frac{1}{\lambda^n} A^n,\ \sum_{n = 0}^\infty \|A^n\| \frac{1}{|\lambda|^n},\ t = \frac{1}{|\lambda|},\ R = \frac{1}{\lim \sqrt[n]{\|A^n\|}}\\
       &|\lambda| > \lim \sqrt[n]{\|A^n\|} = r_\sigma \qedhere
-    \end{align*}
-  \end{enumerate}
+    \end{aligned}$ 
+  \end{enumerate} 
 \end{proof}
 
-\begin{note}[Blunt spectrum estimations]
+\begin{note}[Inaccurate spectrum estimations]
   \begin{align*}
     &l_2,\ (x_1, x_2, \dots) \mapsto (0, x_1, x_2, \dots) \\
     &A \colon l_2 \to l_2\ \|Ax\| = \|x\|,\ \|A^n x\| = \|x\| \implies \|A^n\| = 1 \implies r_\sigma = 1
@@ -95,31 +95,34 @@ complex numbers, since it is easier to reason about.
   Now lets find $A$ spectrum using previous formula.
   \begin{align*}
     &\lambda = 0 \in \sigma(A) \\
-    &\lambda \neq 0\ (A - \lambda I) x = (0, x_1, x_2 \dots) - (\lambda x_1, \lambda x_2, \dots) = (-\lambda x_1, x_1 - \lambda x_2, x_2 - \lambda x_3, \dots) = (y_1, y_2, \dots) \in l_2 \\
+    &\lambda \neq 0\\
+    &(A - \lambda I) x = (0, x_1, x_2 \dots) - (\lambda x_1, \lambda x_2, \dots) = (-\lambda x_1, x_1 - \lambda x_2, x_2 - \lambda x_3, \dots) = (y_1, y_2, \dots) \in l_2 \\
     & \begin{cases}
-      -\lambda x_1 = y_1\quad x_1 = \frac{y_1}{-\lambda}\\
-      x_1 - \lambda x_2 = y_2\quad x_2 = \frac{y_2 - x_1}{\lambda}\\
-      x_2 - \lambda x_3 = y_3\\
+      -\lambda x_1 = y_1,\quad x_1 = \frac{y_1}{-\lambda}\\
+      x_1 - \lambda x_2 = y_2,\quad x_2 = \frac{y_2 - x_1}{-\lambda}\\
+      x_2 - \lambda x_3 = y_3,\quad x_3 = \frac{y_3 - x_2}{-\lambda}\\
       \vdots
       \end{cases} \\
     &\forall \lambda \neq 0\ \lambda \in \rho(A) \\ 
-    &\sigma(A) = \{0\},\ \r_\sigma = 1
+    &\sigma(A) = \{0\},\ r_\sigma = 1
   \end{align*}
 \end{note}
 
 \noindent
 To prove the main theorem we will need so called analytical operator-functions.
 \begin{defn}
-  \begin{align*}
-    &A_n \in L(X) \\
-    &\sum_{n = 0}^\infty A_n \lambda^n,\ \lambda \in \C
-  \end{align*}
+  Let $A_n \in L(X)$, then 
+   $\sum\limits_{n = 0}^\infty A_n \lambda^n,\ \lambda \in \C$ is called
+   \textbf{analytical operator-function}.
+\end{defn}
+
+\begin{note}
   Because $X$ is a Banach space, formal theory of such series is the same as for
-  complex numerical series.
+  complex numerical series, which means we can discuss things like convergence radius.
   \[
     R = \frac{1}{\varlimsup \sqrt[n]{\|A_k\|}}
   \]
-\end{defn}
+\end{note}
 
 \begin{lemma}[Abel]
   \[
@@ -128,18 +131,19 @@ To prove the main theorem we will need so called analytical operator-functions.
   \]
 \end{lemma}
 
-\begin{proof}
-  \begin{align*}
-    \|A^n\| |\lambda|^n = \tendsto{0}{\|A_n \cdot \lambda_0^n\|} \cdot (\frac{|\lambda|}{|\lambda_0|})^n < (\frac{|\lambda|}{|\lambda_0|})^n < +\infty
-    \qedhere
-  \end{align*}
+\begin{proof}\leavevmode
+    \[
+      \|A^n\| |\lambda|^n = \tendsto{\|A_n \cdot \lambda_0^n\|}{0} \cdot
+      \biggl( \frac{|\lambda|}{|\lambda_0|} \biggl)^n < \underbrace{\biggl(
+      \frac{|\lambda|}{|\lambda_0|} \biggl)^n}_{\text{converges}} \qedhere
+    \]
 \end{proof}
 
 \begin{thm}[Liouville]
-  \begin{align*}
-    &f(\lambda) = \sum_{n = 0}^\infty a_n \lambda \\
-    &|f(\lambda)| \leq M \implies f \equiv const
-  \end{align*}
+  \[
+    f(\lambda) = \sum_{n = 0}^\infty a_n \lambda,\ 
+    |f(\lambda)| \leq M \implies f \equiv const
+  \]
 \end{thm}
 
 \begin{proof}
@@ -152,8 +156,8 @@ To prove the main theorem we will need so called analytical operator-functions.
     &R_\lambda(A) = -\setminus \sum_{n = 0}^\infty A^n \frac{1}{\lambda^n}
   \end{align*}
   $R_\lambda$ is analytical operator-function in infinitely remote point.
-  Let's assume that $\sigma(A) = \vernothing$. 
+  Let's assume that $\sigma(A) = \varnothing$. 
   $R_\lambda$ is analytical in all complex numbers, but it is bounded on all
   complex number. Then by Liouville theorem $R_\lambda(A) \equiv const \implies
-  f \equiv const \cntr$
+  f \equiv const \contr$
 \end{proof}
