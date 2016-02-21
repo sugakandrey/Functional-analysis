@@ -1,13 +1,20 @@
 \section{Dual operators}
 \begin{defn}
+<<<<<<< HEAD
   Let $X$ be normed space and $X^*$ it's dual space,\\
   $A \in L(X, Y)$, $\phi \in Y^*$\\ 
   $\forall x \in X\ f(x) = \phi(Ax) \implies f \in X^*$ \\
+=======
+  $X$ --- normed space, $X^*$ --- dual space \\
+  $A \in \L(X, Y)$, $\phi \in Y^*$ $\forall x \in X$ \\
+  $f(x) = \phi(Ax) \implies f \in X^*$ \\
+>>>>>>> 2f8c0aa0eccd102034c574abb8167954625075f6
   $\phi \in Y^* \mapsto f = \phi \circ A \in X^*$ \\
   $A^* \colon Y^* \to X^*$ \\
   Then $A^*(\phi) = \phi \circ A$ is an operator \textbf{dual} to $A$.
 \end{defn}
 
+<<<<<<< HEAD
 \begin{ex}[Hilbert space]
   \begin{gather*}
     \forall f \in H^* \\
@@ -22,6 +29,21 @@
   \item
     $\begin{aligned}[t]
       &A \colon R^n \to R^n \\
+=======
+\noindent
+\begin{align*}
+  &\forall f \in H^* \\
+  &f(x, y) = \inprod{x, y},\ \|f\| = \|y\| \\
+  &A \colon H_1 \to H_2\ A^* \colon H_2^* \to H_1^* \\
+  &\inprod{Ax, y} = \inprod{x, A^*y}
+\end{align*}
+
+\begin{ex}
+  \begin{enumerate}
+  \item
+    \begin{align*}
+      &A \colon \R^n \to \R^m \\
+>>>>>>> 2f8c0aa0eccd102034c574abb8167954625075f6
       &(a_{ij})\cdot
         \begin{pmatrix}
           x_1\\
@@ -31,8 +53,9 @@
       \begin{pmatrix}
         y_1\\
         \vdots\\
-        y_n
+        y_m
       \end{pmatrix}
+<<<<<<< HEAD
     \end{aligned}$\\
     It is obvious that dual operator $A^*$ is just $(a_{ij})^{-1}$.
   \item
@@ -44,6 +67,19 @@
       &A \colon l_2 \to l_2\ A^* y = \sum_{n = 1}^\infty \overline{\lambda}_n y_n l_n\\
       &\inprod{Ax, y} = \inprod{x, A^* y} 
     \end{aligned}$
+=======
+    \end{align*}
+    Then $A^* = A^T$
+  \item
+    \begin{gather*}
+      l_2,\ (\vec{e_1}, \dotsc, \vec{e_n}) \text{ --- basis} \\
+      \vec{e}_n = (0, \dotsc, 0, 1, 0, \dotsc) \\
+      \overline{x} = \sum_{n = 1}^\infty x_n e_n,\ x_n = \inprod{\overline{x}, e_n} \\
+      \lambda_n : |\lambda_n| \leq M\ A \overline{x}  = \sum_{n = 1}^\infty \lambda_n x_n \overline{e}_n \in l_2 \\
+      A \colon l_2 \to l_2\ A^* y = \sum_{n = 1}^\infty \overline{\lambda}_n y_n e_n\\
+      \inprod{Ax, y} = \inprod{x, A^* y} 
+    \end{gather*}
+>>>>>>> 2f8c0aa0eccd102034c574abb8167954625075f6
   \end{enumerate}
 \end{ex}
 

@@ -53,8 +53,8 @@ complex numbers, since it is easier to reason about.
 \begin{proof}
   \begin{align*}
     &|\lambda| > \|A\| \implies \lambda \in \rho(A)\\
-    &A - \lambda I = -\lambda \underbrace{(I - \frac 1\lambda A)}_{\text{cont. reversible}} \\
-    &\|\frac 1 \lambda A\| < 1\ \lambda \in \rho(A) \qedhere
+    &A - \lambda I = -\lambda \underbrace{(I - \tfrac 1\lambda A)}_{\text{cont. reversible}} \\
+    &\|\tfrac 1 \lambda A\| < 1 \quad \lambda \in \rho(A) \qedhere
   \end{align*}
 \end{proof}
 
@@ -74,7 +74,7 @@ complex numbers, since it is easier to reason about.
   \item 
     $\begin{aligned}[t]
       &\forall \epsilon > 0\ \exists n_0 : \|A^n\|^{\frac{1}{n_0}} < r_\sigma + \epsilon \\
-      &\forall n > n_0\  n = p_n \cdot n + d_n,\ d_n = 0,1,\dotsc, n_0 - 1 \\
+      &\forall n > n_0\quad  n = p_n \cdot n + d_n,\ d_n = 0,1,\dotsc, n_0 - 1 \\
       &\|A^n\|^{\frac 1n} = \|A^{p_n \cdot n + d_n }\|^{\frac{1}{p_n \cdot n + d_n}} \leq {(\|A^{n_0}\|^{p_n} \cdot \|A\|^{d_n})}^{\frac{1}{p_n \cdot n + d_n}} = (\|A^{n_0}\|^{\frac{1}{n_0}})^{\frac{p_n \cdot n_0}{n}} \cdot \tendsto{\|A\|^{\frac{d_n}{n}}}{1} \\
       & r_\sigma \leq \tendsto{\|A^n\|^{\frac{1}{n}}}{r_\sigma} \leq r_\sigma + \epsilon\ \forall n > n_1 > n_0
     \end{aligned}$
@@ -82,7 +82,7 @@ complex numbers, since it is easier to reason about.
     $\begin{aligned}[t]
       &A - \lambda I = -\lambda (I - \frac 1\lambda A) \\
       &\sum_{n = 0}^\infty \frac{1}{\lambda^n} A^n,\ \sum_{n = 0}^\infty \|A^n\| \frac{1}{|\lambda|^n},\ t = \frac{1}{|\lambda|},\ R = \frac{1}{\lim \sqrt[n]{\|A^n\|}}\\
-      &|\lambda| > \lim \sqrt[n]{\|A^n\|} = r_\sigma \qedhere
+      &|\lambda| > \lim \sqrt[n]{\|A^n\|} = r_\sigma && \qedhere
     \end{aligned}$ 
   \end{enumerate} 
 \end{proof}
@@ -92,23 +92,21 @@ complex numbers, since it is easier to reason about.
     &l_2,\ (x_1, x_2, \dots) \mapsto (0, x_1, x_2, \dots) \\
     &A \colon l_2 \to l_2\ \|Ax\| = \|x\|,\ \|A^n x\| = \|x\| \implies \|A^n\| = 1 \implies r_\sigma = 1
   \end{align*}
-  Now lets find $A$ spectrum using previous formula.
+  Now let's find $A$ spectrum using previous formula. It's easy to see that
+  $\lambda = 0 \in \sigma(A)$. Consider $\lambda \neq 0$:
   \begin{align*}
-    &\lambda = 0 \in \sigma(A) \\
-    &\lambda \neq 0\\
     &(A - \lambda I) x = (0, x_1, x_2 \dots) - (\lambda x_1, \lambda x_2, \dots) = (-\lambda x_1, x_1 - \lambda x_2, x_2 - \lambda x_3, \dots) = (y_1, y_2, \dots) \in l_2 \\
     & \begin{cases}
       -\lambda x_1 = y_1,\quad x_1 = \frac{y_1}{-\lambda}\\
       x_1 - \lambda x_2 = y_2,\quad x_2 = \frac{y_2 - x_1}{-\lambda}\\
       x_2 - \lambda x_3 = y_3,\quad x_3 = \frac{y_3 - x_2}{-\lambda}\\
       \vdots
-      \end{cases} \\
-    &\forall \lambda \neq 0\ \lambda \in \rho(A) \\ 
-    &\sigma(A) = \{0\},\ r_\sigma = 1
+      \end{cases}
   \end{align*}
+    Hence, $\forall \lambda \neq 0 \quad \lambda \in \rho(A)$. Thus,
+    $\sigma(A) = \{0\},\ r_\sigma = 1$
 \end{note}
 
-\noindent
 To prove the main theorem we will need so called analytical operator-functions.
 \begin{defn}
   Let $A_n \in L(X)$, then 
@@ -147,6 +145,7 @@ To prove the main theorem we will need so called analytical operator-functions.
 \end{thm}
 
 \begin{proof}
+<<<<<<< HEAD
   \begin{align*}
     &R_\lambda(A) = (A - \lambda I)^{-1},\ \lambda \in \rho(A) \\
     &A - \lambda I = (A - \lambda_0 I) - (\lambda - \lambda_0) I  = (A - \lambda_0 I) - (\lambda - \lambda_0) (A - \lambda_0 I) R_{\lambda_0}(A) = (A - \lambda_0 I)(I - (\lambda - \lambda_0)R_{\lambda_0}(A)),\ \lambda_0 \in \rho(A)\\ 
@@ -155,6 +154,19 @@ To prove the main theorem we will need so called analytical operator-functions.
     &A - \lambda I = -\lambda(I - \frac 1\lambda A),\ \lambda \sim \infty \\
     &R_\lambda(A) = -\lambda \sum_{n = 0}^\infty A^n \frac{1}{\lambda^n}
   \end{align*}
+=======
+    %R_\lambda(A) = (A - \lambda I)^{-1},\ \lambda \in \rho(A) \\
+  \begin{gather*}
+    \begin{split}
+      A - \lambda I & = (A - \lambda_0 I) - (\lambda - \lambda_0) I = (A - \lambda_0 I) - (\lambda - \lambda_0) (A - \lambda_0 I) R_{\lambda_0}(A) = {}\\
+                    & = (A - \lambda_0 I)(I - (\lambda - \lambda_0)R_{\lambda_0}(A)),\ \lambda_0 \in \rho(A) 
+    \end{split} \\
+    (I - (\lambda - \lambda_0) R_{\lambda_0}(A))^{-1} = \sum_{n=0}^\infty R_{\lambda_0}^n(A)(\lambda - \lambda_0)^n \\
+    R_\lambda(A)  = \sum_{n=0}^\infty R_{\lambda_0}^{n + 1} (\lambda - \lambda_0)^n,\ \lambda \sim \lambda_0 \\
+    A - \lambda I = -\lambda(I - \tfrac 1\lambda A),\ \lambda \sim \infty \\
+    R_\lambda(A)  = -\lambda \sum_{n = 0}^\infty A^n \frac{1}{\lambda^n}
+  \end{gather*}
+>>>>>>> 2f8c0aa0eccd102034c574abb8167954625075f6
   $R_\lambda$ is analytical operator-function in infinitely remote point.
   Let's assume that $\sigma(A) = \varnothing$. 
   $R_\lambda$ is analytical in all complex numbers, but it is bounded on all
