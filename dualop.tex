@@ -1,25 +1,26 @@
 \section{Dual operators}
 \begin{defn}
-  $X$ --- normed space, $X^*$ --- dual space \\
-  $A \in L(X, Y)$, $\phi \in Y^*$ $\forall x \in X$ \\
-  $f(x) = \phi(Ax) \implies f \in X^*$ \\
+  Let $X$ be normed space and $X^*$ it's dual space,\\
+  $A \in L(X, Y)$, $\phi \in Y^*$\\ 
+  $\forall x \in X\ f(x) = \phi(Ax) \implies f \in X^*$ \\
   $\phi \in Y^* \mapsto f = \phi \circ A \in X^*$ \\
   $A^* \colon Y^* \to X^*$ \\
-  $A^*(\phi) = \phi \circ A$
+  Then $A^*(\phi) = \phi \circ A$ is an operator \textbf{dual} to $A$.
 \end{defn}
 
-\noindent
-\begin{align*}
-  &\forall f \in H^* \\
-  &f(x, y) = \inprod{x, y},\ \|f\| = \|y\| \\
-  &A \colom H_1 \to H_2\ A^* \colon H_2^* \to H_1^* \\
-  &\inprod{Ax, y} = \inprod{x, A^*y}
-\end{align*}
+\begin{ex}[Hilbert space]
+  \begin{gather*}
+    \forall f \in H^* \\
+    f(x, y) = \inprod{x, y},\ \|f\| = \|y\| \\
+    A \colon H_1 \to H_2,\ A^* \colon H_2^* \to H_1^* \\
+    \inprod{Ax, y} = \inprod{x, A^*y}
+  \end{gather*}
+\end{ex}
 
-\begin{ex}
+\begin{ex}\leavevmode
   \begin{enumerate}
   \item
-    \begin{align*}
+    $\begin{aligned}[t]
       &A \colon R^n \to R^n \\
       &(a_{ij})\cdot
         \begin{pmatrix}
@@ -32,21 +33,20 @@
         \vdots\\
         y_n
       \end{pmatrix}
-    \end{align*}
+    \end{aligned}$\\
+    It is obvious that dual operator $A^*$ is just $(a_{ij})^{-1}$.
   \item
-    \begin{align*}
+    $\begin{aligned}[t]
       &l_2,\ (\vec{l_1}, \dotsc, \vec{l_n}) \text{ --- basis} \\
       &\vec{l}_n = (0, \dotsc, 0, 1, 0, \dotsc) \\
       &\overline{x} = \sum_{n = 1}^\infty x_n l_n,\ x_n = \inprod{\overline{x}, l_n} \\
       &\lambda_n : |\lambda_n| \leq M\ A \overline{x}  = \sum_{n = 1}^\infty \lambda_n x_n \overline{l}_n \in l_2 \\
       &A \colon l_2 \to l_2\ A^* y = \sum_{n = 1}^\infty \overline{\lambda}_n y_n l_n\\
       &\inprod{Ax, y} = \inprod{x, A^* y} 
-    \end{align*}
+    \end{aligned}$
   \end{enumerate}
 \end{ex}
 
 \begin{stm}
-  \[
-    \|A^*\| = \|A\|
-  \]
+    $\|A^*\| = \|A\|$
 \end{stm}
