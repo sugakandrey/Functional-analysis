@@ -50,3 +50,109 @@
 \begin{stm}
     $\|A^*\| = \|A\|$
 \end{stm}
+
+\begin{proof} 
+  \begin{gather*}
+    f = A^* \phi = \phi \circ A \\
+    |f(x)| = |\phi (Ax)| \leq \|\phi\| \cdot \|Ax\| \leq \|\phi\| \cdot \|A\| \cdot \|x\| \\
+    \|f\| \leq \|A\| \cdot \|\phi\| \\
+    \|A^*\phi\| \leq \|A\| \cdot \|\phi\|\\
+    \|A^*\| \leq \|A\|
+  \end{gather*}
+  Now let's check the inverse $\|A\| \leq \|A^*\|$?
+  \begin{gather*}
+    \|A\| = \sup_{\|x\| = 1} \|Ax\| = \sup_{\|x\| \leq 1} \|Ax\| \\
+    \forall \epsilon > 0\ \exists x_\epsilon : \|x_\epsilon\| = 1 : \|A\| -
+    \epsilon < \|A x_\epsilon\| \\
+    Ax_\epsilon \in Y\ \text{By Hahn-Banach theorem:} \\
+    \exists \phi : \|\phi\| = 1 : \phi(Ax_\epsilon) = \|Ax_\epsilon\| \\
+    \|A\| - \epsilon < |\phi(Ax_\epsilon)| \leq \underbrace{\|\phi\|}_{1} \|Ax_\epsilon\| \\
+    \|A\| - \epsilon < \|A x_\epsilon\| = \|A^* \phi(x_\epsilon)\| \leq \|A^*
+    \phi\| \cdot \underbrace{\|x_\epsilon\|}_{1} = \|A^*\phi\| \leq \|A^*\| \cdot
+    \underbrace{\|\phi\|}_{1} \\
+    \|A\| - \epsilon \leq \|A^*\| \\
+    \|A\| \leq \|A^*\| \qedhere
+  \end{gather*}
+\end{proof}
+
+\begin{defn}
+  $X, X^*, \forall S \subset X$ \\
+  $S^\perp = \Set{f \in X^* | \forall x \in S \implies f(x) = 0}$ ---
+  \textbf{orthogonal addition in dual space}. \\
+  $S \subset X^*\ S^\perp = \Set{x \in X | \forall f \in S \implies f(x) = 0}$
+  --- \textbf{orthogonal addition in $X$}.\\
+  Both of theese orthogonal additions are closed sets.
+\end{defn}
+
+\begin{stm}\leavevmode
+  \begin{enumerate}
+  \item $0 \in X \implies X^* = \{0\}^\perp$
+  \item $0 \in X^* \implies X = \{0\}^\perp$
+  \end{enumerate}
+\end{stm}
+
+\begin{proof}\leavevmode
+  \begin{enumerate}
+  \item
+    $\begin{aligned}[t]
+      &X^* = \{0\}^\perp ? \\
+      &f \in X^*\ f(0) = 0, f \in \{0\}^\perp
+    \end{aligned}$
+  \item
+    $\begin{aligned}[t]
+      &X = \{0\}^\perp ?\\
+      &\forall x \in X\ 0(x) = 0 \\
+      &X \in \{0\}^\perp
+    \end{aligned}$ 
+  \end{enumerate}
+  In both cases the inverse relation is obvioius.
+\end{proof}
+
+\begin{stm}
+  $X^\perp = {0}, {X^*}^\perp = {0}$
+\end{stm}
+
+\begin{proof}\leavevmode
+  \begin{enumerate}
+  \item 
+    $\begin{aligned}[t]
+      &0 \in X^*\ \forall x \in X 0(x) = 0 \\
+      &0 \in X^\perp \\
+      &f \in X^\perp\ \forall x \in X\ f(x) = 0 \implies f = 0 \\
+      &X^\perp = \{0\} \\
+    \end{aligned}$
+  \item
+    $\begin{aligned}[t]
+      &0 \in X\ \forall f\ f(0) = 0\\
+      &0 \in {X^*}^\perp \\
+      &x \in {X^*}^\perp,\ x \neq 0\\
+      &\exists f: \|f\| = 1 : f(x) = \|x\| \neq 0
+    \end{aligned}$ \\
+     ${X^*}^\perp = \{0\}$ \qedhere
+  \end{enumerate}
+\end{proof}
+
+\noindent
+\begin{gather*}
+  A \colon X \to Y \\
+  A x = y \\
+  y \in R(A)?
+\end{gather*}
+
+The main diffuclty here, is that it is hard to describe the set of values of a
+particular linear operator.
+Using the orthogonal addition and dual operator definitions we can describe the
+most common criteria of points being contained in operator's values set. At first we need to
+make sure that this set is closed, i.e. $R(A) = \cl{R(A)}$.
+
+\begin{thm}[1]
+  \[
+    \cl{R(A)} = (\ker{A^*})^\perp
+  \]
+\end{thm}
+
+\begin{thm}[2]
+  \[
+    R(A) = \cl{R(A)} \implies R(A^*) = (\ker{A})^\perp
+  \]
+\end{thm}
