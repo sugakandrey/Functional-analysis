@@ -1,0 +1,15 @@
+before_install:
+- sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended
+  texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
+script:
+- mkdir _build
+- pdflatex -output-directory _build tex/funcan.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: Xi70At6PnDofVWQRQGT46ZPG33XyPjzt3zqvbTuMhCFP1fKhND+4qFkowwU/ddQvirgI6TJVIhVWhBHqifmnhse6P21QYoThsZjP9aGTTIo24rUrVsBr+SWYbyz/k+IlwQDBIjPFemwdAge3wIRYS3AsMaiorF+TqZNFmfq8Ptb5W+1TCSMwljQIrCCgXrsaJFL6egRUabuCDwFQJ4k2JvPclUcDndoORgLQ/JGL/ov3Qx8hMVYLCMDOtlfwUiBuL98AQ/VrMbcbyuq6E/dvV+8JLC/UXrL1FuLPjne239le2ggLEepyNX1zbFM7QNxsv2xHvsS8uPaxrNO1rNln55NfOFfWkG6XuV1AcpOESN6j0EISk57/x+6eGxKLhPGtegdmYaZ/l7S+I+buSSqbgs1895UgJw67TI/bXs+IxnCDa+nhKhiSsXlIxDByA2b1qDgMAZYxqx6fFyIMpdEDJxtfR2/QRRjCrZ/5McgPKtk+hklID2uHq5QoAYhj7CFVKbMq2nC39mnl1WvABWnJbGrcu3TPk9k5BMI0hJlV1NBAQ6LVUT7f3bV/so3FgTxgwej9gl4u5MrCKqr7U9OSq8JEu8df/Eo388g/5vie7KpsecibbtX/YcSCF1oe2DBO5L/sTMQujYlxbAZlfAal3rSxU8YLCLTaA6MhNKf3iwY=
+  file: _build/funcan.pdf
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: sugakandrey/Functional-analysis
