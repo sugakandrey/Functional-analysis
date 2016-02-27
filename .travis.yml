@@ -5,6 +5,7 @@ script:
 - mkdir _build
 - cd tex
 - pdflatex -output-directory ../_build funcan.tex
+- cd ..
 deploy:
   provider: releases
   api_key:
