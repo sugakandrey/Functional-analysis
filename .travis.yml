@@ -3,7 +3,7 @@ before_install:
   texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-latex3 texlive-math-extra pgf rubber"
 script:
 - mkdir _build
-- rubber --into _build --pdf tex/funcan.tex
+- rubber --into _build --pdf -W boxes tex/funcan.tex
 deploy:
   provider: releases
   api_key:

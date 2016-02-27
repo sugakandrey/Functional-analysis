@@ -82,8 +82,8 @@ complex numbers, since it is easier to reason about.
     $\begin{aligned}[t]
       &A - \lambda I = -\lambda (I - \frac 1\lambda A) \\
       &\sum_{n = 0}^\infty \frac{1}{\lambda^n} A^n,\ \sum_{n = 0}^\infty \|A^n\| \frac{1}{|\lambda|^n},\ t = \frac{1}{|\lambda|},\ R = \frac{1}{\lim \sqrt[n]{\|A^n\|}}\\
-      &|\lambda| > \lim \sqrt[n]{\|A^n\|} = r_\sigma && \qedhere
-    \end{aligned}$ 
+      &|\lambda| > \lim \sqrt[n]{\|A^n\|} = r_\sigma\hspace{106.4mm}\qedhere 
+    \end{aligned}$
   \end{enumerate} 
 \end{proof}
 
@@ -94,15 +94,18 @@ complex numbers, since it is easier to reason about.
   \end{align*}
   Now let's find $A$ spectrum using previous formula. It's easy to see that
   $\lambda = 0 \in \sigma(A)$. Consider $\lambda \neq 0$:
-  \begin{align*}
-    &(A - \lambda I) x = (0, x_1, x_2 \dots) - (\lambda x_1, \lambda x_2, \dots) = (-\lambda x_1, x_1 - \lambda x_2, x_2 - \lambda x_3, \dots) = (y_1, y_2, \dots) \in l_2 \\
-    & \begin{cases}
+  \begin{gather*}
+    \begin{split}
+      (A - \lambda I) x& = (0, x_1, x_2 \dots) - (\lambda x_1, \lambda x_2, \dots) =\\
+    &= (-\lambda x_1, x_1 - \lambda x_2, x_2 - \lambda x_3, \dots) = (y_1, y_2, \dots) \in l_2
+    \end{split}\\
+     \begin{cases}
       -\lambda x_1 = y_1,\quad x_1 = \frac{y_1}{-\lambda}\\
       x_1 - \lambda x_2 = y_2,\quad x_2 = \frac{y_2 - x_1}{-\lambda}\\
       x_2 - \lambda x_3 = y_3,\quad x_3 = \frac{y_3 - x_2}{-\lambda}\\
       \vdots
       \end{cases}
-  \end{align*}
+  \end{gather*}
     Hence, $\forall \lambda \neq 0 \quad \lambda \in \rho(A)$. Thus,
     $\sigma(A) = \{0\},\ r_\sigma = 1$
 \end{note}
@@ -130,11 +133,11 @@ To prove the main theorem we will need so called analytical operator-functions.
 \end{lemma}
 
 \begin{proof}\leavevmode
-    \[
+  \begin{equation*}
       \|A^n\| |\lambda|^n = \tendsto{\|A_n \cdot \lambda_0^n\|}{0} \cdot
       \biggl( \frac{|\lambda|}{|\lambda_0|} \biggl)^n < \underbrace{\biggl(
       \frac{|\lambda|}{|\lambda_0|} \biggl)^n}_{\text{converges}} \qedhere
-    \]
+  \end{equation*}
 \end{proof}
 
 \begin{thm}[Liouville]
@@ -145,7 +148,7 @@ To prove the main theorem we will need so called analytical operator-functions.
 \end{thm}
 
 \begin{proof}[Proof of Theorem \ref{thm:main}]
-  $R_\lambda(A) = (A - \lambda I)^{-1},\ \lambda \in \rho(A)$ \\
+  $R_\lambda(A) = (A - \lambda I)^{-1},\ \lambda \in \rho(A)$
   \begin{gather*}
     \begin{split}
       A - \lambda I & = (A - \lambda_0 I) - (\lambda - \lambda_0) I = (A - \lambda_0 I) - (\lambda - \lambda_0) (A - \lambda_0 I) R_{\lambda_0}(A) = {}\\
