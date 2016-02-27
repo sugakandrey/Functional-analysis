@@ -3,7 +3,8 @@ before_install:
   texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-latex3 texlive-math-extra pgf"
 script:
 - mkdir _build
-- pdflatex -output-directory _build tex/funcan.tex
+- cd tex
+- pdflatex -output-directory ../_build funcan.tex
 deploy:
   provider: releases
   api_key:

@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/sugakandrey/Functional-analysis.svg?branch=master)](https://travis-ci.org/sugakandrey/Functional-analysis)
 # Functional-analysis
 This repository will contain LaTex version of my notes on
 NRU ITMO 2015-16 Functional analysis course as taught by Dodonov N.U.
