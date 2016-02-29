@@ -10,10 +10,10 @@ addons:
     - texlive-latex3
     - texlive-math-extra
     - pgf
-    - rubber
 script:
+- git clone https://git.launchpad.net/rubber
 - mkdir _build
-- rubber --into _build --pdf -W boxes tex/funcan.tex
+- rubber/rubber --into _build --pdf -W boxes tex/funcan.tex
 deploy:
   provider: releases
   api_key:
