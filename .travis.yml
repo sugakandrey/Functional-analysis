@@ -2,8 +2,6 @@ sudo: false
 dist: trusty
 addons:
   apt:
-    sources:
-    - debian-sid
     packages:
     - texlive-common
     - texlive-latex-extra
