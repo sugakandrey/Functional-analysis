@@ -9,9 +9,8 @@ addons:
     - texlive-math-extra
     - pgf
 script:
-- git clone https://git.launchpad.net/rubber
-- mkdir _build
-- rubber/rubber --into _build --pdf -W boxes tex/funcan.tex
+- cd tex
+- latexmk -pdf -output-directory=../_build funcan.tex
 deploy:
   provider: releases
   api_key:
