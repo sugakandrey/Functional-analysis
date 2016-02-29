@@ -5,6 +5,7 @@ addons:
     sources:
     - debian-sid
     packages:
+    - texlive-common
     - texlive-latex-extra
     - texlive-latex3
     - texlive-math-extra
