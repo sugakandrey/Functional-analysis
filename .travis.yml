@@ -8,6 +8,7 @@ addons:
     - texlive-latex3
     - texlive-math-extra
     - pgf
+    - latexmk
 script:
 - cd tex
 - latexmk -pdf -output-directory=../_build funcan.tex
