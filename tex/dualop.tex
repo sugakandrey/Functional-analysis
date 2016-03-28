@@ -23,11 +23,11 @@
     $\begin{aligned}[t]
       &A \colon \R^n \to \R^m \\
       &(a_{ij})\cdot
-        \begin{pmatrix}
-          x_1\\
-          \vdots\\
-          x_n
-        \end{pmatrix} =
+      \begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_n
+      \end{pmatrix} =
       \begin{pmatrix}
         y_1\\
         \vdots\\
@@ -48,7 +48,7 @@
 \end{ex}
 
 \begin{stm}
-    $\|A^*\| = \|A\|$
+  $\|A^*\| = \|A\|$
 \end{stm}
 
 \begin{proof} 
@@ -128,7 +128,7 @@
       &x \in {X^*}^\perp,\ x \neq 0\\
       &\exists f: \|f\| = 1 : f(x) = \|x\| \neq 0
     \end{aligned}$ \\
-     ${X^*}^\perp = \{0\}$ \qedhere
+    ${X^*}^\perp = \{0\}$ \qedhere
   \end{enumerate}
 \end{proof}
 
@@ -143,7 +143,7 @@ The main diffuclty here, is that it is hard to describe the set of values of a
 particular linear operator.
 Using the orthogonal addition and dual operator definitions we can describe the
 most common criteria of points being contained in operator's values set. At first we need to
-make sure that this set is closed, i.e. $R(A) = \cl{R(A)}$.
+make sure that such set is closed, i.e. $R(A) = \cl{R(A)}$.
 
 \begin{thm}[1]
   \[
@@ -166,61 +166,71 @@ make sure that this set is closed, i.e. $R(A) = \cl{R(A)}$.
     f = A^* \phi,\ f = \phi \circ A \\
     \phi \circ A = 0,\ \forall x \in X\ \phi(A x) = 0 \\ 
     y = Ax \implies \phi(y) = 0 \\
-    R(A) \subset (\ker(A^*))^\perp \\
-    y \in \cl{R(A)} = \lim y_n,\ y_n \in R(A), y_n \in (\ker{R(A)^*})^\perp
-    \implies y \in (\ker{R(A)^*})^\perp \\
-    \cl{R(A)} \supset (\ker(A^*))^\perp ?\\
-    \text{Proof by contradiction: } \cl{R(A)} \subsetneq (\ker(A^*))^\perp \\
-    \exists y_0 \in (\ker(A^*))^\perp : y_0 \notin \cl{R(A)} \\
+    R(A) \subset (\ker{A^*})^\perp \\
+    y \in \cl{R(A)} = \lim y_n,\ y_n \in R(A), y_n \in (\ker{R(A^*)})^\perp
+    \implies y \in (\ker{R(A^*)})^\perp \\
+    \cl{R(A)} \supset (\ker{A^*})^\perp ?\\
+    \text{Proof by contradiction: } \cl{R(A)} \subsetneq (\ker{A^*})^\perp \\
+    \exists y_0 \in (\ker{A^*})^\perp : y_0 \notin \cl{R(A)} \\
     \overline{Y} = \Set{ y + \alpha y_0 | y \in \cl{R(A)}, \alpha \in R } \text{ ---
-      linear set in Y} \\
-    \text{We can see that $\overline{Y}$ is closed too
-      (in Y) and thus is a subspace.} \\
-    z \in \overline{Y}\ \phi_0(z) = \alpha,\ z = y + \alpha y_0 \text{ --- 
-      linear continuous functional on $\overline{Y}$} \\
-    \text{By Hahn-Banach theorem continue it on the whole Y space, the continuation will
-      also be called $\phi_0$} \\
+      linear set in Y} 
+  \end{gather*}
+  We can see that $\overline{Y}$ is closed too (in Y) and thus is a subspace.
+  \[
+    \forall z \in \overline{Y},\ z = y + \alpha y_0,\ \phi_0(z) = \alpha \text{ --- 
+      linear continuous functional on $\overline{Y}$}
+  \] 
+  Using the Hahn-Banach theorem we can continue functional $\phi_0$ to the whole $Y$ space, the continuation will
+  also be denoted as $\phi_0$.
+  \begin{gather*}
     \phi_0(y_0) = 1 \\
     y \in R(A) \implies \phi_0(y) = 0 \implies \phi_0 \in \ker{A^*} \\
-    y_0 \in (\ker(A^*))^\perp \implies \phi_0(y_0) = 0 \contr 
-  \end{gather*} \qedhere
+    y_0 \in (\ker{A^*})^\perp \implies \phi_0(y_0) = 0 \contr 
+  \end{gather*} 
+  \[
+    \implies \cl{R(A)} \supset (\ker{A^*})^\perp \qedhere
+  \]
 \end{proof}
 
 \begin{proof}[Proof 2]
   \begin{gather*}
-    f \in (\ker(A))^\perp\ Ax = 0 \implies f(x) = 0 \\
+    f \in (\ker{A})^\perp\ Ax = 0 \implies f(x) = 0 \\
     f \in R(A^*) ?\ f = \phi \circ A ? \\
-    R(A) = \cl{R(A)}
+    R(A) = \cl{R(A)} \\
     \forall y \in R(A),\ y = Ax \text{ (May not be unique)} \\
     \phi(y) = f(x) \text{ Let's show that this formula is correct.} \\
     y = A x',\ \phi(y) = f(x') \\
     f(x) = f(x') \implies f(x - x') = 0? \\
     Ax = Ax' \implies A(x - x') = 0 \implies x - x' \in \ker{A}
-    \text{ On all kernel points functional $\phi$ is nil by definition.}  \\
-    \text{Now, let's check that $\phi$ is bounded $R(A)$. If we prove that, then
-    by $\phi$ definition we get $f(x) = \phi(Ax)$. To prove that we will use
-    Banach theorem about homomorphism.} \\ 
-  |\phi(y)| = |f(x)| \leq \|f\| \cdot \|x\| \\
-  X \xrightarrow{i} \faktor{X}{\ker{A}} \xrightarrow{U_A} Y \\
-  A = U_A \circ i \\
-  U_A([x]) = Ax,\ [x] = i(x) \\
-  \text{In factor space: } \xi \in \faktor{X}{\ker{A}}\ \|\xi\| = \inf_{x \in
-    \xi} \|x\| \\
-  \forall \epsilon > 0\ \exists x \in \xi : \|x\| < \|\xi\| + \epsilon \\ 
-  \phi(y) = f(x) \text{Because $f \in \ker{A}^\perp$, right hand side will be
-    the same $\forall x \in \xi$} \\
-  \phi(y) = f(x),\ \epsilon > 0,\ x \in \xi : \|x\| < \|\xi\| + \epsilon \\
-  |\phi(y)| \leq \|f\| (\|\xi\| + \epsilon) \\
-  \text{By Banach theorem: } \exists U_A^{-1} \\
-  \xi \xrightarrow{U_A} Ax,\ x \in \xi \\
-  y = Ax\ \|\xi\| \leq M \cdot \|y\| \\
-  |\phi(y)| \leq \|f\| (M \cdot \|y\| + \epsilon) \\
-  |\phi(y)| \leq \underbrace{\|f\| \cdot M}_{const} \cdot \|y\| \implies \text{
-    functional is bounded} \\
-  (\ker(A))^\perp \subset R(A^*) \\
-  (\ker(A))^\perp \supset R(A^*) ?\\
-  f \in R(A^*),\ f = \phi \circ A \\
-  \forall x \in \ker{A}\ Ax = 0 \\
-  f(x) = \phi(Ax) = \phi(0) = 0 
-\end{gather*}
+  \end{gather*}
+  On all kernel points $f$ is nil by definition.
+  Now, let's check that $\phi$ is bounded in $R(A)$. If we prove that, then
+  by $\phi$ definition we get $f(x) = \phi(Ax)$. To prove that we will use
+  Banach theorem about homomorphism.
+  \begin{gather*}
+    |\phi(y)| = |f(x)| \leq \|f\| \cdot \|x\| \\
+    X \xrightarrow{i} \faktor{X}{\ker{A}} \xrightarrow{U_A} Y \\
+    A = U_A \circ i \\
+    U_A([x]) = Ax,\ [x] = i(x) \\
+    \text{In factor space: } \xi \in \faktor{X}{\ker{A}},\ \|\xi\| = \inf_{x \in
+      \xi} \|x\| \\
+    \forall \epsilon > 0\ \exists x \in \xi : \|x\| < \|\xi\| + \epsilon \\ 
+    \phi(y) = f(x) \text{ Because $f \in (\ker{A})^\perp$, right hand side will be
+      the same $\forall x \in \xi$} \\
+    \phi(y) = f(x),\ \epsilon > 0,\ x \in \xi : \|x\| < \|\xi\| + \epsilon \\
+    |\phi(y)| \leq \|f\| (\|\xi\| + \epsilon) \\
+    \text{By Banach theorem: } \exists U_A^{-1} \\
+    \xi \xrightarrow{U_A} Ax,\ x \in \xi \\
+    y = Ax\ \|\xi\| \leq M \cdot \|y\| \\
+    |\phi(y)| \leq \|f\| (M \cdot \|y\| + \epsilon) \\
+    |\phi(y)| \leq \underbrace{\|f\| \cdot M}_{const} \cdot \|y\| \implies \text{
+      functional is bounded} \\
+    (\ker{A})^\perp \subset R(A^*) \\
+    (\ker{A})^\perp \supset R(A^*) ?\\
+    f \in R(A^*),\ f = \phi \circ A \\
+    \forall x \in \ker{A}\ Ax = 0
+  \end{gather*}
+  \[   
+    f(x) = \phi(Ax) = \phi(0) = 0 \implies (\ker{A})^\perp \supset R(A^*) \qedhere
+  \]
 \end{proof}
