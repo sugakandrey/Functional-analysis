@@ -1,11 +1,17 @@
-before_install:
-- "sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended
-  texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-latex3 texlive-math-extra pgf"
+sudo: false
+dist: trusty
+addons:
+  apt:
+    packages:
+    - texlive-common
+    - texlive-latex-extra
+    - texlive-latex3
+    - texlive-math-extra
+    - pgf
+    - latexmk
 script:
-- mkdir _build
 - cd tex
-- pdflatex -output-directory ../_build funcan.tex
-- cd ..
+- latexmk -help
 deploy:
   provider: releases
   api_key:
