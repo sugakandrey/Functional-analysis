@@ -11,8 +11,9 @@ addons:
     - latexmk
 script:
 - mkdir _build
-- cd _build
-- latexmk -pdf ../tex/funcan.tex
+- cd tex
+- latexmk -pdf funcan.tex
+- mv funcan.pdf ../_build/
 deploy:
   provider: releases
   api_key:
