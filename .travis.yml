@@ -10,8 +10,9 @@ addons:
     - pgf
     - latexmk
 script:
-- cd tex
-- latexmk -help
+- mkdir _build
+- cd _build
+- latexmk -pdf ../tex/funcan.tex
 deploy:
   provider: releases
   api_key:
