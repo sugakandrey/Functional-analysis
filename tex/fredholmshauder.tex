@@ -3,5 +3,108 @@ Fredholm-Shauder theory is based upon the notion of compact operator.
 \begin{defn}
   $A \colon X \xrightarrow{linear} Y$ is called \textbf{compact}, if $\forall M 
   \text{ --- bounded } \in X \implies \cl{A(M)}$ --- compact in $Y$. It is easy to understand that any
-  compact linear operator is continuous.
+  compact linear operator is continuous (bounded).
 \end{defn}
+
+\begin{stm}
+  $A$ --- compact operator, $B$ --- bounded operator, then $AB$ and $BA$ are compact.
+\end{stm}
+
+\begin{proof}
+  \begin{gather*}
+    AB \text{ --- compact},\ M \text{ --- bounded in $X$} \\
+    AB(M) = A(\underbrace{B(M)}_{bounded}),\ A(Bounded) \text{ --- rel.
+      compact}. \\
+    BA \text{ --- compact} \\
+    BA(M) = B(A(M)) \text{ --- rel. compact} ? \\
+  \end{gather*}
+  This set wil have finite epsilon net $\forall \epsilon$
+  \begin{gather*}
+    A(M) \text{ --- rel. compact},\ \forall \epsilon\ \exists y_1, \dotsc, y_p
+    \in Y : \forall x \in M\ Ax\ \exists y_j : \|y_j - Ax\| < \epsilon \\
+    z_j = B(y_j)\ \forall z \in BA(M)\ z = B(Ax),\ x \in M \\
+    \|z - z_j\| = \|B(Ax - y_j)\| \leq \|B\| \|Ax - y_j\| \leq \|B\| \cdot
+    \epsilon \\
+    z_j \text{ --- finite $\epsilon$-net for $B(A(M))$} \implies B(A(M)) \text{
+      --- rel. compact} \qedhere
+  \end{gather*}
+\end{proof}
+
+\begin{stm}
+  Compact operator can't have bounded inverse.
+\end{stm}
+
+\begin{stm}
+  $A_n \to A$ in $L(X, Y)$, $A_n$ --- compact $\implies$ $A$ --- compact.
+\end{stm}
+
+\begin{proof}
+  Because any bounded set, is a set that can be put inside some ball, it is
+  enough to check relative boundedness in unit ball.
+  \begin{gather*}
+    V, A(V) \text{ --- rel. compact} \\
+    \forall \epsilon > 0\ \exists n_0 : \|A_{n_0} - A\| \leq \epsilon \iff \forall x \in V \|A_{n_0} x - Ax\| \leq \epsilon \\
+    \text{Let } y_1, \dotsc, y_n \text{ be $\epsilon$-net for } A_{n_0}(V) \\
+    \forall y \in A(V),\ y = Ax,\ x \in V \\
+    \shortintertext{For $A_{n_0} x$ let's find such $y_j$ that $\|A_{n_0} x - y_j\| \leq \epsilon$:}
+    \|y_j - Ax\| \leq \underbrace{\|y_j - A_{n_0} x \|}_{\leq \epsilon} + \underbrace{\|A_{n_0} x -
+      Ax\|}_{\leq \epsilon} \leq 2 \epsilon \\
+    y_j \text{ --- finite $\epsilon$-net for $A(V)$} \qedhere
+  \end{gather*}
+\end{proof}
+
+\begin{ex}
+  $C[0, 1]$, $K(u, v)$ --- continuous on $[0, 1] \times [0, 1]$ \\
+  $A(f, x) = \int\limits_0^1 K(x, t)f(t) dt$ --- linear operator. \\
+  $A$ is actually a compact operator. $|f(t)| \leq 1,\ t \in [0, 1]$ 
+  \begin{gather*}
+    |A(f, x)| \leq \int\limits_0^1 |K(x, t)| \underbrace{|f(t)|}_{\leq 1} dt \\
+    |K(u, v)| \leq m\ |A(f, x)| \leq m \\
+    |A(f, x_2) - A(f, x_1)| \leq \int\limits_0^1 |K(x_2, t) - K(x_1, t)| \underbrace{|f(t)|}_{\leq 1} dt \\
+    \forall \epsilon > 0\ \exists \delta > 0 : |x_2 - x_1| \leq \delta,\ \forall t \in [0, 1] \implies |K(x_2, t) - K(x_1, t)| \leq \epsilon \\
+    |A(f, x_2) - A(f, x_1)| \leq \epsilon \implies A \text{ --- compact operator.}
+  \end{gather*}
+\end{ex}
+
+\begin{thm}[Arzela-Ascoli]
+  $M \subset C[0, 1]$ --- relative compact $\iff$
+  \begin{enumerate}
+  \item $\exists m > 0 : \forall f \in M \implies  |f(t)| \leq m\ \forall t
+    \in [0, 1]$
+  \item $\forall \epsilon > 0\ \exists \delta > 0 : \forall f \in M,\ |t_2 -
+    t_1| \leq \delta \implies |f(t_2) - f(t_1)| \leq \epsilon$
+  \end{enumerate}
+\end{thm}
+
+ \begin{stm}
+   \[
+     A \text{ --- compact} \implies A^* \text{ --- compact}.
+   \]
+ \end{stm}
+ 
+ \begin{defn}
+   $A$ --- compact, $X \to X$ \\
+   $y = Ax$ --- \textbf{first kind operator equation},
+   $y = x - Ax$ --- \textbf{second kind operator equation}.
+ \end{defn}
+\noindent
+In the following chapter we will discuss some properties of operator $T$:
+\[
+  T = I - A
+\]
+ 
+ \begin{thm}
+   \[
+     \dim{\ker{T}} < +\infty
+   \]
+ \end{thm}
+ 
+ \begin{proof}
+   \begin{gather*}
+     x \in \ker{T},\ x - Ax = 0,\ x = Ax \\
+     \shortintertext{Kernel is in fact a set of fixed points of $A$.}
+     \ker{T} = \Set{x = Ax} \\
+     A \text{ --- compact} \implies A(V) \text{ --- rel. compact}
+   \end{gather*}
+   But V is not relative compact in infinite dimensional space, thus 
+ \end{proof}

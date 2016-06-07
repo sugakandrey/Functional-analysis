@@ -198,7 +198,8 @@ make sure that such set is closed, i.e. $R(A) = \cl{R(A)}$.
     f \in R(A^*) ?\ f = \phi \circ A ? \\
     R(A) = \cl{R(A)} \\
     \forall y \in R(A),\ y = Ax \text{ (May not be unique)} \\
-    \phi(y) = f(x) \text{ Let's show that this formula is correct.} \\
+    \phi(y) = f(x) \\
+    \shortintertext{Let's show that this formula is correct:}
     y = A x',\ \phi(y) = f(x') \\
     f(x) = f(x') \implies f(x - x') = 0? \\
     Ax = Ax' \implies A(x - x') = 0 \implies x - x' \in \ker{A}
@@ -212,14 +213,15 @@ make sure that such set is closed, i.e. $R(A) = \cl{R(A)}$.
     X \xrightarrow{i} \faktor{X}{\ker{A}} \xrightarrow{U_A} Y \\
     A = U_A \circ i \\
     U_A([x]) = Ax,\ [x] = i(x) \\
-    \text{In factor space: } \xi \in \faktor{X}{\ker{A}},\ \|\xi\| = \inf_{x \in
-      \xi} \|x\| \\
+    \shortintertext{In factor space:  $\xi \in \faktor{X}{\ker{A}}$:} 
+    \ \|\xi\| = \inf_{x \in \xi} \|x\| \\
     \forall \epsilon > 0\ \exists x \in \xi : \|x\| < \|\xi\| + \epsilon \\ 
-    \phi(y) = f(x) \text{ Because $f \in (\ker{A})^\perp$, right hand side will be
-      the same $\forall x \in \xi$} \\
+    \phi(y) = f(x)\\
+    \shortintertext{Because $f \in (\ker{A})^\perp$, right hand side will be
+      the same $\forall x \in \xi$}
     \phi(y) = f(x),\ \epsilon > 0,\ x \in \xi : \|x\| < \|\xi\| + \epsilon \\
     |\phi(y)| \leq \|f\| (\|\xi\| + \epsilon) \\
-    \text{By Banach theorem: } \exists U_A^{-1} \\
+    \shortintertext{By Banach theorem: $\exists U_A^{-1}$ }
     \xi \xrightarrow{U_A} Ax,\ x \in \xi \\
     y = Ax\ \|\xi\| \leq M \cdot \|y\| \\
     |\phi(y)| \leq \|f\| (M \cdot \|y\| + \epsilon) \\
