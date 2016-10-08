@@ -1,5 +1,4 @@
 sudo: false
-dist: trusty
 addons:
   apt:
     packages:
@@ -8,12 +7,10 @@ addons:
     - texlive-latex3
     - texlive-math-extra
     - pgf
-    - latexmk
+    - rubber
 script:
 - mkdir _build
-- cd tex
-- latexmk -pdf funcan.tex
-- mv funcan.pdf ../_build/
+- rubber --into _build --pdf -W boxes tex/funcan.tex
 deploy:
   provider: releases
   api_key:
