@@ -7,10 +7,13 @@ addons:
     - texlive-latex3
     - texlive-math-extra
     - pgf
-    - rubber
+    - latexmk
 script:
 - mkdir _build
-- rubber --into _build --pdf -W boxes tex/funcan.tex
+- cd tex
+- latexmk -pdf funcan.tex
+- echo *.pdf
+- mv *.pdf ../_build/
 deploy:
   provider: releases
   api_key:
