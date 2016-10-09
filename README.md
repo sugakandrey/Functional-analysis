@@ -12,4 +12,4 @@ Pdf releases are located [here](https://github.com/sugakandrey/Functional-analys
 Feel free to fix and/or add anything via pull request.
 
 # Disclaimer
-The notes may not be up-to-date and/or contain plain wrong information. Use at your own risk.
+FUNCAN NE NUZHEN
